@@ -1,0 +1,9 @@
+---
+description: 
+globs: package.json
+---
+# Packages
+
+- In this project, we'll use Bun as a package manager.
+- If you need to install packages, use `bun`
+- Use `bunx` when is needed to run `npx`
