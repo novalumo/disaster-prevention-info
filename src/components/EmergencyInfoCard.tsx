@@ -1,13 +1,5 @@
-import Card from './ui/Card';
-import Heading from './ui/Heading';
+import InfoCard from './ui/InfoCard';
 
 export default function EmergencyInfoCard() {
-  return (
-    <Card>
-      <Heading as="h2" color="primary" className="mb-4">
-        緊急情報
-      </Heading>
-      <p className="text-gray-600">現在、緊急の警報はありません</p>
-    </Card>
-  );
+  return <InfoCard title="緊急情報" content="現在、緊急の警報はありません" />;
 }

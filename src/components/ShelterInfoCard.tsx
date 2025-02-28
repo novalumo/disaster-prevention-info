@@ -1,18 +1,7 @@
-import Card from './ui/Card';
-import Heading from './ui/Heading';
-import List, { ListItem } from './ui/List';
+import InfoCard from './ui/InfoCard';
 
 export default function ShelterInfoCard() {
-  return (
-    <Card>
-      <Heading as="h2" color="primary" className="mb-4">
-        避難所情報
-      </Heading>
-      <List>
-        <ListItem>○○小学校体育館</ListItem>
-        <ListItem>○○市民センター</ListItem>
-        <ListItem>○○公民館</ListItem>
-      </List>
-    </Card>
-  );
+  const shelterList = ['○○小学校体育館', '○○市民センター', '○○公民館'];
+
+  return <InfoCard title="避難所情報" listItems={shelterList} />;
 }

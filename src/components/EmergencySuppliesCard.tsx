@@ -1,19 +1,18 @@
-import Card from './ui/Card';
-import Heading from './ui/Heading';
-import List, { ListItem } from './ui/List';
+import InfoCard from './ui/InfoCard';
 
 export default function EmergencySuppliesCard() {
+  const suppliesList = [
+    '□ 非常食・飲料水',
+    '□ 懐中電灯・予備電池',
+    '□ 携帯ラジオ',
+    '□ 救急用品',
+  ];
+
   return (
-    <Card>
-      <Heading as="h3" color="primary" className="mb-3">
-        防災グッズチェックリスト
-      </Heading>
-      <List>
-        <ListItem>□ 非常食・飲料水</ListItem>
-        <ListItem>□ 懐中電灯・予備電池</ListItem>
-        <ListItem>□ 携帯ラジオ</ListItem>
-        <ListItem>□ 救急用品</ListItem>
-      </List>
-    </Card>
+    <InfoCard
+      title="防災グッズチェックリスト"
+      titleAs="h3"
+      listItems={suppliesList}
+    />
   );
 }
