@@ -5,6 +5,7 @@ import DonationInfoCard from '@/app/ofunato/DonationInfoCard';
 import Heading from '@/components/ui/Heading';
 import Footer from '@/components/Footer';
 import ContactAlert from '@/components/ContactAlert';
+import { lastUpdated } from './const';
 
 export default function OfunatoPage() {
   return (
@@ -12,7 +13,7 @@ export default function OfunatoPage() {
       <LocalHeader
         areaName="大船渡市"
         description="大船渡市の山林火災に関する情報をまとめています。"
-        lastUpdated="2025-02-28"
+        lastUpdated={lastUpdated}
       />
       <div className="container mx-auto px-4 py-4">
         <ContactAlert />

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Card from './Card';
 import Heading from './Heading';
 import Button from './Button';
-
+import { format } from 'date-fns';
 type AreaInfoCardProps = {
   name: string;
   description: string;
@@ -40,7 +40,7 @@ export default function AreaInfoCard({
 
       {lastUpdated && (
         <div className="text-sm text-gray-500 mb-3">
-          最終更新: {lastUpdated}
+          最終更新: {format(lastUpdated, 'yyyy年MM月dd日 HH:mm')}
         </div>
       )}
 

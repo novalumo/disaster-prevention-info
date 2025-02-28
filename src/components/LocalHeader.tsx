@@ -1,4 +1,5 @@
 import { cn } from '@/lib/cn';
+import { format } from 'date-fns';
 
 export default function LocalHeader({
   areaName,
@@ -18,7 +19,8 @@ export default function LocalHeader({
         <p className="mt-2">{description}</p>
         {lastUpdated && (
           <p className="mt-2 text-sm">
-            最終更新日: <strong>{lastUpdated}</strong>
+            最終更新日:{' '}
+            <strong>{format(lastUpdated, 'yyyy年MM月dd日 HH:mm')}</strong>
           </p>
         )}
       </div>
