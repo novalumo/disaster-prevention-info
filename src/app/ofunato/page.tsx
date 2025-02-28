@@ -15,10 +15,9 @@ export default function OfunatoPage() {
         description="大船渡市の山林火災に関する情報をまとめています。"
       />
       <main className="container mx-auto px-4 py-8">
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <EmergencyInfoCard />
+        <section className="grid grid-cols-1 gap-6">
+          {/* <EmergencyInfoCard /> */}
           <ShelterInfoCard />
-          <DisasterMapCard />
         </section>
 
         <section className="mt-12">
@@ -27,15 +26,7 @@ export default function OfunatoPage() {
           </Heading>
           <div className="grid grid-cols-1 gap-6">
             <DonationInfoCard />
-            {/* <VolunteerInfoCard /> */}
           </div>
-        </section>
-
-        <section className="mt-12">
-          <Heading as="h2" className="mb-6">
-            お知らせ
-          </Heading>
-          <NewsCard />
         </section>
       </main>
       <Footer />
