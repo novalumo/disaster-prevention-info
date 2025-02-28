@@ -83,7 +83,7 @@ export default function DonationInfoCard() {
         募金先情報
       </Heading>
       <p className="text-gray-600 mb-6">
-        被災地域の復興を支援するための募金先情報です。ご協力をお願いいたします。
+        被災地域を支援するための募金先情報です。ご協力をお願いいたします。
       </p>
       <DonationOrganizationList organizations={donationOrganizations} />
     </Card>
