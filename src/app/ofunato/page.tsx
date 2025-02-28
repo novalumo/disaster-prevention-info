@@ -4,6 +4,7 @@ import ShelterInfoCard from '@/app/ofunato/ShelterInfoCard';
 import DonationInfoCard from '@/app/ofunato/DonationInfoCard';
 import Heading from '@/components/ui/Heading';
 import Footer from '@/components/Footer';
+import ContactAlert from '@/components/ContactAlert';
 
 export default function OfunatoPage() {
   return (
@@ -13,6 +14,9 @@ export default function OfunatoPage() {
         description="大船渡市の山林火災に関する情報をまとめています。"
         lastUpdated="2025-02-28"
       />
+      <div className="container mx-auto px-4 py-4">
+        <ContactAlert />
+      </div>
       <main className="container mx-auto px-4 py-8">
         <section className="grid grid-cols-1 gap-6">
           <EmergencyInfoCard />
