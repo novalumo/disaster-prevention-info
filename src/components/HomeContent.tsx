@@ -1,14 +1,23 @@
 import AreaCard from './AreaCard';
 import Heading from './ui/Heading';
 
+// 地区データの型定義
+type AreaData = {
+  name: string;
+  description: string;
+  path: string;
+  imageUrl?: string;
+  lastUpdated: string;
+};
+
 // 地区データ
-const areas = [
+const areas: AreaData[] = [
   {
     name: '大船渡市',
-    description:
-      '大船渡市の防災情報、避難所情報、ハザードマップなどを確認できます。',
+    description: '大船渡市の山林火災に関する情報を確認できます。',
     path: '/ofunato',
-    imageUrl: '/images/ofunato.jpg',
+    // imageUrl: '/images/ofunato.jpg',
+    lastUpdated: '2024年6月15日 10:30',
   },
 ];
 
@@ -27,6 +36,7 @@ export default function HomeContent() {
               description={area.description}
               path={area.path}
               imageUrl={area.imageUrl}
+              lastUpdated={area.lastUpdated}
             />
           ))}
         </div>
