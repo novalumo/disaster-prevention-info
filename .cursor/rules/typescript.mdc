@@ -1,0 +1,8 @@
+---
+description: 
+globs: *.tsx, tsconfig.json
+---
+# React
+
+- This project has import aliases below:
+  - `@/*` -> `src/*`
