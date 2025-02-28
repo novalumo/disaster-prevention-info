@@ -4,59 +4,74 @@ import DonationOrganizationList from '@/app/ofunato/DonationOrganizationList';
 
 const donationOrganizations = [
   {
-    id: 'ofunato-fund',
-    organizationName: '大船渡市災害復興支援基金',
-    purpose: '被災者の生活再建と地域の復興支援',
-    amount: 50000000,
+    // 金融機関: 岩手銀行
+    // 支店名: 大船渡支店
+    // 口座種別: 普通
+    // 口座番号: 2122172
+    // 口座名義: 大船渡市災害義援金（林野火災）
+    id: 'ofunato-city',
+    organizationName: '大船渡市',
     accountInfo: [
-      { id: 'ofunato-bank', label: '金融機関', value: '○○銀行' },
-      { id: 'ofunato-branch', label: '支店名', value: '大船渡支店' },
-      { id: 'ofunato-type', label: '口座種別', value: '普通' },
-      { id: 'ofunato-number', label: '口座番号', value: '1234567' },
+      { id: 'ofunato-city-bank', label: '金融機関', value: '岩手銀行' },
+      { id: 'ofunato-city-branch', label: '支店名', value: '大船渡支店' },
+      { id: 'ofunato-city-type', label: '口座種別', value: '普通' },
+      { id: 'ofunato-city-number', label: '口座番号', value: '2122172' },
       {
-        id: 'ofunato-name',
+        id: 'ofunato-city-name',
         label: '口座名義',
-        value: '大船渡市災害復興支援基金',
+        value: '大船渡市災害義援金（林野火災）',
       },
     ],
-    websiteUrl: 'https://example.com/ofunato-fund',
-    websiteLabel: '基金の詳細を見る',
+    websiteUrl: 'https://x.com/ofunato_city/status/1895270348461088914/photo/1',
+    websiteLabel: 'Xの投稿（詳細）を見る',
   },
   {
-    id: 'red-cross',
-    organizationName: '日本赤十字社 大船渡支部',
-    purpose: '被災者への医療支援と生活必需品の提供',
+    // 金融機関: 気仙沼信用金庫
+    // 支店名: 大船渡支店
+    // 口座種別: 普通
+    // 口座番号: 1084642
+    // 口座名義: 一般社団法人大船渡地域戦略
+    id: 'ofunato-ss',
+    organizationName: '一般社団法人大船渡地域戦略',
+    purpose: '飲食店による炊き出し、ホテル・旅館による寝具やお風呂の提供',
     accountInfo: [
-      { id: 'redcross-bank', label: '金融機関', value: '△△銀行' },
-      { id: 'redcross-branch', label: '支店名', value: '大船渡支店' },
-      { id: 'redcross-type', label: '口座種別', value: '普通' },
-      { id: 'redcross-number', label: '口座番号', value: '7654321' },
+      { id: 'ofunato-ss-bank', label: '金融機関', value: '気仙沼信用金庫' },
+      { id: 'ofunato-ss-branch', label: '支店名', value: '大船渡支店' },
+      { id: 'ofunato-ss-type', label: '口座種別', value: '普通' },
+      { id: 'ofunato-ss-number', label: '口座番号', value: '1084642' },
       {
-        id: 'redcross-name',
+        id: 'ofunato-ss-name',
         label: '口座名義',
-        value: '日本赤十字社大船渡支部',
+        value: '一般社団法人大船渡地域戦略',
       },
     ],
-    websiteUrl: 'https://example.com/red-cross',
+    websiteUrl: 'https://www.ofunato-ss.com/news/detail/20250227-fire',
+    websiteLabel: '特設ページを見る',
   },
   {
-    id: 'volunteer-center',
-    organizationName: '大船渡災害ボランティアセンター',
-    purpose: 'ボランティア活動の運営と支援物資の配布',
-    amount: '随時受付中',
+    // ・ゆうちょ銀行
+    // 口座番号：02260-8-114405
+    // 加入者名：特定非営利活動法人おはなしころりん
+    // ・ゆうちょ銀行以外からの振込先
+    // 銀行名：ゆうちょ銀行　金融機関コード：9900　店番：229
+    // 預金種目：当座　店名：二二九店　口座番号：0114405
+    // 加入者名：特定非営利活動法人おはなしころりん
+    id: 'ohanashikororin',
+    organizationName: '特定非営利活動法人おはなしころりん',
+    purpose: '',
     accountInfo: [
-      { id: 'volunteer-bank', label: '金融機関', value: '□□銀行' },
-      { id: 'volunteer-branch', label: '支店名', value: '大船渡支店' },
-      { id: 'volunteer-type', label: '口座種別', value: '普通' },
-      { id: 'volunteer-number', label: '口座番号', value: '9876543' },
+      { id: 'ohanashikororin-bank', label: '金融機関', value: 'ゆうちょ銀行' },
+      { id: 'ohanashikororin-branch', label: '支店名', value: '二二九店' },
+      { id: 'ohanashikororin-type', label: '口座種別', value: '当座' },
+      { id: 'ohanashikororin-number', label: '口座番号', value: '0114405' },
       {
-        id: 'volunteer-name',
+        id: 'ohanashikororin-name',
         label: '口座名義',
-        value: '大船渡災害ボランティアセンター',
+        value: '特定非営利活動法人おはなしころりん',
       },
     ],
-    websiteUrl: 'https://example.com/volunteer',
-    websiteLabel: 'ボランティア情報',
+    websiteUrl: 'https://www.ohanashikororin.org/',
+    websiteLabel: '公式サイトへ',
   },
 ];
 
