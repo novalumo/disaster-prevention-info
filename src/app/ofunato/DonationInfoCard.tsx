@@ -11,6 +11,7 @@ const donationOrganizations = [
     // 口座名義: 大船渡市災害義援金（林野火災）
     id: 'ofunato-city',
     organizationName: '大船渡市',
+    note: '「災害義援金」または「災害見舞金」のいずれかを判別するため、お振込の際のご依頼人名をお確かめください。詳しくは以下のX投稿をご覧ください。',
     accountInfo: [
       { id: 'ofunato-city-bank', label: '金融機関', value: '岩手銀行' },
       { id: 'ofunato-city-branch', label: '支店名', value: '大船渡支店' },
@@ -33,7 +34,7 @@ const donationOrganizations = [
     // 口座名義: 一般社団法人大船渡地域戦略
     id: 'ofunato-ss',
     organizationName: '一般社団法人大船渡地域戦略',
-    purpose: '飲食店による炊き出し、ホテル・旅館による寝具やお風呂の提供',
+    note: '飲食店による炊き出し、ホテル・旅館による寝具やお風呂の提供などに活用されます。',
     accountInfo: [
       { id: 'ofunato-ss-bank', label: '金融機関', value: '気仙沼信用金庫' },
       { id: 'ofunato-ss-branch', label: '支店名', value: '大船渡支店' },
@@ -58,7 +59,7 @@ const donationOrganizations = [
     // 加入者名：特定非営利活動法人おはなしころりん
     id: 'ohanashikororin',
     organizationName: '特定非営利活動法人おはなしころりん',
-    purpose: '',
+    note: 'ゆうちょ銀行の場合は、口座番号 02260-8-114405 でお振込ください。',
     accountInfo: [
       { id: 'ohanashikororin-bank', label: '金融機関', value: 'ゆうちょ銀行' },
       { id: 'ohanashikororin-branch', label: '支店名', value: '二二九店' },

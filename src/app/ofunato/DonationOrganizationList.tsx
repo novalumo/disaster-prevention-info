@@ -9,7 +9,7 @@ type AccountDetail = {
 type DonationOrganization = {
   id: string;
   organizationName: string;
-  purpose?: string;
+  note?: string;
   amount?: string | number;
   accountInfo: string | AccountDetail[];
   websiteUrl?: string;
@@ -26,12 +26,13 @@ export default function DonationOrganizationList({
   className,
 }: DonationOrganizationListProps) {
   return (
-    <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 ${className || ''}`}>
+    <div className={`grid grid-cols-1 lg:grid-cols-2 gap-6 ${className || ''}`}>
       {organizations.map((org) => (
         <DonationOrganizationCard
+          className="border"
           key={org.id}
           organizationName={org.organizationName}
-          purpose={org.purpose}
+          note={org.note}
           amount={org.amount}
           accountInfo={org.accountInfo}
           websiteUrl={org.websiteUrl}
