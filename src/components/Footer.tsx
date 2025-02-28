@@ -1,8 +1,15 @@
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 text-white py-6 mt-12">
+    <footer className="bg-gray-800 text-gray-500 py-6 mt-12">
       <div className="container mx-auto px-4 text-center">
-        <p>&copy; 2025 Novalumo</p>
+        &copy; 2025{' '}
+        <a
+          href="https://www.novalumo.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Novalumo Japan G.K.
+        </a>
       </div>
     </footer>
   );
