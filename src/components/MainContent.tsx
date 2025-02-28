@@ -3,6 +3,7 @@ import ShelterInfoCard from './ShelterInfoCard';
 import DisasterMapCard from './DisasterMapCard';
 import EmergencySuppliesCard from './EmergencySuppliesCard';
 import NewsCard from './NewsCard';
+import Heading from './ui/Heading';
 
 export default function MainContent() {
   return (
@@ -14,7 +15,9 @@ export default function MainContent() {
       </section>
 
       <section className="mt-12">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">防災情報</h2>
+        <Heading as="h2" className="mb-6">
+          防災情報
+        </Heading>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <EmergencySuppliesCard />
           <NewsCard />
