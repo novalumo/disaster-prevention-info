@@ -22,6 +22,11 @@ const donationOrganizations = [
         label: '口座名義',
         value: '大船渡市災害義援金（林野火災）',
       },
+      {
+        id: 'ofunato-city-name-kana',
+        label: '名義カナ',
+        value: 'オオフナトシサイガイギエンキン（リンヤカサイ）',
+      },
     ],
     websiteUrl: 'https://x.com/ofunato_city/status/1895270348461088914/photo/1',
     websiteLabel: 'Xの投稿（詳細）を見る',
@@ -45,6 +50,11 @@ const donationOrganizations = [
         label: '口座名義',
         value: '一般社団法人大船渡地域戦略',
       },
+      {
+        id: 'ofunato-ss-name-kana',
+        label: '名義カナ',
+        value: 'シヤ）オオフナトチイキセンリヤク',
+      },
     ],
     websiteUrl: 'https://www.ofunato-ss.com/news/detail/20250227-fire',
     websiteLabel: '特設ページを見る',
@@ -59,7 +69,7 @@ const donationOrganizations = [
     // 加入者名：特定非営利活動法人おはなしころりん
     id: 'ohanashikororin',
     organizationName: '特定非営利活動法人おはなしころりん',
-    note: 'ゆうちょ銀行の場合は、口座番号 02260-8-114405 でお振込ください。',
+    note: 'ゆうちょ銀行の場合は、口座番号 02260-8-114405 でお振込ください。被災してお住まいを失った方への義援金に活用させていただきます。',
     accountInfo: [
       { id: 'ohanashikororin-bank', label: '金融機関', value: 'ゆうちょ銀行' },
       { id: 'ohanashikororin-branch', label: '支店名', value: '二二九店' },
@@ -70,9 +80,37 @@ const donationOrganizations = [
         label: '口座名義',
         value: '特定非営利活動法人おはなしころりん',
       },
+      {
+        id: 'ohanashikororin-name-kana',
+        label: '名義カナ',
+        value: 'トクヒ）オハナシコロリン',
+      },
     ],
     websiteUrl: 'https://www.ohanashikororin.org/',
     websiteLabel: '公式サイトへ',
+  },
+  {
+    id: 'ofunato-jc',
+    organizationName: '一般社団法人大船渡青年会議所',
+    note: '適切なタイミングで各所へ聞き取りの上、必要物資の購入や活動に充てさせていただきます。',
+    accountInfo: [
+      { id: 'ofunato-jc-bank', label: '金融機関', value: '東北銀行' },
+      { id: 'ofunato-jc-branch', label: '支店名', value: '大船渡支店' },
+      { id: 'ofunato-jc-type', label: '口座種別', value: '普通' },
+      { id: 'ofunato-jc-number', label: '口座番号', value: '5046480' },
+      {
+        id: 'ofunato-jc-name',
+        label: '口座名義',
+        value: '一般社団法人大船渡青年会議所',
+      },
+      {
+        id: 'ofunato-jc-name-kana',
+        label: '名義カナ',
+        value: 'シヤ）オオフナトセイネンカイギショ',
+      },
+    ],
+    websiteUrl: 'https://www.facebook.com/ofunatojc/',
+    websiteLabel: 'Facebookページを見る',
   },
 ];
 
