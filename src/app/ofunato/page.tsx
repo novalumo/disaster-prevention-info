@@ -1,5 +1,5 @@
 import Header from '@/components/Header';
-import MainContent from '@/components/MainContent';
+import MainContent from '@/app/ofunato/MainContent';
 import Footer from '@/components/Footer';
 
 export default function OfunatoPage() {

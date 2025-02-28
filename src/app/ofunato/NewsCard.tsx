@@ -1,4 +1,4 @@
-import InfoCard from './ui/InfoCard';
+import InfoCard from '@/components/ui/InfoCard';
 
 export default function NewsCard() {
   const newsList = [

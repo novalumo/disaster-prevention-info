@@ -1,9 +1,9 @@
-import EmergencyInfoCard from './EmergencyInfoCard';
-import ShelterInfoCard from './ShelterInfoCard';
-import DisasterMapCard from './DisasterMapCard';
-import EmergencySuppliesCard from './EmergencySuppliesCard';
-import NewsCard from './NewsCard';
-import Heading from './ui/Heading';
+import EmergencyInfoCard from '@/app/ofunato/EmergencyInfoCard';
+import ShelterInfoCard from '@/app/ofunato/ShelterInfoCard';
+import DisasterMapCard from '@/app/ofunato/DisasterMapCard';
+import EmergencySuppliesCard from '@/app/ofunato/EmergencySuppliesCard';
+import NewsCard from '@/app/ofunato/NewsCard';
+import Heading from '@/components/ui/Heading';
 
 export default function MainContent() {
   return (

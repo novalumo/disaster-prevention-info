@@ -1,4 +1,4 @@
-import InfoCard from './ui/InfoCard';
+import InfoCard from '@/components/ui/InfoCard';
 
 export default function EmergencyInfoCard() {
   return <InfoCard title="緊急情報" content="現在、緊急の警報はありません" />;

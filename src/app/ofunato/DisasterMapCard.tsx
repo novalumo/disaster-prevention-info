@@ -1,4 +1,6 @@
-import InfoCard from './ui/InfoCard';
+'use client';
+
+import InfoCard from '@/components/ui/InfoCard';
 
 export default function DisasterMapCard() {
   const handleViewMap = () => {

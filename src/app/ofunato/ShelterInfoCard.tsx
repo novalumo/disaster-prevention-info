@@ -1,4 +1,4 @@
-import InfoCard from './ui/InfoCard';
+import InfoCard from '@/components/ui/InfoCard';
 
 export default function ShelterInfoCard() {
   const shelterList = ['○○小学校体育館', '○○市民センター', '○○公民館'];

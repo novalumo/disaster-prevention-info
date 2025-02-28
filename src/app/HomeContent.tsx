@@ -1,5 +1,5 @@
-import AreaCard from './AreaCard';
-import Heading from './ui/Heading';
+import AreaCard from '@/components/AreaCard';
+import Heading from '@/components/ui/Heading';
 
 // 地区データの型定義
 type AreaData = {

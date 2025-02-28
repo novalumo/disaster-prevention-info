@@ -1,6 +1,6 @@
 import React from 'react';
-import HomeHeader from '@/components/HomeHeader';
-import HomeContent from '@/components/HomeContent';
+import HomeHeader from '@/app/HomeHeader';
+import HomeContent from '@/app/HomeContent';
 import Footer from '@/components/Footer';
 
 export default function Home() {
