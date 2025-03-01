@@ -10,9 +10,8 @@ export default function ContactAlert() {
       className="mx-auto max-w-6xl"
     >
       <p className="text-sm">
-        当サイトでは正確な情報提供に努めておりますが、情報が古い場合や誤りがある場合がございます。
-        最新かつ正確な情報は各自治体の公式サイトや公式SNSをご確認ください。
-        情報の誤りや更新の提案は
+        当サイトに掲載されている情報は、最終更新時点で正確なものであることを確認していますが、
+        情報の誤りを見つけられた場合や更新の提案は
         <Link
           href="https://github.com/novalumo/disaster-prevention-info/issues"
           target="_blank"
