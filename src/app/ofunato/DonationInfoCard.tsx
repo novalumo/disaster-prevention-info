@@ -144,6 +144,21 @@ const donationOrganizations: DonationOrganization[] = [
     websiteUrl: 'https://kyassencaravan.com/item-list?campaignId=10271',
     websiteLabel: 'キャッセンキャラバンのページを見る',
   },
+  {
+    id: 'furusato-tax-saigai',
+    organizationName: '大船渡市 ふるさと納税【災害支援型】',
+    amount: '2,000円〜',
+    websiteUrl: 'https://www.furusato-tax.jp/saigai/detail/2608',
+    websiteLabel: 'ふるさとチョイスのページを見る',
+  },
+  {
+    id: 'furusato-tax-saigai-normal',
+    organizationName: '大船渡市 ふるさと納税【通常】',
+    amount: '1,000円〜',
+    websiteUrl:
+      'https://www.furusato-tax.jp/city/product/03203?incsoldout=1&city-product_all',
+    websiteLabel: 'ふるさとチョイスのページを見る',
+  },
 ];
 
 export default function DonationInfoCard() {
