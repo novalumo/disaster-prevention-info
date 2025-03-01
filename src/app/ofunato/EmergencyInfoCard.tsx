@@ -10,25 +10,11 @@ type EvacuationArea = {
 };
 
 export default function EmergencyInfoCard() {
+  // 地区の表示順を定義
+  const districtOrder = ['赤崎町', '三陸町綾里', '三陸町越喜来'];
+
   const evacuationAreas: EvacuationArea[] = [
-    {
-      id: 'horei-east',
-      name: '甫嶺東地域',
-      district: '三陸町越喜来',
-      status: '避難指示',
-    },
-    {
-      id: 'horei-west',
-      name: '甫嶺西地域',
-      district: '三陸町越喜来',
-      status: '避難指示',
-    },
-    {
-      id: 'horei',
-      name: '上甫嶺地域',
-      district: '三陸町越喜来',
-      status: '避難指示',
-    },
+    // 赤崎町
     {
       id: 'gassoku',
       name: '合足地域',
@@ -96,12 +82,6 @@ export default function EmergencyInfoCard() {
       status: '避難指示',
     },
     {
-      id: 'ryori',
-      name: '綾里地区全域',
-      district: '三陸町綾里',
-      status: '避難指示',
-    },
-    {
       id: 'takanoura',
       name: '蛸ノ浦地域',
       district: '赤崎町',
@@ -111,6 +91,32 @@ export default function EmergencyInfoCard() {
       id: 'nagasaki',
       name: '長崎地域',
       district: '赤崎町',
+      status: '避難指示',
+    },
+    // 三陸町綾里
+    {
+      id: 'ryori',
+      name: '綾里地区全域',
+      district: '三陸町綾里',
+      status: '避難指示',
+    },
+    // 三陸町越喜来
+    {
+      id: 'horei-east',
+      name: '甫嶺東地域',
+      district: '三陸町越喜来',
+      status: '避難指示',
+    },
+    {
+      id: 'horei-west',
+      name: '甫嶺西地域',
+      district: '三陸町越喜来',
+      status: '避難指示',
+    },
+    {
+      id: 'horei',
+      name: '上甫嶺地域',
+      district: '三陸町越喜来',
       status: '避難指示',
     },
   ];
@@ -127,6 +133,13 @@ export default function EmergencyInfoCard() {
     },
     {} as Record<string, EvacuationArea[]>,
   );
+
+  // 地区の表示順に並び替え
+  const sortedDistricts = Object.entries(groupedAreas).sort(([a], [b]) => {
+    const indexA = districtOrder.indexOf(a);
+    const indexB = districtOrder.indexOf(b);
+    return indexA - indexB;
+  });
 
   // 避難指示のステータスに応じた背景色を設定
   const getStatusStyle = (status: string) => {
@@ -148,7 +161,7 @@ export default function EmergencyInfoCard() {
         避難情報
       </Heading>
       <div className="space-y-6">
-        {Object.entries(groupedAreas).map(([district, areas]) => (
+        {sortedDistricts.map(([district, areas]) => (
           <div key={district} className="space-y-2">
             <h3 className="font-semibold text-gray-700 text-lg border-b pb-1">
               {district}
