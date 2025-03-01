@@ -18,7 +18,7 @@ export default function ContactAlert() {
           rel="noopener noreferrer"
           className="underline font-medium hover:text-blue-600 mx-1"
         >
-          GitHub Issues
+          GitHub Issues (PR歓迎)
         </Link>
         または
         <a
