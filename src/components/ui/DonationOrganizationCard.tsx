@@ -15,7 +15,7 @@ type DonationOrganizationCardProps = {
   organizationName: string;
   note?: string;
   amount?: string | number;
-  accountInfo: string | AccountDetail[];
+  accountInfo?: string | AccountDetail[];
   websiteUrl?: string;
   websiteLabel?: string;
   className?: string;
@@ -116,12 +116,14 @@ export default function DonationOrganizationCard({
         </div>
       )}
 
-      <div className="mb-4">
-        <span className="font-semibold text-gray-700">振込先: </span>
-        {Array.isArray(accountInfo)
-          ? renderDetailedAccountInfo()
-          : renderStringAccountInfo()}
-      </div>
+      {accountInfo && (
+        <div className="mb-4">
+          <span className="font-semibold text-gray-700">振込先: </span>
+          {Array.isArray(accountInfo)
+            ? renderDetailedAccountInfo()
+            : renderStringAccountInfo()}
+        </div>
+      )}
 
       {note && (
         <div className="mb-4 p-3 bg-gray-50 rounded border border-gray-100">

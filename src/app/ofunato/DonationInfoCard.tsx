@@ -1,6 +1,27 @@
 import Card from '@/components/ui/Card';
 import Heading from '@/components/ui/Heading';
-import DonationOrganizationList from '@/app/ofunato/DonationOrganizationList';
+import DonationOrganizationCard from '@/components/ui/DonationOrganizationCard';
+
+type AccountDetail = {
+  id: string;
+  label: string;
+  value: string;
+};
+
+type DonationOrganization = {
+  id: string;
+  organizationName: string;
+  note?: string;
+  amount?: string | number;
+  accountInfo: string | AccountDetail[];
+  websiteUrl?: string;
+  websiteLabel?: string;
+};
+
+type DonationOrganizationListProps = {
+  organizations: DonationOrganization[];
+  className?: string;
+};
 
 const donationOrganizations = [
   {
@@ -112,6 +133,13 @@ const donationOrganizations = [
     websiteUrl: 'https://www.facebook.com/ofunatojc/',
     websiteLabel: 'Facebookページを見る',
   },
+  {
+    id: 'yahoo-donation',
+    organizationName: 'Yahoo!基金',
+    note: '本募金には、500万円を上限金額としてLINEヤフー株式会社からのマッチング寄付が適用されます。',
+    websiteUrl: 'https://donation.yahoo.co.jp/detail/1630066',
+    websiteLabel: 'Yahoo!基金のページを見る',
+  },
 ];
 
 export default function DonationInfoCard() {
@@ -123,7 +151,20 @@ export default function DonationInfoCard() {
       <p className="text-gray-600 mb-6">
         被災地域を支援するための募金先情報です。ご協力をお願いいたします。
       </p>
-      <DonationOrganizationList organizations={donationOrganizations} />
+      <div className={'grid grid-cols-1 lg:grid-cols-2 gap-6'}>
+        {donationOrganizations.map((org) => (
+          <DonationOrganizationCard
+            className="border"
+            key={org.id}
+            organizationName={org.organizationName}
+            note={org.note}
+            amount={org.amount}
+            accountInfo={org.accountInfo}
+            websiteUrl={org.websiteUrl}
+            websiteLabel={org.websiteLabel}
+          />
+        ))}
+      </div>
     </Card>
   );
 }
