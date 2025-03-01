@@ -9,6 +9,9 @@ type Shelter = {
   address: string;
   type?: '福祉施設' | '学校施設' | '公共施設';
   mapUrl?: string;
+  phone?: string;
+  maxCapacity?: number;
+  currentCapacity?: number;
 };
 
 export default function ShelterInfoCard() {
@@ -19,6 +22,9 @@ export default function ShelterInfoCard() {
       address: '大船渡市大船渡町字山馬越１９７',
       type: '福祉施設',
       mapUrl: 'https://maps.google.com/?q=大船渡市大船渡町字山馬越１９７',
+      phone: '0192-27-0833',
+      maxCapacity: 100,
+      currentCapacity: 45,
     },
     {
       id: 'seijin',
@@ -130,6 +136,16 @@ export default function ShelterInfoCard() {
                       <div className="text-gray-600 text-sm mt-1">
                         {shelter.address}
                       </div>
+                      {shelter.phone && (
+                        <div className="text-gray-600 text-sm">
+                          TEL: {shelter.phone}
+                        </div>
+                      )}
+                      {(shelter.maxCapacity || shelter.currentCapacity) && (
+                        <div className="text-gray-600 text-sm">
+                          収容状況: {shelter.currentCapacity || 0}人 / {shelter.maxCapacity || '---'}人
+                        </div>
+                      )}
                     </div>
                     {shelter.mapUrl && (
                       <Link
