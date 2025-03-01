@@ -1,3 +1,3 @@
 export const getLastUpdated = () => {
-  return new Date().toLocaleString();
+  return '2025/03/01 14:30:00';
 };
