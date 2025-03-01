@@ -8,7 +8,25 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  title: '防災情報まとめサイト',
+  title: {
+    default: '防災情報まとめサイト',
+    template: '%s | 防災情報まとめサイト',
+  },
+  openGraph: {
+    siteName: '防災情報まとめサイト',
+    title: {
+      default: '防災情報まとめサイト',
+      template: '%s | 防災情報まとめサイト',
+    },
+  },
+  twitter: {
+    title: {
+      default: '防災情報まとめサイト',
+      template: '%s | 防災情報まとめサイト',
+    },
+    creator: '@novalumo_jp',
+    card: 'summary_large_image',
+  },
 };
 
 export default function RootLayout({

@@ -6,12 +6,22 @@ import Heading from '@/components/ui/Heading';
 import Footer from '@/components/Footer';
 import ContactAlert from '@/components/ContactAlert';
 import { getLastUpdated } from '@/lib/time';
+import type { Metadata } from 'next';
 
 const menuItems = [
   { id: 'emergency', label: '避難情報', href: '#emergency' },
   { id: 'shelter', label: '避難所', href: '#shelter' },
   { id: 'support', label: '支援・募金', href: '#support' },
 ];
+
+export const metadata: Metadata = {
+  title: '大船渡市 山林火災情報',
+  description: '大船渡市の山林火災に関する情報をまとめています。',
+  openGraph: {
+    title: '大船渡市 山林火災情報',
+    description: '大船渡市の山林火災に関する情報をまとめています。',
+  },
+};
 
 export default function OfunatoPage() {
   return (
