@@ -4,6 +4,7 @@ import Card from './Card';
 import Heading from './Heading';
 import Button from './Button';
 import Link from 'next/link';
+import { DocumentDuplicateIcon, CheckIcon } from '@heroicons/react/24/outline';
 
 type AccountDetail = {
   id: string;
@@ -42,15 +43,21 @@ export default function DonationOrganizationCard({
   // 振込先情報が文字列の場合（後方互換性のため）
   const renderStringAccountInfo = () => {
     const isAllCopied = copiedItem === 'all';
+
     return (
       <div className="mt-1 p-3 bg-gray-50 rounded border border-gray-200 relative">
-        <p className="text-gray-600 pr-20">{accountInfo as string}</p>
+        <p className="text-gray-600 pr-12">{accountInfo as string}</p>
         <Button
           variant={isAllCopied ? 'secondary' : 'outline'}
-          className="absolute right-2 top-2 py-1 px-2 text-sm"
+          className="absolute right-2 top-2 p-1.5"
           onClick={() => handleCopy(accountInfo as string, 'all')}
+          title={isAllCopied ? 'コピー済み' : 'コピーする'}
         >
-          {isAllCopied ? 'コピー済み' : 'コピー'}
+          {isAllCopied ? (
+            <CheckIcon className="h-5 w-5" />
+          ) : (
+            <DocumentDuplicateIcon className="h-5 w-5" />
+          )}
         </Button>
       </div>
     );
@@ -74,25 +81,43 @@ export default function DonationOrganizationCard({
             </div>
             <Button
               variant={copiedItem === detail.id ? 'secondary' : 'outline'}
-              className="py-1 px-2 text-sm ml-2"
+              className="p-1.5 ml-2"
               onClick={() => handleCopy(detail.value, detail.id)}
+              title={copiedItem === detail.id ? 'コピー済み' : 'コピーする'}
             >
-              {copiedItem === detail.id ? 'コピー済み' : 'コピー'}
+              {copiedItem === detail.id ? (
+                <CheckIcon className="h-5 w-5" />
+              ) : (
+                <DocumentDuplicateIcon className="h-5 w-5" />
+              )}
             </Button>
           </div>
         ))}
         <div className="p-3 flex justify-end">
           <Button
             variant={copiedItem === 'all' ? 'secondary' : 'primary'}
-            className="py-1 px-2 text-sm"
+            className="p-1.5 flex items-center gap-1.5"
             onClick={() =>
               handleCopy(
                 details.map((d) => `${d.label}: ${d.value}`).join('\n'),
                 'all',
               )
             }
+            title={
+              copiedItem === 'all' ? 'コピー済み' : '全ての情報をコピーする'
+            }
           >
-            全てコピー
+            {copiedItem === 'all' ? (
+              <>
+                <CheckIcon className="h-5 w-5" />
+                <span className="text-sm">コピー済み</span>
+              </>
+            ) : (
+              <>
+                <DocumentDuplicateIcon className="h-5 w-5" />
+                <span className="text-sm">全ての情報をコピー</span>
+              </>
+            )}
           </Button>
         </div>
       </div>

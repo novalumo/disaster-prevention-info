@@ -7,6 +7,7 @@ type ButtonProps = {
   className?: string;
   type?: 'button' | 'submit' | 'reset';
   variant?: 'primary' | 'secondary' | 'outline';
+  title?: string;
 };
 
 export default function Button({
@@ -15,6 +16,7 @@ export default function Button({
   className = '',
   type = 'button',
   variant = 'primary',
+  title,
 }: ButtonProps) {
   const baseStyles =
     'px-4 py-2 rounded-md transition-all duration-200 font-medium shadow-sm hover:shadow focus:ring-2 focus:ring-offset-2 disabled:opacity-50';
@@ -23,7 +25,7 @@ export default function Button({
     primary: 'bg-blue-700 text-white hover:bg-blue-800 focus:ring-blue-500',
     secondary: 'bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500',
     outline:
-      'bg-transparent border-2 border-blue-700 text-blue-700 hover:bg-blue-50 focus:ring-blue-500',
+      'bg-transparent border border-blue-700 text-blue-700 hover:bg-blue-50 focus:ring-blue-500',
   };
 
   return (
@@ -31,6 +33,7 @@ export default function Button({
       type={type}
       onClick={onClick}
       className={cn(baseStyles, variantStyles[variant], className)}
+      title={title}
     >
       {children}
     </button>
