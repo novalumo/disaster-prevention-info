@@ -1,12 +1,28 @@
 import InfoCard from '@/components/ui/InfoCard';
 
+// https://crisis.yahoo.co.jp/evacuation/03/03203/
 export default function EmergencyInfoCard() {
   return (
     <InfoCard
       title="避難指示"
       listItems={[
-        '赤崎町　宿・後ノ入・森っこ、大洞・生形・山口地域',
-        '赤崎町　大立・永浜・清水・蛸ノ浦・長崎・外口',
+        '上甫嶺地域',
+        '合足地域',
+        '外口地域',
+        '大洞地域',
+        '大立地域',
+        '宿地域',
+        '山口地域',
+        '後ノ入地域',
+        '森っこ地域',
+        '永浜地域',
+        '清水地域',
+        '生形地域',
+        '甫嶺東地域',
+        '甫嶺西地域',
+        '綾里地区全域',
+        '蛸ノ浦地域',
+        '長崎地域',
       ]}
     />
   );
