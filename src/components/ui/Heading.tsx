@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/lib/cn';
 
 type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
@@ -33,7 +33,7 @@ export default function Heading({
 
   return (
     <Component
-      className={twMerge(sizeStyles[Component], colorStyles[color], className)}
+      className={cn(sizeStyles[Component], colorStyles[color], className)}
     >
       {children}
     </Component>

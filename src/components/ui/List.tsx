@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/lib/cn';
 
 type ListProps = {
   children: ReactNode;
@@ -15,7 +15,7 @@ export default function List({
   const Component = type;
 
   return (
-    <Component className={twMerge('space-y-2 text-gray-600', className)}>
+    <Component className={cn('space-y-2 text-gray-600', className)}>
       {children}
     </Component>
   );
