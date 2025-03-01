@@ -1,6 +1,6 @@
 import AreaCard from '@/components/AreaCard';
 import Heading from '@/components/ui/Heading';
-import { lastUpdated } from './ofunato/const';
+import { getLastUpdated } from '@/lib/time';
 
 // 地区データの型定義
 type AreaData = {
@@ -18,7 +18,7 @@ const areas: AreaData[] = [
     description: '大船渡市の山林火災に関する情報を確認できます。',
     path: '/ofunato',
     // imageUrl: '/images/ofunato.jpg',
-    lastUpdated: lastUpdated,
+    lastUpdated: getLastUpdated(),
   },
 ];
 
