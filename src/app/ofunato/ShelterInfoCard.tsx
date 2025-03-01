@@ -16,9 +16,9 @@ export default function ShelterInfoCard() {
     {
       id: 'himawari',
       name: '介護老人福祉施設「ひまわり」',
-      address: '大船渡町字山馬越１９７',
+      address: '大船渡市大船渡町字山馬越１９７',
       type: '福祉施設',
-      mapUrl: 'https://maps.google.com/?q=大船渡町字山馬越１９７',
+      mapUrl: 'https://maps.google.com/?q=大船渡市大船渡町字山馬越１９７',
     },
     {
       id: 'seijin',
@@ -30,16 +30,16 @@ export default function ShelterInfoCard() {
     {
       id: 'ofunato-jhs',
       name: '大船渡中学校（屋内体育館）',
-      address: '岩手県大船渡市大船渡町字永沢94番地1',
+      address: '大船渡市大船渡町字永沢94番地1',
       type: '学校施設',
-      mapUrl: 'https://maps.google.com/?q=岩手県大船渡市大船渡町字永沢94番地1',
+      mapUrl: 'https://maps.google.com/?q=大船渡市大船渡町字永沢94番地1',
     },
     {
       id: 'inokawa-es',
       name: '猪川小学校（屋内体育館）',
-      address: '岩手県大船渡市猪川町字轆轤石23番地',
+      address: '大船渡市猪川町字轆轤石23番地',
       type: '学校施設',
-      mapUrl: 'https://maps.google.com/?q=岩手県大船渡市猪川町字轆轤石23番地',
+      mapUrl: 'https://maps.google.com/?q=大船渡市猪川町字轆轤石23番地',
     },
     {
       id: 'keisen-en',
@@ -65,16 +65,16 @@ export default function ShelterInfoCard() {
     {
       id: 'rias-hall',
       name: 'リアスホール',
-      address: '岩手県大船渡市盛町字下舘下18番地1',
+      address: '大船渡市盛町字下舘下18番地1',
       type: '公共施設',
-      mapUrl: 'https://maps.google.com/?q=岩手県大船渡市盛町字下舘下18番地1',
+      mapUrl: 'https://maps.google.com/?q=大船渡市盛町字下舘下18番地1',
     },
     {
       id: 'ofunato-1st-jhs',
       name: '大船渡第一中学校（屋内体育館）',
-      address: '岩手県大船渡市立根町字宮田86番地',
+      address: '大船渡市立根町字宮田86番地',
       type: '学校施設',
-      mapUrl: 'https://maps.google.com/?q=岩手県大船渡市立根町字宮田86番地',
+      mapUrl: 'https://maps.google.com/?q=大船渡市立根町字宮田86番地',
     },
     {
       id: 'sanriku-center',
@@ -86,9 +86,9 @@ export default function ShelterInfoCard() {
     {
       id: 'yoshikirai-es',
       name: '越喜来小学校（屋内体育館）',
-      address: '岩手県大船渡市三陸町越喜来字小出24-4',
+      address: '大船渡市三陸町越喜来字小出24-4',
       type: '学校施設',
-      mapUrl: 'https://maps.google.com/?q=岩手県大船渡市三陸町越喜来字小出24-4',
+      mapUrl: 'https://maps.google.com/?q=大船渡市三陸町越喜来字小出24-4',
     },
   ];
 
