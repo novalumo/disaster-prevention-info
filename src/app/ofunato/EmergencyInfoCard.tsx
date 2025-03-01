@@ -145,7 +145,7 @@ export default function EmergencyInfoCard() {
   return (
     <Card>
       <Heading as="h2" color="primary" className="mb-4">
-        避難指示
+        避難情報
       </Heading>
       <div className="space-y-6">
         {Object.entries(groupedAreas).map(([district, areas]) => (
