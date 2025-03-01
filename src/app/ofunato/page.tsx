@@ -26,19 +26,22 @@ export default function OfunatoPage() {
         <ContactAlert />
       </div>
       <main className="container mx-auto px-4 py-8">
-        <section id="emergency" className="grid grid-cols-1 gap-6">
-          <EmergencyInfoCard />
-          <ShelterInfoCard />
-        </section>
-
-        <section id="support" className="mt-12">
-          <Heading as="h2" className="mb-6">
-            支援・募金情報
-          </Heading>
-          <div className="grid grid-cols-1 gap-6">
-            <DonationInfoCard />
-          </div>
-        </section>
+        <div className="grid gap-5">
+          <section id="emergency" className="">
+            <EmergencyInfoCard />
+          </section>
+          <section id="shelter" className="">
+            <ShelterInfoCard />
+          </section>
+          <section id="support" className="mt-12">
+            <Heading as="h2" className="mb-6">
+              支援・募金情報
+            </Heading>
+            <div className="grid grid-cols-1 gap-6">
+              <DonationInfoCard />
+            </div>
+          </section>
+        </div>
       </main>
       <Footer />
     </div>
