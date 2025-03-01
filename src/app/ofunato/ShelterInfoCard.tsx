@@ -1,4 +1,6 @@
-import InfoCard from '@/components/ui/InfoCard';
+import Card from '@/components/ui/Card';
+import Heading from '@/components/ui/Heading';
+import List, { ListItem } from '@/components/ui/List';
 
 export default function ShelterInfoCard() {
   const shelterList = [
@@ -26,5 +28,16 @@ export default function ShelterInfoCard() {
   // 岩手県大船渡市立根町字宮田86番地
   // 大船渡市三陸町越喜来字前田36－1
   // 岩手県大船渡市三陸町越喜来字小出24-4
-  return <InfoCard title="避難所情報" listItems={shelterList} />;
+  return (
+    <Card>
+      <Heading as="h2" color="primary" className="mb-4">
+        避難所情報
+      </Heading>
+      <List className="mb-4">
+        {shelterList.map((shelter) => (
+          <ListItem key={`shelter-${shelter}`}>{shelter}</ListItem>
+        ))}
+      </List>
+    </Card>
+  );
 }

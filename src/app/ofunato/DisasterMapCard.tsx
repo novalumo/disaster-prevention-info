@@ -1,6 +1,8 @@
 'use client';
 
-import InfoCard from '@/components/ui/InfoCard';
+import Card from '@/components/ui/Card';
+import Heading from '@/components/ui/Heading';
+import Button from '@/components/ui/Button';
 
 export default function DisasterMapCard() {
   const handleViewMap = () => {
@@ -9,11 +11,14 @@ export default function DisasterMapCard() {
   };
 
   return (
-    <InfoCard
-      title="防災マップ"
-      content="ハザードマップや避難経路の確認ができます"
-      buttonText="マップを見る"
-      buttonOnClick={handleViewMap}
-    />
+    <Card>
+      <Heading as="h2" color="primary" className="mb-4">
+        防災マップ
+      </Heading>
+      <p className="text-gray-600 mb-4">
+        ハザードマップや避難経路の確認ができます
+      </p>
+      <Button onClick={handleViewMap}>マップを見る</Button>
+    </Card>
   );
 }
