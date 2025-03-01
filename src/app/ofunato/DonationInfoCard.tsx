@@ -13,17 +13,12 @@ type DonationOrganization = {
   organizationName: string;
   note?: string;
   amount?: string | number;
-  accountInfo: string | AccountDetail[];
+  accountInfo?: string | AccountDetail[];
   websiteUrl?: string;
   websiteLabel?: string;
 };
 
-type DonationOrganizationListProps = {
-  organizations: DonationOrganization[];
-  className?: string;
-};
-
-const donationOrganizations = [
+const donationOrganizations: DonationOrganization[] = [
   {
     // 金融機関: 岩手銀行
     // 支店名: 大船渡支店
@@ -136,7 +131,7 @@ const donationOrganizations = [
   {
     id: 'yahoo-donation',
     organizationName: 'Yahoo!基金',
-    note: '本募金には、500万円を上限金額としてLINEヤフー株式会社からのマッチング寄付が適用されます。',
+    note: '2025/03/31 18:00 まで。本募金には、500万円を上限金額としてLINEヤフー株式会社からのマッチング寄付が適用されます。',
     websiteUrl: 'https://donation.yahoo.co.jp/detail/1630066',
     websiteLabel: 'Yahoo!基金のページを見る',
   },
