@@ -55,9 +55,6 @@ export default function ShelterInfoCard() {
       address: '大船渡市大船渡町字山馬越１９７',
       type: '福祉施設',
       mapUrl: 'https://maps.google.com/?q=大船渡市大船渡町字山馬越１９７',
-      phone: '0192-27-0833',
-      maxCapacity: 100,
-      currentCapacity: 45,
     },
     {
       id: 'seijin',
@@ -65,9 +62,6 @@ export default function ShelterInfoCard() {
       address: '大船渡市立根町字宮田９－１',
       type: '福祉施設',
       mapUrl: 'https://maps.google.com/?q=大船渡市立根町字宮田９－１',
-      phone: '0192-27-0755',
-      maxCapacity: 80,
-      currentCapacity: 72,
     },
     {
       id: 'ofunato-jhs',
