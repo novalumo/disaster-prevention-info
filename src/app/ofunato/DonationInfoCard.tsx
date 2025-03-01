@@ -132,8 +132,17 @@ const donationOrganizations: DonationOrganization[] = [
     id: 'yahoo-donation',
     organizationName: 'Yahoo!基金',
     note: '2025/03/31 18:00 まで。本募金には、500万円を上限金額としてLINEヤフー株式会社からのマッチング寄付が適用されます。',
+    amount: '100円〜',
     websiteUrl: 'https://donation.yahoo.co.jp/detail/1630066',
     websiteLabel: 'Yahoo!基金のページを見る',
+  },
+  {
+    id: 'kyassen-caravan',
+    organizationName: '株式会社キャッセン大船渡',
+    note: 'ご支援一口につき１枚のステッカーを後日、お送りさせていただきます。',
+    amount: '1,000円',
+    websiteUrl: 'https://kyassencaravan.com/item-list?campaignId=10271',
+    websiteLabel: 'キャッセンキャラバンのページを見る',
   },
 ];
 

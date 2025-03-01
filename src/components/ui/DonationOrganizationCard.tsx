@@ -107,7 +107,7 @@ export default function DonationOrganizationCard({
 
       {amount && (
         <div className="mb-3">
-          <span className="font-semibold text-gray-700">目標金額: </span>
+          <span className="font-semibold text-gray-700">金額: </span>
           <span className="text-gray-600">
             {typeof amount === 'number'
               ? `${amount.toLocaleString()}円`
