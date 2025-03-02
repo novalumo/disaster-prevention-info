@@ -2,7 +2,6 @@
 
 import VolunteerInfoCard from '@/app/ofunato/volunteer/VolunteerInfoCard';
 import LocalHeader from '@/components/LocalHeader';
-import Footer from '@/components/Footer';
 import ContactAlert from '@/components/ContactAlert';
 import { getLastUpdated } from '@/lib/time';
 import OfunatoBottomNav from '../components/OfunatoBottomNav';
@@ -21,7 +20,6 @@ export default function VolunteerPage() {
       <main className="container mx-auto px-4 py-8 pb-20">
         <VolunteerInfoCard />
       </main>
-      <Footer />
       <OfunatoBottomNav />
     </div>
   );
