@@ -7,11 +7,13 @@
 ## 主な機能
 
 - 🏥 避難所情報の提供
+
   - 位置情報付きの避難所マップ
   - 収容状況のリアルタイム表示
   - 各避難所の詳細情報
 
 - 🍴 支援サービス情報
+
   - 食事提供
   - 入浴施設
   - 送迎バス
@@ -25,8 +27,8 @@
 
 ### 必要条件
 
-- Node.js 18.0.0以上
-- bun 1.0.0以上
+- Node.js 22.0.0 以上
+- bun 1.2.0 以上
 
 ### 環境変数の設定
 
@@ -54,6 +56,7 @@ bun dev
 プロジェクトへの貢献を歓迎します！以下の方法で参加できます：
 
 1. Issueの作成
+
    - バグ報告
    - 新機能の提案
    - ドキュメントの改善提案
@@ -71,5 +74,6 @@ bun dev
 
 - [Next.js](https://nextjs.org/) - Reactフレームワーク
 - [Tailwind CSS](https://tailwindcss.com/) - スタイリング
+- [Material UI](https://mui.com/material-ui/) - コンポーネントライブラリ
 - [@vis.gl/react-google-maps](https://github.com/visgl/react-google-maps) - 地図表示
 - [Biome](https://biomejs.dev/) - リンター/フォーマッター
