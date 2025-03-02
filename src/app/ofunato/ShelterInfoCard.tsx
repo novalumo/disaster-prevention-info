@@ -3,8 +3,9 @@ import Heading from '@/components/ui/Heading';
 import { MapPinIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { cn } from '@/lib/cn';
+import { shelters } from './data/shelters';
 
-type Shelter = {
+export type Shelter = {
   id: string;
   name: string;
   address: string;
@@ -13,6 +14,10 @@ type Shelter = {
   phone?: string;
   maxCapacity?: number;
   currentCapacity?: number;
+  position?: {
+    lat: number;
+    lng: number;
+  };
 };
 
 type CapacityStatus = {
@@ -21,113 +26,38 @@ type CapacityStatus = {
   percentage: number;
 };
 
-function getCapacityStatus(current: number, max: number): CapacityStatus | null {
+function getCapacityStatus(
+  current: number,
+  max: number,
+): CapacityStatus | null {
   if (!max) return null;
-  
+
   const percentage = (current / max) * 100;
-  
+
   if (percentage >= 90) {
     return {
       label: '満員に近い',
       color: 'red',
       percentage,
     };
-  } else if (percentage >= 70) {
+  }
+
+  if (percentage >= 70) {
     return {
       label: 'やや混雑',
       color: 'yellow',
       percentage,
     };
-  } else {
-    return {
-      label: '空きあり',
-      color: 'green',
-      percentage,
-    };
   }
+
+  return {
+    label: '空きあり',
+    color: 'green',
+    percentage,
+  };
 }
 
 export default function ShelterInfoCard() {
-  const shelters: Shelter[] = [
-    {
-      id: 'himawari',
-      name: '介護老人福祉施設「ひまわり」',
-      address: '大船渡市大船渡町字山馬越１９７',
-      type: '福祉施設',
-      mapUrl: 'https://maps.google.com/?q=大船渡市大船渡町字山馬越１９７',
-    },
-    {
-      id: 'seijin',
-      name: '特別養護老人ホーム　成仁ハウス百年の里',
-      address: '大船渡市立根町字宮田９－１',
-      type: '福祉施設',
-      mapUrl: 'https://maps.google.com/?q=大船渡市立根町字宮田９－１',
-    },
-    {
-      id: 'ofunato-jhs',
-      name: '大船渡中学校（屋内体育館）',
-      address: '大船渡市大船渡町字永沢94番地1',
-      type: '学校施設',
-      mapUrl: 'https://maps.google.com/?q=大船渡市大船渡町字永沢94番地1',
-    },
-    {
-      id: 'inokawa-es',
-      name: '猪川小学校（屋内体育館）',
-      address: '大船渡市猪川町字轆轤石23番地',
-      type: '学校施設',
-      mapUrl: 'https://maps.google.com/?q=大船渡市猪川町字轆轤石23番地',
-    },
-    {
-      id: 'keisen-en',
-      name: '介護老人保健施設「気仙苑」',
-      address: '大船渡市大船渡町字山馬越188',
-      type: '福祉施設',
-      mapUrl: 'https://maps.google.com/?q=大船渡市大船渡町字山馬越188',
-    },
-    {
-      id: 'fukushi-no-sato',
-      name: '岩手県立福祉の里センター',
-      address: '大船渡市立根町字田ノ上30-20',
-      type: '公共施設',
-      mapUrl: 'https://maps.google.com/?q=大船渡市立根町字田ノ上30-20',
-    },
-    {
-      id: 'sanriku-no-sono',
-      name: 'さんりくの園',
-      address: '大船渡市三陸町越喜来字所通91',
-      type: '福祉施設',
-      mapUrl: 'https://maps.google.com/?q=大船渡市三陸町越喜来字所通91',
-    },
-    {
-      id: 'rias-hall',
-      name: 'リアスホール',
-      address: '大船渡市盛町字下舘下18番地1',
-      type: '公共施設',
-      mapUrl: 'https://maps.google.com/?q=大船渡市盛町字下舘下18番地1',
-    },
-    {
-      id: 'ofunato-1st-jhs',
-      name: '大船渡第一中学校（屋内体育館）',
-      address: '大船渡市立根町字宮田86番地',
-      type: '学校施設',
-      mapUrl: 'https://maps.google.com/?q=大船渡市立根町字宮田86番地',
-    },
-    {
-      id: 'sanriku-center',
-      name: '三陸公民館',
-      address: '大船渡市三陸町越喜来字前田36－1',
-      type: '公共施設',
-      mapUrl: 'https://maps.google.com/?q=大船渡市三陸町越喜来字前田36－1',
-    },
-    {
-      id: 'yoshikirai-es',
-      name: '越喜来小学校（屋内体育館）',
-      address: '大船渡市三陸町越喜来字小出24-4',
-      type: '学校施設',
-      mapUrl: 'https://maps.google.com/?q=大船渡市三陸町越喜来字小出24-4',
-    },
-  ];
-
   // 施設タイプごとにグループ化
   const groupedShelters = shelters.reduce(
     (acc, shelter) => {
@@ -174,20 +104,38 @@ export default function ShelterInfoCard() {
                       {(shelter.maxCapacity || shelter.currentCapacity) && (
                         <div className="flex items-center gap-2 text-gray-600 text-sm">
                           <span>
-                            収容状況: {shelter.currentCapacity || 0}人 / {shelter.maxCapacity || '---'}人
+                            収容状況: {shelter.currentCapacity || 0}人 /{' '}
+                            {shelter.maxCapacity || '---'}人
                           </span>
                           {shelter.maxCapacity && shelter.currentCapacity && (
                             <span
                               className={cn(
                                 'px-2 py-0.5 rounded text-xs font-medium',
                                 {
-                                  'bg-red-100 text-red-700': getCapacityStatus(shelter.currentCapacity, shelter.maxCapacity)?.color === 'red',
-                                  'bg-yellow-100 text-yellow-700': getCapacityStatus(shelter.currentCapacity, shelter.maxCapacity)?.color === 'yellow',
-                                  'bg-green-100 text-green-700': getCapacityStatus(shelter.currentCapacity, shelter.maxCapacity)?.color === 'green',
-                                }
+                                  'bg-red-100 text-red-700':
+                                    getCapacityStatus(
+                                      shelter.currentCapacity,
+                                      shelter.maxCapacity,
+                                    )?.color === 'red',
+                                  'bg-yellow-100 text-yellow-700':
+                                    getCapacityStatus(
+                                      shelter.currentCapacity,
+                                      shelter.maxCapacity,
+                                    )?.color === 'yellow',
+                                  'bg-green-100 text-green-700':
+                                    getCapacityStatus(
+                                      shelter.currentCapacity,
+                                      shelter.maxCapacity,
+                                    )?.color === 'green',
+                                },
                               )}
                             >
-                              {getCapacityStatus(shelter.currentCapacity, shelter.maxCapacity)?.label}
+                              {
+                                getCapacityStatus(
+                                  shelter.currentCapacity,
+                                  shelter.maxCapacity,
+                                )?.label
+                              }
                             </span>
                           )}
                         </div>
