@@ -1,27 +1,42 @@
 'use client';
 
 import ShelterMap from './ShelterMap';
-import { ArrowLeftIcon } from '@heroicons/react/24/outline';
+import { ArrowBack } from '@mui/icons-material';
 import Link from 'next/link';
+import { AppBar, Toolbar, IconButton, Typography } from '@mui/material';
+import OfunatoBottomNav from '../components/OfunatoBottomNav';
 
 export default function ShelterMapPage() {
   return (
     <div className="relative">
-      <nav className="fixed top-0 left-0 right-0 z-10 bg-white/80 backdrop-blur-sm border-b">
-        <div className="container mx-auto px-4">
-          <div className="h-14 flex items-center gap-4">
-            <Link
-              href="/ofunato"
-              className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900"
+      <AppBar
+        position="fixed"
+        color="inherit"
+        elevation={0}
+        sx={{
+          backgroundColor: 'rgba(255, 255, 255, 0.8)',
+          backdropFilter: 'blur(8px)',
+          borderBottom: '1px solid #e5e7eb',
+        }}
+      >
+        <Toolbar variant="dense">
+          <Link href="/ofunato">
+            <IconButton
+              edge="start"
+              color="inherit"
+              aria-label="戻る"
+              sx={{ mr: 2 }}
             >
-              <ArrowLeftIcon className="h-5 w-5" />
-              <span>戻る</span>
-            </Link>
-            <h1 className="font-bold">避難所マップ</h1>
-          </div>
-        </div>
-      </nav>
+              <ArrowBack />
+            </IconButton>
+          </Link>
+          <Typography variant="subtitle1" component="h1" fontWeight="bold">
+            避難所マップ
+          </Typography>
+        </Toolbar>
+      </AppBar>
       <ShelterMap />
+      <OfunatoBottomNav />
     </div>
   );
 }

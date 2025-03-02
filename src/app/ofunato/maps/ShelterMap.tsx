@@ -7,6 +7,18 @@ import {
 } from '@vis.gl/react-google-maps';
 import { shelters } from '../data/shelters';
 import { useState } from 'react';
+import {
+  Dialog,
+  DialogContent,
+  DialogActions,
+  Button,
+  Typography,
+  List,
+  ListItem,
+  ListItemText,
+  Divider,
+} from '@mui/material';
+import { Phone, People } from '@mui/icons-material';
 
 const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 const GOOGLE_MAPS_MAP_ID = process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID;
@@ -25,53 +37,77 @@ function ShelterDialog({ shelter, isOpen, onClose }: ShelterDialogProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center sm:items-center">
-      <div
-        className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity"
-        onClick={onClose}
-        onKeyDown={(e) => e.key === 'Escape' && onClose()}
-        role="button"
-        tabIndex={0}
-      />
-      <div className="fixed z-50 grid w-full gap-4 rounded-b-lg border bg-white p-6 shadow-lg sm:max-w-lg sm:rounded-lg animate-slide-up">
-        <div className="flex flex-col space-y-1.5">
-          <h2 className="text-lg font-semibold leading-none tracking-tight">
+    <Dialog
+      open={isOpen}
+      onClose={onClose}
+      maxWidth="sm"
+      fullWidth
+      scroll="paper"
+    >
+      <DialogContent>
+        <div className="mb-4">
+          <Typography variant="h6" component="h2" gutterBottom>
             {shelter.name}
-          </h2>
-          <p className="text-sm text-muted-foreground">{shelter.type}</p>
+          </Typography>
+          {shelter.type && (
+            <Typography variant="body2" color="text.secondary">
+              {shelter.type}
+            </Typography>
+          )}
         </div>
-        <div className="space-y-4">
-          <div>
-            <div className="text-sm font-medium mb-1">住所</div>
-            <div className="text-sm">{shelter.address}</div>
-          </div>
+        <Divider sx={{ my: 2 }} />
+        <List disablePadding>
+          <ListItem>
+            <ListItemText
+              primary="住所"
+              secondary={shelter.address}
+              primaryTypographyProps={{ variant: 'subtitle2' }}
+            />
+          </ListItem>
           {shelter.phone && (
-            <div>
-              <div className="text-sm font-medium mb-1">電話番号</div>
-              <div className="text-sm">{shelter.phone}</div>
-            </div>
+            <>
+              <Divider component="li" />
+              <ListItem>
+                <ListItemText
+                  primary={
+                    <span className="flex items-center gap-1">
+                      <Phone fontSize="small" />
+                      電話番号
+                    </span>
+                  }
+                  secondary={shelter.phone}
+                  primaryTypographyProps={{ variant: 'subtitle2' }}
+                />
+              </ListItem>
+            </>
           )}
           {(shelter.maxCapacity || shelter.currentCapacity) && (
-            <div>
-              <div className="text-sm font-medium mb-1">収容状況</div>
-              <div className="text-sm">
-                {shelter.currentCapacity || 0}人 /{' '}
-                {shelter.maxCapacity || '---'}人
-              </div>
-            </div>
+            <>
+              <Divider component="li" />
+              <ListItem>
+                <ListItemText
+                  primary={
+                    <span className="flex items-center gap-1">
+                      <People fontSize="small" />
+                      収容状況
+                    </span>
+                  }
+                  secondary={`${shelter.currentCapacity || 0}人 / ${
+                    shelter.maxCapacity || '---'
+                  }人`}
+                  primaryTypographyProps={{ variant: 'subtitle2' }}
+                />
+              </ListItem>
+            </>
           )}
-        </div>
-        <div className="flex justify-end">
-          <button
-            type="button"
-            onClick={onClose}
-            className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2"
-          >
-            閉じる
-          </button>
-        </div>
-      </div>
-    </div>
+        </List>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={onClose} color="primary">
+          閉じる
+        </Button>
+      </DialogActions>
+    </Dialog>
   );
 }
 
