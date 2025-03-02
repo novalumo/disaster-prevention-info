@@ -38,9 +38,16 @@ export default function OfunatoBottomNav() {
     },
   ];
 
-  const currentValue = navigationItems.find(
-    (item) => pathname === item.value || pathname.startsWith(`${item.value}/`),
-  )?.value;
+  // 現在のパスに最も一致するナビゲーション項目を見つける
+  const currentValue =
+    navigationItems.find((item) => {
+      // 完全一致の場合
+      if (pathname === item.value) return true;
+      // /ofunato の場合は完全一致のみ
+      if (item.value === '/ofunato') return pathname === '/ofunato';
+      // その他のページの場合はパスの先頭一致で判定
+      return pathname.startsWith(item.value);
+    })?.value || '/ofunato';
 
   return (
     <Paper
