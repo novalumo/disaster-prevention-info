@@ -1,0 +1,7 @@
+---
+description: 
+globs: *.tsx
+---
+# Material UI
+
+- Do not use `useTheme`
