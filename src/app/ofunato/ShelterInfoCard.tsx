@@ -26,11 +26,14 @@ type CapacityStatus = {
   percentage: number;
 };
 
-function getCapacityStatus(current: number, max: number): CapacityStatus | null {
+function getCapacityStatus(
+  current: number,
+  max: number,
+): CapacityStatus | null {
   if (!max) return null;
-  
+
   const percentage = (current / max) * 100;
-  
+
   if (percentage >= 90) {
     return {
       label: '満員に近い',
@@ -52,10 +55,7 @@ function getCapacityStatus(current: number, max: number): CapacityStatus | null 
   }
 }
 
-import { shelters } from './data/shelters';
-
 export default function ShelterInfoCard() {
-
   // 施設タイプごとにグループ化
   const groupedShelters = shelters.reduce(
     (acc, shelter) => {
@@ -102,20 +102,38 @@ export default function ShelterInfoCard() {
                       {(shelter.maxCapacity || shelter.currentCapacity) && (
                         <div className="flex items-center gap-2 text-gray-600 text-sm">
                           <span>
-                            収容状況: {shelter.currentCapacity || 0}人 / {shelter.maxCapacity || '---'}人
+                            収容状況: {shelter.currentCapacity || 0}人 /{' '}
+                            {shelter.maxCapacity || '---'}人
                           </span>
                           {shelter.maxCapacity && shelter.currentCapacity && (
                             <span
                               className={cn(
                                 'px-2 py-0.5 rounded text-xs font-medium',
                                 {
-                                  'bg-red-100 text-red-700': getCapacityStatus(shelter.currentCapacity, shelter.maxCapacity)?.color === 'red',
-                                  'bg-yellow-100 text-yellow-700': getCapacityStatus(shelter.currentCapacity, shelter.maxCapacity)?.color === 'yellow',
-                                  'bg-green-100 text-green-700': getCapacityStatus(shelter.currentCapacity, shelter.maxCapacity)?.color === 'green',
-                                }
+                                  'bg-red-100 text-red-700':
+                                    getCapacityStatus(
+                                      shelter.currentCapacity,
+                                      shelter.maxCapacity,
+                                    )?.color === 'red',
+                                  'bg-yellow-100 text-yellow-700':
+                                    getCapacityStatus(
+                                      shelter.currentCapacity,
+                                      shelter.maxCapacity,
+                                    )?.color === 'yellow',
+                                  'bg-green-100 text-green-700':
+                                    getCapacityStatus(
+                                      shelter.currentCapacity,
+                                      shelter.maxCapacity,
+                                    )?.color === 'green',
+                                },
                               )}
                             >
-                              {getCapacityStatus(shelter.currentCapacity, shelter.maxCapacity)?.label}
+                              {
+                                getCapacityStatus(
+                                  shelter.currentCapacity,
+                                  shelter.maxCapacity,
+                                )?.label
+                              }
                             </span>
                           )}
                         </div>
