@@ -4,8 +4,8 @@ import Link from 'next/link';
 import {
   Campaign,
   LocationOn,
-  MonetizationOn,
   LocalHospital,
+  Favorite,
 } from '@mui/icons-material';
 import OfunatoContainer from './components/OfunatoContainer';
 
@@ -48,7 +48,7 @@ const menuItems = [
     label: '支援する',
     description: '被災地域への支援方法やボランティア情報を確認できます',
     href: '/ofunato/support',
-    icon: <MonetizationOn sx={{ fontSize: 40 }} />,
+    icon: <Favorite sx={{ fontSize: 40 }} />,
     color: '#f59e0b',
   },
 ];
