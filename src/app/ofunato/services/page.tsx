@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import SupportFacilitiesCard from './SupportFacilitiesCard';
+import ServicesCard from '@/app/ofunato/services/ServicesCard';
 
 export const metadata: Metadata = {
   title: '避難者支援施設 - 大船渡市 山林火災情報',
@@ -12,6 +12,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function SupportFacilitiesPage() {
-  return <SupportFacilitiesCard />;
+export default function ServicesPage() {
+  return <ServicesCard />;
 }

@@ -2,8 +2,8 @@ import Heading from '@/components/ui/Heading';
 import { MapPinIcon, PhoneIcon, ClockIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { cn } from '@/lib/cn';
-import { supportFacilities } from '../data/support-facilities';
-import OfunatoContainer from '../components/OfunatoContainer';
+import { supportFacilities } from '@/app/ofunato/data/services';
+import OfunatoContainer from '@/app/ofunato/components/OfunatoContainer';
 import { format } from 'date-fns';
 
 function getCapacityStatus(current: number, max: number) {
@@ -29,7 +29,7 @@ function getCapacityStatus(current: number, max: number) {
   };
 }
 
-export default function SupportFacilitiesCard() {
+export default function ServicesCard() {
   // 施設タイプごとにグループ化
   const groupedFacilities = supportFacilities.reduce(
     (acc, facility) => {

@@ -1,6 +1,6 @@
 'use client';
 
-import ShelterMap from './ShelterMap';
+import ShelterMap from '@/app/ofunato/maps/ShelterMap';
 
 export default function ShelterMapPage() {
   return (
