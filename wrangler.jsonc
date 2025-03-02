@@ -6,6 +6,6 @@
   "pages_build_output_dir": ".vercel/output/static",
   "vars": {
     "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY": "AIzaSyCkECSA_WthBkctC3bewxMzE_2rnS-ChTI",
-    "NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID": "shelter-map"
+    "NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID": "575efdf8c408a0d0"
   }
 }
