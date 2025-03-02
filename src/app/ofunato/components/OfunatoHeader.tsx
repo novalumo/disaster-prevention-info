@@ -24,6 +24,7 @@ import {
   Home,
   Info,
   Favorite,
+  LocalHospital,
 } from '@mui/icons-material';
 import { useRouter, usePathname } from 'next/navigation';
 
@@ -45,6 +46,12 @@ const menuItems = [
     label: '避難所',
     href: '/ofunato/shelter',
     icon: <LocationOn />,
+  },
+  {
+    id: 'services',
+    label: '支援施設',
+    href: '/ofunato/services',
+    icon: <LocalHospital />,
   },
   {
     id: 'support',

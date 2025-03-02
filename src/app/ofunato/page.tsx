@@ -1,7 +1,12 @@
 import type { Metadata } from 'next';
 import { Paper, Grid, Typography, Box } from '@mui/material';
 import Link from 'next/link';
-import { Campaign, LocationOn, MonetizationOn } from '@mui/icons-material';
+import {
+  Campaign,
+  LocationOn,
+  MonetizationOn,
+  LocalHospital,
+} from '@mui/icons-material';
 import OfunatoContainer from './components/OfunatoContainer';
 
 export const metadata: Metadata = {
@@ -29,6 +34,14 @@ const menuItems = [
     href: '/ofunato/shelter',
     icon: <LocationOn sx={{ fontSize: 40 }} />,
     color: '#3b82f6',
+  },
+  {
+    id: 'services',
+    label: '支援施設',
+    description: '入浴施設、送迎バス、食事提供などの支援施設を確認できます',
+    href: '/ofunato/services',
+    icon: <LocalHospital sx={{ fontSize: 40 }} />,
+    color: '#10b981',
   },
   {
     id: 'support',
