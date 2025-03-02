@@ -1,34 +1,58 @@
-import Alert from './ui/Alert';
-import Link from 'next/link';
+'use client';
+
+import { useState } from 'react';
+import { Alert, AlertTitle, Link as MuiLink, Box } from '@mui/material';
 
 export default function ContactAlert() {
+  const [isVisible, setIsVisible] = useState(true);
+
+  if (!isVisible) return null;
+
   return (
     <Alert
-      title="情報の正確性について"
-      variant="error"
-      dismissible={true}
-      className="mx-auto max-w-6xl"
+      severity="error"
+      sx={{
+        mx: 'auto',
+        maxWidth: 'lg',
+        '& .MuiAlert-message': {
+          width: '100%',
+        },
+      }}
+      onClose={() => setIsVisible(false)}
     >
-      <p className="text-sm">
+      <AlertTitle>情報の正確性について</AlertTitle>
+      <Box sx={{ fontSize: '0.875rem' }}>
         当サイトに掲載されている情報は、最終更新時点で正確なものであることを確認していますが、
         情報の誤りを見つけられた場合や更新の提案は
-        <Link
+        <MuiLink
           href="https://github.com/novalumo/disaster-prevention-info/issues"
           target="_blank"
           rel="noopener noreferrer"
-          className="underline font-medium hover:text-blue-600 mx-1"
+          sx={{
+            mx: 1,
+            fontWeight: 500,
+            '&:hover': {
+              color: 'primary.main',
+            },
+          }}
         >
           GitHub Issues (PR歓迎)
-        </Link>
+        </MuiLink>
         または
-        <a
+        <MuiLink
           href="mailto:contact@novalumo.com"
-          className="underline font-medium hover:text-blue-600 mx-1"
+          sx={{
+            mx: 1,
+            fontWeight: 500,
+            '&:hover': {
+              color: 'primary.main',
+            },
+          }}
         >
           contact@novalumo.com
-        </a>
+        </MuiLink>
         までご連絡ください。
-      </p>
+      </Box>
     </Alert>
   );
 }
