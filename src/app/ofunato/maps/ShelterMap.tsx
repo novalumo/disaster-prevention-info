@@ -90,6 +90,7 @@ export default function ShelterMap() {
           defaultCenter={{ lat: 39.0833, lng: 141.7083 }}
           zoom={13}
           gestureHandling="greedy"
+          disableDefaultUI={true}
           mapId={GOOGLE_MAPS_MAP_ID}
         >
           {shelters.map(

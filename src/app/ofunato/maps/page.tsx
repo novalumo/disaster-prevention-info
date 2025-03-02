@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function ShelterMapPage() {
   return (
-    <div className="relative h-screen">
+    <div className="relative">
       <nav className="fixed top-0 left-0 right-0 z-10 bg-white/80 backdrop-blur-sm border-b">
         <div className="container mx-auto px-4">
           <div className="h-14 flex items-center gap-4">
@@ -21,9 +21,7 @@ export default function ShelterMapPage() {
           </div>
         </div>
       </nav>
-      <div className="h-full">
-        <ShelterMap />
-      </div>
+      <ShelterMap />
     </div>
   );
 }
