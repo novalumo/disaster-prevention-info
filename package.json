@@ -16,8 +16,13 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@emotion/cache": "^11.14.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
+    "@mui/material": "^6.4.6",
+    "@mui/material-nextjs": "^6.4.3",
     "@react-email/components": "^0.0.33",
     "@vis.gl/react-google-maps": "^1.5.1",
     "clsx": "^2.1.1",
