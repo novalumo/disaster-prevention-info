@@ -91,26 +91,36 @@ export default function OfunatoHeader({ lastUpdated }: OfunatoHeaderProps) {
           sx={{
             py: 2,
             gap: 2,
+            flexDirection: { xs: 'column', sm: 'row' },
+            alignItems: { xs: 'stretch', sm: 'center' },
           }}
         >
-          <IconButton
-            color="inherit"
-            aria-label="メニューを開く"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2 }}
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              width: '100%',
+            }}
           >
-            <MenuIcon />
-          </IconButton>
+            <IconButton
+              color="inherit"
+              aria-label="メニューを開く"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2 }}
+            >
+              <MenuIcon />
+            </IconButton>
 
-          <Typography
-            variant="h6"
-            component="h1"
-            fontWeight="bold"
-            sx={{ flexGrow: 1 }}
-          >
-            大船渡市の防災情報
-          </Typography>
+            <Typography
+              variant="h6"
+              component="h1"
+              fontWeight="bold"
+              sx={{ flexGrow: 1 }}
+            >
+              大船渡市の防災情報
+            </Typography>
+          </Box>
 
           {lastUpdated && (
             <Box
@@ -119,12 +129,14 @@ export default function OfunatoHeader({ lastUpdated }: OfunatoHeaderProps) {
                 px: 2,
                 py: 1,
                 borderRadius: 1,
-                display: { xs: 'none', sm: 'block' },
+                width: { xs: '100%', sm: 'auto' },
               }}
             >
               <Typography variant="body2" color="white">
-                最終更新:{' '}
-                <strong>{format(lastUpdated, 'yyyy年MM月dd日 HH:mm')}</strong>
+                更新:{' '}
+                <strong className="inline-block">
+                  {format(lastUpdated, 'yyyy年MM月dd日 HH:mm')}
+                </strong>
               </Typography>
             </Box>
           )}
