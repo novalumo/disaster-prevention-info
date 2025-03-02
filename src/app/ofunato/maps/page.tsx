@@ -1,16 +1,29 @@
-import Card from '@/components/ui/Card';
-import Heading from '@/components/ui/Heading';
+'use client';
+
 import ShelterMap from './ShelterMap';
+import { ArrowLeftIcon } from '@heroicons/react/24/outline';
+import Link from 'next/link';
 
 export default function ShelterMapPage() {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <Card>
-        <Heading as="h1" color="primary" className="mb-4">
-          避難所マップ
-        </Heading>
+    <div className="relative h-screen">
+      <nav className="fixed top-0 left-0 right-0 z-10 bg-white/80 backdrop-blur-sm border-b">
+        <div className="container mx-auto px-4">
+          <div className="h-14 flex items-center gap-4">
+            <Link
+              href="/ofunato"
+              className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900"
+            >
+              <ArrowLeftIcon className="h-5 w-5" />
+              <span>戻る</span>
+            </Link>
+            <h1 className="font-bold">避難所マップ</h1>
+          </div>
+        </div>
+      </nav>
+      <div className="h-full">
         <ShelterMap />
-      </Card>
+      </div>
     </div>
   );
 }
