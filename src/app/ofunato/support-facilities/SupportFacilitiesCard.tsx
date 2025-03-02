@@ -80,17 +80,28 @@ export default function SupportFacilitiesCard() {
                           </div>
                         )}
 
-                        {facility.hours && (
-                          <div className="flex items-center gap-2">
-                            <ClockIcon className="h-5 w-5 flex-shrink-0" />
-                            <span>{facility.hours}</span>
+                        {facility.hours && facility.hours.length > 0 && (
+                          <div className="flex items-start gap-2">
+                            <ClockIcon className="h-5 w-5 flex-shrink-0 mt-0.5" />
+                            <div className="space-y-1">
+                              {facility.hours.map((hour, index) => (
+                                <div
+                                  key={`${facility.id}-hour-${index}`}
+                                  className={cn('text-gray-600')}
+                                >
+                                  {hour}
+                                </div>
+                              ))}
+                            </div>
                           </div>
                         )}
                       </div>
 
-                      <div className="mt-3 text-gray-600">
-                        {facility.details}
-                      </div>
+                      {facility.details && (
+                        <div className="mt-3 text-gray-600">
+                          {facility.details}
+                        </div>
+                      )}
 
                       {facility.schedule && (
                         <div className="mt-3">
@@ -99,7 +110,7 @@ export default function SupportFacilitiesCard() {
                           </div>
                           {facility.schedule.map((s, index) => (
                             <div
-                              key={index}
+                              key={`${facility.id}-schedule-${index}`}
                               className="bg-gray-50 p-3 rounded text-sm"
                             >
                               <div className="font-medium text-gray-700">
@@ -111,7 +122,7 @@ export default function SupportFacilitiesCard() {
                                 <div className="mt-2 space-y-1">
                                   {s.route.map((stop, idx) => (
                                     <div
-                                      key={idx}
+                                      key={`${facility.id}-route-${idx}`}
                                       className="flex items-center gap-2"
                                     >
                                       <span className="text-blue-600">●</span>
@@ -125,11 +136,11 @@ export default function SupportFacilitiesCard() {
                         </div>
                       )}
 
-                      {facility.notes && (
+                      {facility.notes && facility.notes.length > 0 && (
                         <div className="mt-3 space-y-1">
                           {facility.notes.map((note, index) => (
                             <div
-                              key={index}
+                              key={`${facility.id}-note-${index}`}
                               className="text-sm text-gray-500 flex items-start gap-1"
                             >
                               <span>※</span>
