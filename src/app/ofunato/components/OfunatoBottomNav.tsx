@@ -2,13 +2,7 @@
 
 import { usePathname, useRouter } from 'next/navigation';
 import { BottomNavigation, BottomNavigationAction, Paper } from '@mui/material';
-import {
-  Home,
-  Campaign,
-  LocationOn,
-  // Handshake,
-  MonetizationOn,
-} from '@mui/icons-material';
+import { Home, Campaign, LocationOn, Favorite } from '@mui/icons-material';
 
 export default function OfunatoBottomNav() {
   const pathname = usePathname();
@@ -26,15 +20,10 @@ export default function OfunatoBottomNav() {
       value: '/ofunato/shelter',
       icon: <LocationOn />,
     },
-    // {
-    //   label: 'ボランティア',
-    //   value: '/ofunato/volunteer',
-    //   icon: <Handshake />,
-    // },
     {
-      label: '支援・募金',
+      label: '募金・支援',
       value: '/ofunato/support',
-      icon: <MonetizationOn />,
+      icon: <Favorite />,
     },
   ];
 

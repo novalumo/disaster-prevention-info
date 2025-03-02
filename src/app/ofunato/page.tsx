@@ -1,13 +1,9 @@
 import type { Metadata } from 'next';
 import { Paper, Grid, Typography, Box } from '@mui/material';
 import Link from 'next/link';
-import {
-  Campaign,
-  LocationOn,
-  // Handshake,
-  MonetizationOn,
-} from '@mui/icons-material';
+import { Campaign, LocationOn, MonetizationOn } from '@mui/icons-material';
 import OfunatoContainer from './components/OfunatoContainer';
+
 export const metadata: Metadata = {
   title: '大船渡市 山林火災情報',
   description: '大船渡市の山林火災に関する情報をまとめています。',
@@ -34,18 +30,10 @@ const menuItems = [
     icon: <LocationOn sx={{ fontSize: 40 }} />,
     color: '#3b82f6',
   },
-  // {
-  //   id: 'volunteer',
-  //   label: 'ボランティア',
-  //   description: 'ボランティア募集に関する情報を確認できます',
-  //   href: '/ofunato/volunteer',
-  //   icon: <Handshake sx={{ fontSize: 40 }} />,
-  //   color: '#22c55e',
-  // },
   {
     id: 'support',
-    label: '支援・募金',
-    description: '被災地域への支援方法を確認できます',
+    label: '募金・支援',
+    description: '被災地域への支援方法やボランティア情報を確認できます',
     href: '/ofunato/support',
     icon: <MonetizationOn sx={{ fontSize: 40 }} />,
     color: '#f59e0b',

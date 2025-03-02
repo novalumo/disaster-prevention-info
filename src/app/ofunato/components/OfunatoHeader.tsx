@@ -21,9 +21,9 @@ import {
   Menu as MenuIcon,
   Campaign,
   LocationOn,
-  MonetizationOn,
   Home,
   Info,
+  Favorite,
 } from '@mui/icons-material';
 import { useRouter, usePathname } from 'next/navigation';
 
@@ -48,9 +48,9 @@ const menuItems = [
   },
   {
     id: 'support',
-    label: '支援・募金',
+    label: '募金・支援',
     href: '/ofunato/support',
-    icon: <MonetizationOn />,
+    icon: <Favorite />,
   },
   {
     id: 'about',
