@@ -122,4 +122,15 @@ export const shelters: Shelter[] = [
       lng: 141.81001699967243,
     },
   },
+  {
+    id: 'yoshihama-jhs',
+    name: '旧吉浜中学校',
+    address: '大船渡市三陸町吉浜字扇洞127-2',
+    type: '学校施設',
+    mapUrl: 'https://maps.app.goo.gl/C5x2dLdSZWeoAzpj7',
+    position: {
+      lat: 39.158483986472866,
+      lng: 141.83598316284917,
+    },
+  },
 ];
