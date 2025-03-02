@@ -40,19 +40,21 @@ function getCapacityStatus(
       color: 'red',
       percentage,
     };
-  } else if (percentage >= 70) {
+  }
+
+  if (percentage >= 70) {
     return {
       label: 'やや混雑',
       color: 'yellow',
       percentage,
     };
-  } else {
-    return {
-      label: '空きあり',
-      color: 'green',
-      percentage,
-    };
   }
+
+  return {
+    label: '空きあり',
+    color: 'green',
+    percentage,
+  };
 }
 
 export default function ShelterInfoCard() {
