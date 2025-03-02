@@ -2,8 +2,6 @@
 import { APIProvider, Map, AdvancedMarker, Pin } from '@vis.gl/react-google-maps';
 import { shelters } from '../data/shelters';
 import { useState } from 'react';
-import { Dialog } from '@/components/ui/Dialog';
-
 const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
 type ShelterDialogProps = {
@@ -13,11 +11,12 @@ type ShelterDialogProps = {
 };
 
 function ShelterDialog({ shelter, isOpen, onClose }: ShelterDialogProps) {
+  if (!isOpen) return null;
+
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
-      <div className="fixed inset-0 z-50 flex items-start justify-center sm:items-center">
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onClick={onClose} />
-        <div className="fixed z-50 grid w-full gap-4 rounded-b-lg border bg-background p-6 shadow-lg animate-in data-[state=open]:fade-in-90 data-[state=open]:slide-in-from-bottom-10 sm:max-w-lg sm:rounded-lg">
+    <div className="fixed inset-0 z-50 flex items-start justify-center sm:items-center">
+      <div className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onClick={onClose} />
+      <div className="fixed z-50 grid w-full gap-4 rounded-b-lg border bg-white p-6 shadow-lg sm:max-w-lg sm:rounded-lg animate-slide-up">
           <div className="flex flex-col space-y-1.5">
             <h2 className="text-lg font-semibold leading-none tracking-tight">{shelter.name}</h2>
             <p className="text-sm text-muted-foreground">{shelter.type}</p>
