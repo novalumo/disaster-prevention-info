@@ -16,22 +16,25 @@ export default function ShelterMapPage() {
           避難所マップ
         </Heading>
         <div className="h-[600px] w-full">
-          <APIProvider apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''}>
+          <APIProvider
+            apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''}
+          >
             <Map
               zoom={13}
               center={center}
               gestureHandling="greedy"
               mapId="shelter-map"
             >
-              {shelters.map((shelter) => (
-                shelter.position && (
-                  <Marker
-                    key={shelter.id}
-                    position={shelter.position}
-                    title={shelter.name}
-                  />
-                )
-              ))}
+              {shelters.map(
+                (shelter) =>
+                  shelter.position && (
+                    <Marker
+                      key={shelter.id}
+                      position={shelter.position}
+                      title={shelter.name}
+                    />
+                  ),
+              )}
             </Map>
           </APIProvider>
         </div>
