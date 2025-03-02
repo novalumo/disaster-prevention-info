@@ -1,6 +1,5 @@
-import Card from '@/components/ui/Card';
 import Heading from '@/components/ui/Heading';
-
+import OfunatoContainer from '../components/OfunatoContainer';
 type EvacuationArea = {
   id: string;
   name: string;
@@ -156,7 +155,7 @@ export default function EmergencyInfoCard() {
   };
 
   return (
-    <Card>
+    <OfunatoContainer>
       <Heading as="h2" color="primary" className="mb-4">
         避難情報
       </Heading>
@@ -189,6 +188,6 @@ export default function EmergencyInfoCard() {
           </div>
         ))}
       </div>
-    </Card>
+    </OfunatoContainer>
   );
 }

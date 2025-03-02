@@ -31,32 +31,34 @@ export default function ContactAlert() {
   if (!isVisible) return null;
 
   return (
-    <Alert
-      severity="info"
-      sx={{
-        mx: 'auto',
-        maxWidth: 'lg',
-        '& .MuiAlert-message': {
-          width: '100%',
-        },
-      }}
-      onClose={handleClose}
-    >
-      <AlertTitle>情報の正確性について</AlertTitle>
-      <Box sx={{ fontSize: '0.875rem', mb: 2 }}>
-        当サイトに掲載されている情報は、最終更新時点で正確なものであることを確認していますが、
-        状況は刻々と変化している可能性があります。
-      </Box>
-      <Link href="/ofunato/about" style={{ textDecoration: 'none' }}>
-        <Button
-          variant="outlined"
-          size="small"
-          startIcon={<InfoIcon />}
-          sx={{ mt: 1 }}
-        >
-          詳しく見る
-        </Button>
-      </Link>
-    </Alert>
+    <div className="container px-4 pt-4">
+      <Alert
+        severity="info"
+        sx={{
+          mx: 'auto',
+          maxWidth: 'lg',
+          '& .MuiAlert-message': {
+            width: '100%',
+          },
+        }}
+        onClose={handleClose}
+      >
+        <AlertTitle>情報の正確性について</AlertTitle>
+        <Box sx={{ fontSize: '0.875rem', mb: 2 }}>
+          当サイトに掲載されている情報は、最終更新時点で正確なものであることを確認していますが、
+          状況は刻々と変化している可能性があります。
+        </Box>
+        <Link href="/ofunato/about" style={{ textDecoration: 'none' }}>
+          <Button
+            variant="outlined"
+            size="small"
+            startIcon={<InfoIcon />}
+            sx={{ mt: 1 }}
+          >
+            詳しく見る
+          </Button>
+        </Link>
+      </Alert>
+    </div>
   );
 }

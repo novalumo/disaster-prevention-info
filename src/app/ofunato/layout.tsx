@@ -21,10 +21,8 @@ export default function OfunatoLayout({
   return (
     <div className="min-h-screen bg-gray-50">
       <OfunatoHeader lastUpdated={getLastUpdated()} />
-      <div className="container mx-auto px-4 py-4">
-        <ContactAlert />
-      </div>
-      <main className="container mx-auto px-4 py-8 pb-20">{children}</main>
+      <ContactAlert />
+      <main>{children}</main>
       <OfunatoBottomNav />
     </div>
   );

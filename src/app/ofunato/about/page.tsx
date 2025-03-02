@@ -6,6 +6,7 @@ import {
   Typography,
   Link as MuiLink,
 } from '@mui/material';
+import OfunatoContainer from '../components/OfunatoContainer';
 
 export const metadata: Metadata = {
   title: '情報の正確性について - 大船渡市 山林火災情報',
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <Box>
+    <OfunatoContainer>
       <Typography variant="h5" component="h1" gutterBottom fontWeight="bold">
         情報の正確性について
       </Typography>
@@ -74,6 +75,6 @@ export default function AboutPage() {
         当サイトの情報を利用することで生じたいかなる損害についても、
         運営者は責任を負いかねますのでご了承ください。
       </Typography>
-    </Box>
+    </OfunatoContainer>
   );
 }

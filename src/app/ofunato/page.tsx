@@ -7,7 +7,7 @@ import {
   // Handshake,
   MonetizationOn,
 } from '@mui/icons-material';
-
+import OfunatoContainer from './components/OfunatoContainer';
 export const metadata: Metadata = {
   title: '大船渡市 山林火災情報',
   description: '大船渡市の山林火災に関する情報をまとめています。',
@@ -54,74 +54,72 @@ const menuItems = [
 
 export default function OfunatoPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <main className="container mx-auto px-4 py-8 pb-20">
-        <Grid container spacing={3}>
-          {menuItems.map((item) => (
-            <Grid item xs={12} sm={6} key={item.id}>
-              <Link href={item.href} className="block h-full">
-                <Paper
-                  elevation={0}
+    <OfunatoContainer>
+      <Grid container spacing={3}>
+        {menuItems.map((item) => (
+          <Grid item xs={12} sm={6} key={item.id}>
+            <Link href={item.href} className="block h-full">
+              <Paper
+                elevation={0}
+                sx={{
+                  p: 3,
+                  height: '100%',
+                  border: '1px solid',
+                  borderColor: 'grey.200',
+                  transition: 'all 0.2s ease-in-out',
+                  '&:hover': {
+                    transform: 'translateY(-4px)',
+                    boxShadow: '0 12px 24px -10px rgba(0, 0, 0, 0.1)',
+                    borderColor: item.color,
+                  },
+                }}
+              >
+                <Box
                   sx={{
-                    p: 3,
-                    height: '100%',
-                    border: '1px solid',
-                    borderColor: 'grey.200',
-                    transition: 'all 0.2s ease-in-out',
-                    '&:hover': {
-                      transform: 'translateY(-4px)',
-                      boxShadow: '0 12px 24px -10px rgba(0, 0, 0, 0.1)',
-                      borderColor: item.color,
-                    },
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    textAlign: 'center',
+                    gap: 2,
                   }}
                 >
                   <Box
                     sx={{
+                      color: item.color,
                       display: 'flex',
-                      flexDirection: 'column',
                       alignItems: 'center',
-                      textAlign: 'center',
-                      gap: 2,
+                      justifyContent: 'center',
+                      width: 80,
+                      height: 80,
+                      borderRadius: '50%',
+                      backgroundColor: `${item.color}15`,
                     }}
                   >
-                    <Box
-                      sx={{
-                        color: item.color,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        width: 80,
-                        height: 80,
-                        borderRadius: '50%',
-                        backgroundColor: `${item.color}15`,
-                      }}
-                    >
-                      {item.icon}
-                    </Box>
-                    <div>
-                      <Typography
-                        variant="h6"
-                        component="h2"
-                        fontWeight="bold"
-                        gutterBottom
-                      >
-                        {item.label}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="text.secondary"
-                        sx={{ lineHeight: 1.6 }}
-                      >
-                        {item.description}
-                      </Typography>
-                    </div>
+                    {item.icon}
                   </Box>
-                </Paper>
-              </Link>
-            </Grid>
-          ))}
-        </Grid>
-      </main>
-    </div>
+                  <div>
+                    <Typography
+                      variant="h6"
+                      component="h2"
+                      fontWeight="bold"
+                      gutterBottom
+                    >
+                      {item.label}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      sx={{ lineHeight: 1.6 }}
+                    >
+                      {item.description}
+                    </Typography>
+                  </div>
+                </Box>
+              </Paper>
+            </Link>
+          </Grid>
+        ))}
+      </Grid>
+    </OfunatoContainer>
   );
 }

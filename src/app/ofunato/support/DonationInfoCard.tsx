@@ -1,6 +1,6 @@
-import Card from '@/components/ui/Card';
 import Heading from '@/components/ui/Heading';
 import DonationOrganizationCard from '@/components/ui/DonationOrganizationCard';
+import OfunatoContainer from '../components/OfunatoContainer';
 
 type AccountDetail = {
   id: string;
@@ -171,7 +171,7 @@ const donationOrganizations: DonationOrganization[] = [
 
 export default function DonationInfoCard() {
   return (
-    <Card>
+    <OfunatoContainer>
       <Heading as="h2" color="primary" className="mb-4">
         募金先情報
       </Heading>
@@ -192,6 +192,6 @@ export default function DonationInfoCard() {
           />
         ))}
       </div>
-    </Card>
+    </OfunatoContainer>
   );
 }

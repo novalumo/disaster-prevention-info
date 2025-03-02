@@ -1,10 +1,9 @@
-import Card from '@/components/ui/Card';
 import Heading from '@/components/ui/Heading';
 import { MapPinIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { cn } from '@/lib/cn';
 import { shelters } from '../data/shelters';
-
+import OfunatoContainer from '../components/OfunatoContainer';
 export type Shelter = {
   id: string;
   name: string;
@@ -72,7 +71,7 @@ export default function ShelterInfoCard() {
   );
 
   return (
-    <Card>
+    <OfunatoContainer>
       <Heading as="h2" color="primary" className="mb-4">
         避難所情報
       </Heading>
@@ -86,7 +85,7 @@ export default function ShelterInfoCard() {
               {shelters.map((shelter) => (
                 <div
                   key={shelter.id}
-                  className="bg-gray-50 p-3 rounded border border-gray-100"
+                  className="bg-white p-3 rounded border border-gray-100"
                 >
                   <div className="flex justify-between items-start gap-4">
                     <div>
@@ -160,6 +159,6 @@ export default function ShelterInfoCard() {
           </div>
         ))}
       </div>
-    </Card>
+    </OfunatoContainer>
   );
 }
