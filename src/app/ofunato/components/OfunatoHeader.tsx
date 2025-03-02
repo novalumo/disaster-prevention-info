@@ -17,12 +17,13 @@ import {
   Link,
 } from '@mui/material';
 import { format } from 'date-fns';
-import { Menu as MenuIcon } from '@mui/icons-material';
 import {
+  Menu as MenuIcon,
   Campaign,
   LocationOn,
   MonetizationOn,
   Home,
+  Info,
 } from '@mui/icons-material';
 import { useRouter, usePathname } from 'next/navigation';
 
@@ -50,6 +51,12 @@ const menuItems = [
     label: '支援・募金',
     href: '/ofunato/support',
     icon: <MonetizationOn />,
+  },
+  {
+    id: 'about',
+    label: '情報の正確性について',
+    href: '/ofunato/about',
+    icon: <Info />,
   },
 ];
 

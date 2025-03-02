@@ -1,8 +1,4 @@
 import DonationInfoCard from '@/app/ofunato/support/DonationInfoCard';
-import ContactAlert from '@/components/ContactAlert';
-import { getLastUpdated } from '@/lib/time';
-import OfunatoBottomNav from '../components/OfunatoBottomNav';
-import OfunatoHeader from '../components/OfunatoHeader';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -15,16 +11,5 @@ export const metadata: Metadata = {
 };
 
 export default function SupportPage() {
-  return (
-    <div className="min-h-screen bg-gray-50">
-      <OfunatoHeader lastUpdated={getLastUpdated()} />
-      <div className="container mx-auto px-4 py-4">
-        <ContactAlert />
-      </div>
-      <main className="container mx-auto px-4 py-8 pb-20">
-        <DonationInfoCard />
-      </main>
-      <OfunatoBottomNav />
-    </div>
-  );
+  return <DonationInfoCard />;
 }
