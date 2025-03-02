@@ -55,7 +55,7 @@ const menuItems = [
   },
   {
     id: 'support',
-    label: '募金・支援',
+    label: '支援する',
     href: '/ofunato/support',
     icon: <Favorite />,
   },

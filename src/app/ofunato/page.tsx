@@ -45,7 +45,7 @@ const menuItems = [
   },
   {
     id: 'support',
-    label: '募金・支援',
+    label: '支援する',
     description: '被災地域への支援方法やボランティア情報を確認できます',
     href: '/ofunato/support',
     icon: <MonetizationOn sx={{ fontSize: 40 }} />,

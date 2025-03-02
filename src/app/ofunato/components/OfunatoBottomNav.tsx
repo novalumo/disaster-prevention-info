@@ -32,7 +32,7 @@ export default function OfunatoBottomNav() {
       icon: <LocalHospital />,
     },
     {
-      label: '募金・支援',
+      label: '支援する',
       value: '/ofunato/support',
       icon: <Favorite />,
     },
