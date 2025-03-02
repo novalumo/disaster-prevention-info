@@ -2,6 +2,7 @@ import Card from '@/components/ui/Card';
 import Heading from '@/components/ui/Heading';
 import { MapPinIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
+import { cn } from '@/lib/cn';
 
 type Shelter = {
   id: string;
@@ -9,7 +10,42 @@ type Shelter = {
   address: string;
   type?: '福祉施設' | '学校施設' | '公共施設';
   mapUrl?: string;
+  phone?: string;
+  maxCapacity?: number;
+  currentCapacity?: number;
 };
+
+type CapacityStatus = {
+  label: string;
+  color: 'green' | 'yellow' | 'red';
+  percentage: number;
+};
+
+function getCapacityStatus(current: number, max: number): CapacityStatus | null {
+  if (!max) return null;
+  
+  const percentage = (current / max) * 100;
+  
+  if (percentage >= 90) {
+    return {
+      label: '満員に近い',
+      color: 'red',
+      percentage,
+    };
+  } else if (percentage >= 70) {
+    return {
+      label: 'やや混雑',
+      color: 'yellow',
+      percentage,
+    };
+  } else {
+    return {
+      label: '空きあり',
+      color: 'green',
+      percentage,
+    };
+  }
+}
 
 export default function ShelterInfoCard() {
   const shelters: Shelter[] = [
@@ -130,6 +166,32 @@ export default function ShelterInfoCard() {
                       <div className="text-gray-600 text-sm mt-1">
                         {shelter.address}
                       </div>
+                      {shelter.phone && (
+                        <div className="text-gray-600 text-sm">
+                          TEL: {shelter.phone}
+                        </div>
+                      )}
+                      {(shelter.maxCapacity || shelter.currentCapacity) && (
+                        <div className="flex items-center gap-2 text-gray-600 text-sm">
+                          <span>
+                            収容状況: {shelter.currentCapacity || 0}人 / {shelter.maxCapacity || '---'}人
+                          </span>
+                          {shelter.maxCapacity && shelter.currentCapacity && (
+                            <span
+                              className={cn(
+                                'px-2 py-0.5 rounded text-xs font-medium',
+                                {
+                                  'bg-red-100 text-red-700': getCapacityStatus(shelter.currentCapacity, shelter.maxCapacity)?.color === 'red',
+                                  'bg-yellow-100 text-yellow-700': getCapacityStatus(shelter.currentCapacity, shelter.maxCapacity)?.color === 'yellow',
+                                  'bg-green-100 text-green-700': getCapacityStatus(shelter.currentCapacity, shelter.maxCapacity)?.color === 'green',
+                                }
+                              )}
+                            >
+                              {getCapacityStatus(shelter.currentCapacity, shelter.maxCapacity)?.label}
+                            </span>
+                          )}
+                        </div>
+                      )}
                     </div>
                     {shelter.mapUrl && (
                       <Link
