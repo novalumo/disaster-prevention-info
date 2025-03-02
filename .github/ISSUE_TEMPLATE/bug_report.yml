@@ -1,0 +1,59 @@
+name: バグ報告
+description: バグの報告や修正の提案
+title: "[バグ]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        バグ報告にご協力いただき、ありがとうございます。
+        以下の情報を記入してください。
+
+  - type: textarea
+    id: description
+    attributes:
+      label: バグの説明
+      description: どのような問題が発生しているか、できるだけ詳しく説明してください。
+      placeholder: "例: マップ上のピンをクリックしても情報が表示されない"
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 再現手順
+      description: バグを再現するための手順を記載してください。
+      placeholder: |
+        1. '...' ページに移動
+        2. '....' をクリック
+        3. '....' までスクロール
+        4. エラーが発生
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期待される動作
+      description: 本来どのように動作するべきか説明してください。
+      placeholder: "例: ピンをクリックすると避難所の情報がモーダルで表示される"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: 発生するブラウザ
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+        - その他
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: 補足情報
+      description: スクリーンショットやエラーメッセージなど、問題の解決に役立つ情報があれば追加してください。
