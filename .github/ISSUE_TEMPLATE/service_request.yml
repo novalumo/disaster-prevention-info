@@ -1,0 +1,58 @@
+name: 支援施設追加リクエスト
+description: 支援施設の追加リクエスト
+title: "[追加]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        支援施設の追加にご協力いただき、ありがとうございます。
+        以下の情報を記入してください。
+
+  - type: textarea
+    id: name
+    attributes:
+      label: 支援施設名
+      description: 支援施設の名前を記入してください。
+
+  - type: textarea
+    id: type
+    attributes:
+      label: 支援施設の種類
+      description: 支援施設の種類を記入してください。
+
+  - type: textarea
+    id: address
+    attributes:
+      label: 支援施設の住所
+      description: 支援施設の住所を記入してください。
+
+  - type: textarea
+    id: phone
+    attributes:
+      label: 支援施設の電話番号（オプション）
+      description: 支援施設の電話番号を記入してください。
+
+  - type: textarea
+    id: hours
+    attributes:
+      label: 支援施設の営業時間（オプション）
+      description: 支援施設の営業時間を記入してください。
+
+  - type: textarea
+    id: details
+    attributes:
+      label: 支援施設の詳細
+      description: 支援施設の詳細を記入してください。
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: 補足情報（オプション）
+      description: 支援施設の補足情報を記入してください。
+
+  - type: textarea
+    id: mapUrl
+    attributes:
+      label: 支援施設の Google Maps URL（オプション）
+      description: 支援施設の Google Maps URLを記入してください。該当施設を選択して共有ボタンから発行されるURLを記入してください。
