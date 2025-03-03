@@ -1,5 +1,6 @@
 import Heading from '@/components/ui/Heading';
 import DonationOrganizationCard from '@/components/ui/DonationOrganizationCard';
+import { ArrowDownIcon } from '@heroicons/react/24/outline';
 
 type AccountDetail = {
   id: string;
@@ -213,9 +214,32 @@ export default function DonationInfoCard() {
         <p className="text-gray-600 mb-6">
           被災地域を支援するための募金先情報です。ご協力をお願いいたします。
         </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 mt-8">
+          <a
+            href="#bank-transfer"
+            className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
+          >
+            <ArrowDownIcon className="h-4 w-4" />
+            <span>銀行振込による寄付</span>
+            <span className="text-sm text-gray-500">
+              （{bankTransferOrgs.length}件）
+            </span>
+          </a>
+          <a
+            href="#other-methods"
+            className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
+          >
+            <ArrowDownIcon className="h-4 w-4" />
+            <span>その他の寄付方法</span>
+            <span className="text-sm text-gray-500">
+              （{otherDonationOrgs.length}件）
+            </span>
+          </a>
+        </div>
       </div>
 
-      <div>
+      <div id="bank-transfer">
         <Heading as="h3" color="secondary" className="mb-4">
           銀行振込による寄付
         </Heading>
@@ -235,7 +259,7 @@ export default function DonationInfoCard() {
         </div>
       </div>
 
-      <div>
+      <div id="other-methods">
         <Heading as="h3" color="secondary" className="mb-4">
           その他の寄付方法
         </Heading>
