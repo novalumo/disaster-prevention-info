@@ -9,7 +9,7 @@ import OfunatoContainer from '@/app/ofunato/components/OfunatoContainer';
 import { format } from 'date-fns';
 import { useState } from 'react';
 import { Tabs, Tab, Box } from '@mui/material';
-import { Bathtub, DirectionsBus, Restaurant } from '@mui/icons-material';
+import { Bathtub, DirectionsBus, Restaurant, Hotel } from '@mui/icons-material';
 import { sendGTMEvent } from '@next/third-parties/google';
 
 function getCapacityStatus(current: number, max: number) {
@@ -61,6 +61,7 @@ const facilityTypes = [
   { type: '入浴施設', icon: <Bathtub /> },
   { type: '送迎バス', icon: <DirectionsBus /> },
   { type: '食事提供', icon: <Restaurant /> },
+  { type: '宿泊施設', icon: <Hotel /> },
 ];
 
 export default function ServicesCard() {
@@ -92,8 +93,15 @@ export default function ServicesCard() {
         <Tabs
           value={tabValue}
           onChange={handleTabChange}
-          variant="fullWidth"
+          variant="scrollable"
+          scrollButtons="auto"
+          allowScrollButtonsMobile
           aria-label="支援施設カテゴリー"
+          sx={{
+            '& .MuiTabs-scrollButtons.Mui-disabled': {
+              opacity: 0.3,
+            },
+          }}
         >
           {facilityTypes.map((type, index) => (
             <Tab
