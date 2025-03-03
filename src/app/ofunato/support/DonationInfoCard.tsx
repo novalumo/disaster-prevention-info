@@ -196,27 +196,63 @@ const donationOrganizations: DonationOrganization[] = [
 ];
 
 export default function DonationInfoCard() {
+  // 銀行振込とその他の寄付方法に分類
+  const bankTransferOrgs = donationOrganizations.filter(
+    (org) => org.accountInfo,
+  );
+  const otherDonationOrgs = donationOrganizations.filter(
+    (org) => !org.accountInfo,
+  );
+
   return (
-    <section>
-      <Heading as="h2" color="primary" className="mb-4">
-        募金先情報
-      </Heading>
-      <p className="text-gray-600 mb-6">
-        被災地域を支援するための募金先情報です。ご協力をお願いいたします。
-      </p>
-      <div className={'grid grid-cols-1 lg:grid-cols-2 gap-6'}>
-        {donationOrganizations.map((org) => (
-          <DonationOrganizationCard
-            className="border"
-            key={org.id}
-            organizationName={org.organizationName}
-            note={org.note}
-            amount={org.amount}
-            accountInfo={org.accountInfo}
-            websiteUrl={org.websiteUrl}
-            websiteLabel={org.websiteLabel}
-          />
-        ))}
+    <section className="space-y-12">
+      <div>
+        <Heading as="h2" color="primary" className="mb-4">
+          募金先情報
+        </Heading>
+        <p className="text-gray-600 mb-6">
+          被災地域を支援するための募金先情報です。ご協力をお願いいたします。
+        </p>
+      </div>
+
+      <div>
+        <Heading as="h3" color="secondary" className="mb-4">
+          銀行振込による寄付
+        </Heading>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {bankTransferOrgs.map((org) => (
+            <DonationOrganizationCard
+              className="border"
+              key={org.id}
+              organizationName={org.organizationName}
+              note={org.note}
+              amount={org.amount}
+              accountInfo={org.accountInfo}
+              websiteUrl={org.websiteUrl}
+              websiteLabel={org.websiteLabel}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <Heading as="h3" color="secondary" className="mb-4">
+          その他の寄付方法
+        </Heading>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {otherDonationOrgs.map((org) => (
+            <DonationOrganizationCard
+              className="border"
+              key={org.id}
+              organizationName={org.organizationName}
+              note={org.note}
+              amount={org.amount}
+              accountInfo={org.accountInfo}
+              websiteUrl={org.websiteUrl}
+              websiteLabel={org.websiteLabel}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
