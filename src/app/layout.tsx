@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { GoogleTagManager } from '@next/third-parties/google';
 import { Noto_Sans_JP } from 'next/font/google';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import './globals.css';
@@ -39,6 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={`${notoSansJP.variable}`}>
+      <GoogleTagManager gtmId="GTM-K5FB6RX3" />
       <body className={'font-base antialiased'}>
         <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
       </body>

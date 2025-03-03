@@ -6,6 +6,7 @@ import { MonetizationOn, Handshake } from '@mui/icons-material';
 import DonationInfoCard from './DonationInfoCard';
 import VolunteerInfoCard from '@/app/ofunato/support/VolunteerInfoCard';
 import OfunatoContainer from '../components/OfunatoContainer';
+import { sendGTMEvent } from '@next/third-parties/google';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -48,14 +49,26 @@ export default function SupportCard() {
           <Tab
             icon={<MonetizationOn />}
             label="募金"
-            id="support-tab-0"
-            aria-controls="support-tabpanel-0"
+            id="support-tab-donation"
+            aria-controls="support-tabpanel-donation"
+            onClick={() =>
+              sendGTMEvent({
+                event: 'tabClick',
+                value: 'support-tab-donation',
+              })
+            }
           />
           <Tab
             icon={<Handshake />}
             label="ボランティア"
-            id="support-tab-1"
-            aria-controls="support-tabpanel-1"
+            id="support-tab-volunteer"
+            aria-controls="support-tabpanel-volunteer"
+            onClick={() =>
+              sendGTMEvent({
+                event: 'tabClick',
+                value: 'support-tab-volunteer',
+              })
+            }
           />
         </Tabs>
       </Box>
