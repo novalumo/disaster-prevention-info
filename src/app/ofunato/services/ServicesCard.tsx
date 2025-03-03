@@ -7,7 +7,7 @@ import { cn } from '@/lib/cn';
 import { supportFacilities } from '@/app/ofunato/data/services';
 import OfunatoContainer from '@/app/ofunato/components/OfunatoContainer';
 import { format } from 'date-fns';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Tabs, Tab, Box } from '@mui/material';
 import { Bathtub, DirectionsBus, Restaurant, Hotel } from '@mui/icons-material';
 import { sendGTMEvent } from '@next/third-parties/google';
@@ -72,16 +72,39 @@ export default function ServicesCard() {
   };
 
   // 施設タイプごとにグループ化
-  const groupedFacilities = supportFacilities.reduce(
-    (acc, facility) => {
-      if (!acc[facility.type]) {
-        acc[facility.type] = [];
-      }
-      acc[facility.type].push(facility);
-      return acc;
-    },
-    {} as Record<string, typeof supportFacilities>,
+  const groupedFacilities = useMemo(
+    () =>
+      supportFacilities.reduce(
+        (acc, facility) => {
+          if (!acc[facility.type]) {
+            acc[facility.type] = [];
+          }
+          acc[facility.type].push(facility);
+          return acc;
+        },
+        {} as Record<string, typeof supportFacilities>,
+      ),
+    [],
   );
+
+  // 各タイプのデータ存在確認
+  const hasData = useMemo(
+    () =>
+      facilityTypes.map(
+        (type) =>
+          groupedFacilities[type.type] &&
+          groupedFacilities[type.type].length > 0,
+      ),
+    [groupedFacilities],
+  );
+
+  // 初期タブの設定（データが存在する最初のタブを選択）
+  useState(() => {
+    const firstAvailableTab = hasData.findIndex((has) => has);
+    if (firstAvailableTab !== -1 && firstAvailableTab !== tabValue) {
+      setTabValue(firstAvailableTab);
+    }
+  });
 
   return (
     <OfunatoContainer>
@@ -110,6 +133,7 @@ export default function ServicesCard() {
               label={type.type}
               id={`services-tab-${index}`}
               aria-controls={`services-tabpanel-${index}`}
+              disabled={!hasData[index]}
               onClick={() =>
                 sendGTMEvent({
                   event: 'tabClick',
