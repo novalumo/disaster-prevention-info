@@ -57,7 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={`${notoSansJP.variable}`}>
+    <html lang="ja" className={`${notoSansJP.variable} scroll-smooth`}>
       <GoogleTagManager gtmId="GTM-K5FB6RX3" />
       <body className={'font-base antialiased'}>
         <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
