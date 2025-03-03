@@ -103,6 +103,21 @@ export const bathFacilities: SupportFacility[] = [
     mapUrl: 'https://maps.app.goo.gl/8SLjXXhhEkmKmvAc8',
     // 39.10127222517526, 141.71738872404205
   },
+  // 【碁石海岸キャンプ場】シャワー室
+  {
+    id: 'bath-6',
+    name: '碁石海岸キャンプ場（シャワー室）',
+    type: '入浴施設',
+    address: '大船渡市末崎町字大浜221-68',
+    hours: ['9:00 - 20:00'],
+    details: '避難者に対してシャワー室を無料開放しています',
+    notes: [
+      '利用時は碁石海岸インフォメーションセンター窓口で職員に声がけが必要です',
+      '3月16日まで一般の方の利用は中止となっています'
+    ],
+    mapUrl: 'https://maps.app.goo.gl/KrDRxpRwdQgwQUy7A',
+    // 38.99211076300236, 141.7421176381869
+  },
 ];
 
 // 送迎バス
