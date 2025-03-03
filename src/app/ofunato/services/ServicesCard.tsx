@@ -10,6 +10,7 @@ import { format } from 'date-fns';
 import { useState } from 'react';
 import { Tabs, Tab, Box } from '@mui/material';
 import { Bathtub, DirectionsBus, Restaurant } from '@mui/icons-material';
+import { sendGTMEvent } from '@next/third-parties/google';
 
 function getCapacityStatus(current: number, max: number) {
   const percentage = (current / max) * 100;
@@ -101,6 +102,12 @@ export default function ServicesCard() {
               label={type.type}
               id={`services-tab-${index}`}
               aria-controls={`services-tabpanel-${index}`}
+              onClick={() =>
+                sendGTMEvent({
+                  event: 'tabClick',
+                  value: `services-tab-${type.type}`,
+                })
+              }
             />
           ))}
         </Tabs>
