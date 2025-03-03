@@ -21,7 +21,7 @@ export default function VolunteerInfoCard() {
           <div className="font-bold text-yellow-800 mb-2">現在の受付状況</div>
           <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>市外からの個人ボランティア：受付停止中</li>
-            <li>団体および市内在住の個人ボランティア：受付停止中</li>
+            <li>団体および市内在住の個人ボランティア：受付のみ、活動は未定</li>
           </ul>
         </div>
         <p className="text-gray-600">
