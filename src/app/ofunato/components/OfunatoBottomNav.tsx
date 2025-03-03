@@ -51,7 +51,14 @@ export default function OfunatoBottomNav() {
 
   return (
     <Paper
-      sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 50 }}
+      sx={{
+        position: 'fixed',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        zIndex: 50,
+        paddingBottom: 'env(safe-area-inset-bottom, 20px)',
+      }}
       elevation={3}
     >
       <BottomNavigation
