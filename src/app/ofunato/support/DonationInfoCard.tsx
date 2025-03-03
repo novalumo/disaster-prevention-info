@@ -128,6 +128,33 @@ const donationOrganizations: DonationOrganization[] = [
     websiteLabel: 'Facebookページを見る',
   },
   {
+    id: 'kizuna-sanriku',
+    organizationName: '特定非営利活動法人 絆プロジェクト三陸',
+    note: '現地の状況を踏まえ、必要な物資の購入や支援活動に充てさせていただきます。',
+    accountInfo: [
+      { id: 'kizuna-sanriku-bank', label: '金融機関', value: 'ゆうちょ銀行' },
+      {
+        id: 'kizuna-sanriku-branch',
+        label: '支店名',
+        value: '八三八（ハチサンハチ）',
+      },
+      { id: 'kizuna-sanriku-type', label: '口座種別', value: '普通' },
+      { id: 'kizuna-sanriku-number', label: '口座番号', value: '2388005' },
+      {
+        id: 'kizuna-sanriku-name',
+        label: '口座名義',
+        value: '特定非営利活動法人絆プロジェクト三陸',
+      },
+      {
+        id: 'kizuna-sanriku-name-kana',
+        label: '名義カナ',
+        value: 'トクヒ）キズナプロジェクトサンリク',
+      },
+    ],
+    websiteUrl: 'https://www.facebook.com/kizuna.sanriku.jp/',
+    websiteLabel: 'Facebookページを見る',
+  },
+  {
     id: 'yahoo-donation',
     organizationName: 'Yahoo!基金',
     note: '2025/03/31 18:00 まで。本募金には、500万円を上限金額としてLINEヤフー株式会社からのマッチング寄付が適用されます。',
