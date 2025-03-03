@@ -14,6 +14,7 @@ export default {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+        theme: '#1d4ed8',
       },
       fontFamily: {
         base: ['var(--font-noto-sans-jp)'],
