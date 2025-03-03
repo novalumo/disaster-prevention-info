@@ -31,6 +31,15 @@ export const metadata: Metadata = {
     creator: '@novalumo_jp',
     card: 'summary_large_image',
   },
+  icons: {
+    icon: '/images/favicon/icon.png',
+    shortcut: '/images/favicon/icon.png',
+    apple: '/images/favicon/icon.png',
+    other: {
+      rel: 'icon',
+      url: '/images/favicon/icon.png',
+    },
+  },
 };
 
 export const viewport: Viewport = {
