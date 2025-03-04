@@ -198,9 +198,15 @@ export default function ServicesCard() {
                       )}
                     </div>
 
-                    {facility.details && (
+                    {facility.details && facility.details.length > 0 && (
                       <div className="mt-3 text-gray-600">
-                        {facility.details}
+                        <div className="space-y-1">
+                          {facility.details.map((detail, index) => (
+                            <div key={`${facility.id}-detail-${index}`}>
+                              {detail}
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     )}
 
