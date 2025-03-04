@@ -1,7 +1,13 @@
 export type SupportFacility = {
   id: string;
   name: string;
-  type: '入浴施設' | '送迎バス' | '食事提供' | '宿泊施設' | '学習施設';
+  type:
+    | '入浴施設'
+    | '送迎バス'
+    | '食事提供'
+    | '宿泊施設'
+    | '学習施設'
+    | 'ペット関連';
   address?: string[];
   phone?: string[];
   hours?: string[];
@@ -352,10 +358,29 @@ export const studyFacilities: SupportFacility[] = [
   },
 ];
 
+// ペット関連施設
+export const petFacilities: SupportFacility[] = [
+  {
+    id: 'pet-1',
+    name: '大船渡保健福祉環境センター（雫石町・動物いのちの会いわて）',
+    type: 'ペット関連',
+    phone: ['0192－27－9923（内線 243）'],
+    hours: ['9：00～17：00'],
+    details: [
+      '避難所にペットをお連れの皆様へ',
+      '大船渡保健福祉環境センター（大船渡保健所）では、避難所に動物を連れて避難されている方の動物の一時預かり等のご相談に応じています。',
+      'お電話にてご相談ください。',
+    ],
+    notes: ['2日〜無料で一時預かり'],
+    mapUrl: '',
+  },
+];
+
 export const supportFacilities: SupportFacility[] = [
   ...bathFacilities,
   ...shuttleBuses,
   ...mealFacilities,
   ...accommodationFacilities,
   ...studyFacilities,
+  ...petFacilities,
 ];

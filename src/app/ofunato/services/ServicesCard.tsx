@@ -15,6 +15,7 @@ import {
   Restaurant,
   Hotel,
   School,
+  Pets,
 } from '@mui/icons-material';
 import { sendGTMEvent } from '@next/third-parties/google';
 
@@ -69,6 +70,7 @@ const facilityTypes = [
   { type: '食事提供', icon: <Restaurant /> },
   { type: '宿泊施設', icon: <Hotel /> },
   { type: '学習施設', icon: <School /> },
+  { type: 'ペット関連', icon: <Pets /> },
 ];
 
 export default function ServicesCard() {
