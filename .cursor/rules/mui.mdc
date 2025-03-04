@@ -1,7 +1,0 @@
----
-description: 
-globs: *.tsx, *.ts
----
-# Material UI
-
-- `createTheme`, `useTheme` などのテーマ機能は使わないでください。

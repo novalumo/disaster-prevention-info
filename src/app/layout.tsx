@@ -3,6 +3,8 @@ import { GoogleTagManager } from '@next/third-parties/google';
 import { Noto_Sans_JP } from 'next/font/google';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import './globals.css';
+import { ThemeProvider } from '@mui/material';
+import { theme } from '@/theme';
 
 const notoSansJP = Noto_Sans_JP({
   variable: '--font-noto-sans-jp',
@@ -60,7 +62,9 @@ export default function RootLayout({
     <html lang="ja" className={`${notoSansJP.variable} scroll-smooth`}>
       <GoogleTagManager gtmId="GTM-K5FB6RX3" />
       <body className={'font-base antialiased'}>
-        <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
+        <AppRouterCacheProvider>
+          <ThemeProvider theme={theme}>{children}</ThemeProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );
