@@ -213,6 +213,20 @@ export const mealFacilities: SupportFacility[] = [
     mapUrl: 'https://maps.app.goo.gl/BFkFpAHHnWrdxH8s6',
     // 39.06140450220428, 141.7233545258845
   },
+  // スター市場食堂
+  {
+    id: 'meal-6',
+    name: '【避難者無料】スター市場食堂',
+    type: '食事提供',
+    address: '大船渡市立根町桑原16-1',
+    details: '醤油ラーメンを無料提供しています',
+    notes: [
+      'ご注文の際、現住所の確認できるものをご提示お願いします',
+      '混雑を避けるため当面の間、食堂メニューは醤油ラーメンのみの提供となります',
+    ],
+    mapUrl: 'https://maps.app.goo.gl/D3QDzP3pHbN7S3EUA',
+    // 39.106306667789596, 141.71120191057133
+  },
 ];
 
 // 宿泊施設
