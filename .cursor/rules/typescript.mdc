@@ -2,7 +2,6 @@
 description: 
 globs: *.tsx, tsconfig.json
 ---
-# React
+# TypeScript
 
-- This project has import aliases below:
-  - `@/*` -> `src/*`
+- `@/*` -> `src/*` があるので、`src/` 以下のファイルを参照する時は必ずこのエイリアスを使ってください。
