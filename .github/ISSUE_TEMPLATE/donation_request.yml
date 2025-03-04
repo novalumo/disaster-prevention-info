@@ -1,5 +1,6 @@
 name: 💰 募金先追加リクエスト
 description: 募金先の追加リクエスト
+title: "[募金・{{donationType}}]: {{organizationName}}"
 body:
   - type: markdown
     attributes:

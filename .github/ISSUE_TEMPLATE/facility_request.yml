@@ -1,5 +1,6 @@
 name: 🏠 支援施設追加リクエスト
 description: 支援施設の追加リクエスト
+title: "[{{type}}]: {{name}}"
 body:
   - type: markdown
     attributes:
