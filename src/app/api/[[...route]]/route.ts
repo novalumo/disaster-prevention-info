@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { handle } from 'hono/vercel';
-import servicesRoute from '../services/route';
-import openaiRoute from '../openai/route';
+import servicesRoute from '../services';
+import openaiRoute from '../openai';
 
 export const runtime = 'edge';
 
