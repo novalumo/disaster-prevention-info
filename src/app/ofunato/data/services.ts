@@ -271,6 +271,7 @@ export const studyFacilities: SupportFacility[] = [
       'イベント開催時は使用出来ません',
     ],
     mapUrl: 'https://maps.app.goo.gl/7egMhsc9JXQ8agQi8',
+    // 39.08760934444737, 141.7092322587848
   },
 ];
 
