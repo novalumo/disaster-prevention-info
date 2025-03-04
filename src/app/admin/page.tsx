@@ -1,5 +1,5 @@
 import { Container, Typography, Grid, Paper, Box } from '@mui/material';
-import AdminHeader from './components/AdminHeader';
+// import AdminHeader from './components/AdminHeader';
 import {
   Business,
   School,
@@ -58,7 +58,7 @@ export default function AdminPage() {
 
   return (
     <>
-      <AdminHeader />
+      {/* <AdminHeader /> */}
       <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
         <Typography
           variant="h4"
