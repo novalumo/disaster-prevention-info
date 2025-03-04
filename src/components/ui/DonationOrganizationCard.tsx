@@ -1,10 +1,15 @@
 'use client';
-import { useState } from 'react';
-import Card from '@/components/ui/Card';
-import Heading from '@/components/ui/Heading';
-import Button from '@/components/ui/Button';
 import Link from 'next/link';
-import { DocumentDuplicateIcon, CheckIcon } from '@heroicons/react/24/outline';
+import {
+  Card,
+  CardContent,
+  Typography,
+  Button,
+  Box,
+  Paper,
+  Divider,
+} from '@mui/material';
+import { OpenInNew as OpenInNewIcon } from '@mui/icons-material';
 
 type AccountDetail = {
   id: string;
@@ -31,144 +36,151 @@ export default function DonationOrganizationCard({
   websiteLabel = '公式サイトへ',
   className,
 }: DonationOrganizationCardProps) {
-  const [copiedItem, setCopiedItem] = useState<string | null>(null);
-
-  const handleCopy = (text: string, itemId?: string) => {
-    navigator.clipboard.writeText(text).then(() => {
-      setCopiedItem(itemId || 'all');
-      setTimeout(() => setCopiedItem(null), 2000);
-    });
-  };
-
-  // 振込先情報が文字列の場合（後方互換性のため）
   const renderStringAccountInfo = () => {
-    const isAllCopied = copiedItem === 'all';
-
     return (
-      <div className="mt-1 p-3 bg-gray-50 rounded border border-gray-200 relative">
-        <p className="text-gray-600 pr-12">{accountInfo as string}</p>
-        <Button
-          variant={isAllCopied ? 'secondary' : 'outline'}
-          className="absolute right-2 top-2 p-1.5"
-          onClick={() => handleCopy(accountInfo as string, 'all')}
-          title={isAllCopied ? 'コピー済み' : 'コピーする'}
+      <Paper
+        variant="outlined"
+        sx={{
+          mt: 1,
+          p: 2,
+          bgcolor: 'grey.50',
+        }}
+      >
+        <Typography
+          variant="body1"
+          sx={{
+            color: 'text.primary',
+            whiteSpace: 'pre-wrap',
+          }}
         >
-          {isAllCopied ? (
-            <CheckIcon className="h-5 w-5" />
-          ) : (
-            <DocumentDuplicateIcon className="h-5 w-5" />
-          )}
-        </Button>
-      </div>
+          {accountInfo as string}
+        </Typography>
+      </Paper>
     );
   };
 
-  // 振込先情報が項目ごとに分かれている場合
   const renderDetailedAccountInfo = () => {
     const details = accountInfo as AccountDetail[];
     return (
-      <div className="mt-1 bg-gray-50 rounded border border-gray-200 divide-y divide-gray-200">
-        {details.map((detail) => (
-          <div
-            key={detail.id}
-            className="p-3 flex justify-between items-center"
-          >
-            <div>
-              <span className="font-semibold text-gray-700">
-                {detail.label}:{' '}
-              </span>
-              <span className="text-gray-600">{detail.value}</span>
-            </div>
-            <Button
-              variant={copiedItem === detail.id ? 'secondary' : 'outline'}
-              className="p-1.5 ml-2"
-              onClick={() => handleCopy(detail.value, detail.id)}
-              title={copiedItem === detail.id ? 'コピー済み' : 'コピーする'}
+      <Paper
+        variant="outlined"
+        sx={{
+          mt: 1,
+          bgcolor: 'grey.50',
+          overflow: 'hidden',
+        }}
+      >
+        {details.map((detail, index) => (
+          <Box key={detail.id}>
+            {index > 0 && <Divider />}
+            <Box
+              sx={{
+                p: 2,
+                display: 'grid',
+                gridTemplateColumns: { xs: '120px 1fr', sm: '140px 1fr' },
+                gap: 2,
+                alignItems: 'center',
+              }}
             >
-              {copiedItem === detail.id ? (
-                <CheckIcon className="h-5 w-5" />
-              ) : (
-                <DocumentDuplicateIcon className="h-5 w-5" />
-              )}
-            </Button>
-          </div>
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  color: 'text.primary',
+                  py: 0.5,
+                  px: 1.5,
+                  borderRadius: 1,
+                  fontSize: '0.875rem',
+                  display: 'inline-block',
+                }}
+              >
+                {detail.label}
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{
+                  color: 'text.primary',
+                  fontWeight: 'bold',
+                  letterSpacing: 0.5,
+                }}
+              >
+                {detail.value}
+              </Typography>
+            </Box>
+          </Box>
         ))}
-        <div className="p-3 flex justify-end">
-          <Button
-            variant={copiedItem === 'all' ? 'secondary' : 'primary'}
-            className="p-1.5 flex items-center gap-1.5"
-            onClick={() =>
-              handleCopy(
-                details.map((d) => `${d.label}: ${d.value}`).join('\n'),
-                'all',
-              )
-            }
-            title={
-              copiedItem === 'all' ? 'コピー済み' : '全ての情報をコピーする'
-            }
-          >
-            {copiedItem === 'all' ? (
-              <>
-                <CheckIcon className="h-5 w-5" />
-                <span className="text-sm">コピー済み</span>
-              </>
-            ) : (
-              <>
-                <DocumentDuplicateIcon className="h-5 w-5" />
-                <span className="text-sm">全ての情報をコピー</span>
-              </>
-            )}
-          </Button>
-        </div>
-      </div>
+      </Paper>
     );
   };
 
   return (
-    <Card className={`${className || ''}`}>
-      <Heading as="h3" color="primary" className="mb-3">
-        {organizationName}
-      </Heading>
+    <Card variant="outlined" className={className}>
+      <CardContent>
+        <Typography
+          variant="h6"
+          component="h3"
+          color="primary"
+          gutterBottom
+          fontWeight="bold"
+        >
+          {organizationName}
+        </Typography>
 
-      {amount && (
-        <div className="mb-3">
-          <span className="font-semibold text-gray-700">金額: </span>
-          <span className="text-gray-600">
-            {typeof amount === 'number'
-              ? `${amount.toLocaleString()}円`
-              : amount}
-          </span>
-        </div>
-      )}
+        {amount && (
+          <Box sx={{ mb: 2 }}>
+            <Typography component="span" variant="subtitle2">
+              金額:{' '}
+            </Typography>
+            <Typography component="span" variant="body1" color="text.secondary">
+              {typeof amount === 'number'
+                ? `${amount.toLocaleString()}円`
+                : amount}
+            </Typography>
+          </Box>
+        )}
 
-      {accountInfo && (
-        <div className="mb-4">
-          <span className="font-semibold text-gray-700">振込先: </span>
-          {Array.isArray(accountInfo)
-            ? renderDetailedAccountInfo()
-            : renderStringAccountInfo()}
-        </div>
-      )}
+        {accountInfo && (
+          <Box sx={{ mb: 2 }}>
+            <Typography variant="subtitle2">振込先: </Typography>
+            {Array.isArray(accountInfo)
+              ? renderDetailedAccountInfo()
+              : renderStringAccountInfo()}
+          </Box>
+        )}
 
-      {note && (
-        <div className="mb-4 p-3 bg-gray-50 rounded border border-gray-100">
-          <span className="font-semibold text-gray-700 block mb-1">備考: </span>
-          <p className="text-gray-600 text-sm">{note}</p>
-        </div>
-      )}
-
-      {websiteUrl && (
-        <div className="mt-4">
-          <Link
-            href={websiteUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block"
+        {note && (
+          <Paper
+            variant="outlined"
+            sx={{
+              mb: 2,
+              p: 2,
+              bgcolor: 'grey.50',
+            }}
           >
-            <Button variant="primary">{websiteLabel}</Button>
-          </Link>
-        </div>
-      )}
+            <Typography variant="subtitle2" gutterBottom>
+              備考:
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {note}
+            </Typography>
+          </Paper>
+        )}
+
+        {websiteUrl && (
+          <Box sx={{ mt: 3 }}>
+            <Button
+              component={Link}
+              href={websiteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="contained"
+              sx={{ textTransform: 'none' }}
+              endIcon={<OpenInNewIcon />}
+            >
+              {websiteLabel}
+            </Button>
+          </Box>
+        )}
+      </CardContent>
     </Card>
   );
 }
