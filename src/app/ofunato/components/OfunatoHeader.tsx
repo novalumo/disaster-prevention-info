@@ -19,8 +19,7 @@ import {
 import { format } from 'date-fns';
 import {
   Menu as MenuIcon,
-  Campaign,
-  LocationOn,
+  NotificationImportant,
   Home,
   Info,
   Favorite,
@@ -37,15 +36,9 @@ const menuItems = [
   },
   {
     id: 'emergency',
-    label: '避難情報',
+    label: '避難関連',
     href: '/ofunato/emergency',
-    icon: <Campaign />,
-  },
-  {
-    id: 'shelter',
-    label: '避難所',
-    href: '/ofunato/shelter',
-    icon: <LocationOn />,
+    icon: <NotificationImportant />,
   },
   {
     id: 'services',

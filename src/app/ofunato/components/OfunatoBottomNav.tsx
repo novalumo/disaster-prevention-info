@@ -4,10 +4,9 @@ import { usePathname, useRouter } from 'next/navigation';
 import { BottomNavigation, BottomNavigationAction, Paper } from '@mui/material';
 import {
   Home,
-  Campaign,
-  LocationOn,
-  Favorite,
+  NotificationImportant,
   LocalHospital,
+  Favorite,
 } from '@mui/icons-material';
 
 export default function OfunatoBottomNav() {
@@ -17,14 +16,9 @@ export default function OfunatoBottomNav() {
   const navigationItems = [
     { label: 'ホーム', value: '/ofunato', icon: <Home /> },
     {
-      label: '避難情報',
+      label: '避難関連',
       value: '/ofunato/emergency',
-      icon: <Campaign />,
-    },
-    {
-      label: '避難所',
-      value: '/ofunato/shelter',
-      icon: <LocationOn />,
+      icon: <NotificationImportant />,
     },
     {
       label: '支援施設',
