@@ -206,6 +206,7 @@ export const mealFacilities: SupportFacility[] = [
     id: 'meal-5',
     name: '【避難者無料】BBQ&BUFFET Happy',
     type: '食事提供',
+    address: '大船渡市大船渡町字茶屋前3-2',
     hours: ['11:00 - 14:00'],
     details: '山火事で避難している方向けにランチを無料提供しています',
     notes: ['住所のわかるものの提示が必要です'],
