@@ -12,7 +12,8 @@
     {
       "binding": "DB",
       "database_name": "disaster-prevention-db",
-      "database_id": "344ed65d-cfa4-4785-881f-3607d0f64dab"
+      "database_id": "344ed65d-cfa4-4785-881f-3607d0f64dab",
+      "preview_database_id": "DB"
     }
   ]
 }
