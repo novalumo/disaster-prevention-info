@@ -4,4 +4,6 @@ globs: *.tsx, tsconfig.json
 ---
 # TypeScript
 
-- `@/*` -> `src/*` があるので、`src/` 以下のファイルを参照する時は必ずこのエイリアスを使ってください。
+## import について
+
+- [tsconfig.json](mdc:tsconfig.json) にエイリアスとして `@/*` -> `src/*` が登録されているので、`src` の中のディレクトリでは相対パスを使わずエイリアスを使ってください。

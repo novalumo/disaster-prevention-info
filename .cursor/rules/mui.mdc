@@ -1,7 +1,7 @@
 ---
 description: 
-globs: *.tsx
+globs: *.tsx, *.ts
 ---
 # Material UI
 
-- Do not use `useTheme`
+- `createTheme`, `useTheme` などのテーマ機能は使わないでください。

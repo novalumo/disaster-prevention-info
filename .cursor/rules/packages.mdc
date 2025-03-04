@@ -1,9 +1,9 @@
 ---
 description: 
-globs: package.json
+globs: *
 ---
 # Packages
 
-- In this project, we'll use Bun as a package manager.
-- If you need to install packages, use `bun`
-- Use `bunx` when is needed to run `npx`
+- `bun` をパッケージマネージャとして使います。
+- パッケージを追加したい場合などは `npm` ではなく `bun` を使ってください。
+- `npx` のようなコマンドも `bunx` としてください。
