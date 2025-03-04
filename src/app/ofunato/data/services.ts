@@ -201,6 +201,17 @@ export const mealFacilities: SupportFacility[] = [
     mapUrl: 'https://maps.app.goo.gl/7cubrQHmxKbie8p98',
     // 39.08521444281153, 141.70999226699215
   },
+  // BBQ&BUFFET Happy
+  {
+    id: 'meal-5',
+    name: '【避難者無料】BBQ&BUFFET Happy',
+    type: '食事提供',
+    hours: ['11:00 - 14:00'],
+    details: '山火事で避難している方向けにランチを無料提供しています',
+    notes: ['住所のわかるものの提示が必要です'],
+    mapUrl: 'https://maps.app.goo.gl/BFkFpAHHnWrdxH8s6',
+    // 39.06140450220428, 141.7233545258845
+  },
 ];
 
 // 宿泊施設
