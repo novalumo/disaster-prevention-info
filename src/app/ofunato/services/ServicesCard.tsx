@@ -9,7 +9,13 @@ import OfunatoContainer from '@/app/ofunato/components/OfunatoContainer';
 import { format } from 'date-fns';
 import { useState, useMemo } from 'react';
 import { Tabs, Tab, Box } from '@mui/material';
-import { Bathtub, DirectionsBus, Restaurant, Hotel } from '@mui/icons-material';
+import {
+  Bathtub,
+  DirectionsBus,
+  Restaurant,
+  Hotel,
+  School,
+} from '@mui/icons-material';
 import { sendGTMEvent } from '@next/third-parties/google';
 
 function getCapacityStatus(current: number, max: number) {
@@ -62,6 +68,7 @@ const facilityTypes = [
   { type: '送迎バス', icon: <DirectionsBus /> },
   { type: '食事提供', icon: <Restaurant /> },
   { type: '宿泊施設', icon: <Hotel /> },
+  { type: '学習施設', icon: <School /> },
 ];
 
 export default function ServicesCard() {
@@ -191,9 +198,15 @@ export default function ServicesCard() {
                       )}
                     </div>
 
-                    {facility.details && (
+                    {facility.details && facility.details.length > 0 && (
                       <div className="mt-3 text-gray-600">
-                        {facility.details}
+                        <div className="space-y-1">
+                          {facility.details.map((detail, index) => (
+                            <div key={`${facility.id}-detail-${index}`}>
+                              {detail}
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     )}
 

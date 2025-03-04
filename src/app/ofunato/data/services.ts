@@ -1,11 +1,11 @@
 export type SupportFacility = {
   id: string;
   name: string;
-  type: '入浴施設' | '送迎バス' | '食事提供' | '宿泊施設';
+  type: '入浴施設' | '送迎バス' | '食事提供' | '宿泊施設' | '学習施設';
   address?: string;
   phone?: string;
   hours?: string[];
-  details: string;
+  details: string[];
   notes?: string[];
   mapUrl?: string;
   capacity?: number;
@@ -27,7 +27,7 @@ export const bathFacilities: SupportFacility[] = [
     address: '大船渡市日頃市町字赤坂西風山1-5',
     phone: '0192-22-5400',
     hours: ['10:00 - 20:00', '火曜休'],
-    details: '',
+    details: [],
     notes: [
       '避難者対象でリアスホールからバス送迎有り',
       '一般客も同じ時間に有料で利用可',
@@ -43,7 +43,7 @@ export const bathFacilities: SupportFacility[] = [
     address: '大船渡市大船渡町字丸森29番1',
     phone: '0192-26-1717',
     hours: ['11:00 - 20:00'],
-    details: '',
+    details: [],
     notes: ['三陸公民館からバスの送迎あり', '同じく一般利用可'],
     mapUrl: 'https://maps.app.goo.gl/DnA3cbrz5T9rrLk56',
     // 39.02929903140382, 141.7139010969424
@@ -56,7 +56,7 @@ export const bathFacilities: SupportFacility[] = [
     address: '大船渡市立根町下欠１２５−１２',
     phone: '',
     hours: ['10:00 - 20:00', '月曜休'],
-    details: '',
+    details: [],
     notes: [],
     mapUrl: 'https://maps.app.goo.gl/W8y17XvMYCDetScx7',
     // 39.10209418118228, 141.72042419623378
@@ -69,7 +69,7 @@ export const bathFacilities: SupportFacility[] = [
     address: '大船渡市三陸町越喜来字小出59-1',
     phone: '0192-44-3711',
     hours: ['10:00 - 20:00', '水曜休'],
-    details: '越喜来小発着、さんりくの園経由でバス送迎有、９日（日）まで',
+    details: ['越喜来小発着、さんりくの園経由でバス送迎有、９日（日）まで'],
     notes: ['利用は避難者限定'],
     mapUrl: 'https://maps.app.goo.gl/gMTYf7eYxzPCTwKbA',
     // 39.13863125645727, 141.78123465916207
@@ -96,7 +96,7 @@ export const bathFacilities: SupportFacility[] = [
       '火・木・土は女性',
       '日曜日：午前は男性（10時リアスホール発）、午後は女性（11時15分リアスホール発）',
     ],
-    details: '',
+    details: [],
     notes: [
       '送迎有で、出発は①大船渡一中17時ごろ、②リアスホール18時10分ごろ、③リアスホール19時20分ごろ――の３往復制。',
     ],
@@ -110,7 +110,7 @@ export const bathFacilities: SupportFacility[] = [
     type: '入浴施設',
     address: '大船渡市末崎町字大浜221-68',
     hours: ['9:00 - 20:00'],
-    details: '避難者に対してシャワー室を無料開放しています',
+    details: ['避難者に対してシャワー室を無料開放しています'],
     notes: [
       '利用時は碁石海岸インフォメーションセンター窓口で職員に声がけが必要です',
       '3月16日まで一般の方の利用は中止となっています',
@@ -126,7 +126,7 @@ export const shuttleBuses: SupportFacility[] = [
   //   id: 'bus-1',
   //   name: '避難所巡回バス',
   //   type: '送迎バス',
-  //   details: '避難所と主要施設を結ぶ無料送迎バスを運行しています。',
+  //   details: ['避難所と主要施設を結ぶ無料送迎バスを運行しています。'],
   //   schedule: [
   //     {
   //       date: '2024-03-04',
@@ -154,7 +154,7 @@ export const mealFacilities: SupportFacility[] = [
     name: '【避難者無料】黒船本店',
     type: '食事提供',
     address: '大船渡市猪川町藤沢口39',
-    details: 'ラーメン&チャーハン',
+    details: ['ラーメン&チャーハン'],
     notes: ['証明書は特に求めません', '避難してますと言って頂ければOK'],
     mapUrl: 'https://maps.app.goo.gl/jPShq5A33j3LqwJZ8',
     // 39.10085781205102, 141.69172943316974
@@ -165,7 +165,7 @@ export const mealFacilities: SupportFacility[] = [
     name: '【避難者無料】黒船SECOND',
     type: '食事提供',
     address: '大船渡市大船渡町茶屋前3-2-2140 キャッセンフードヴィレッジ',
-    details: 'ラーメン&秋刀魚節ご飯',
+    details: ['ラーメン&秋刀魚節ご飯'],
     notes: ['証明書は特に求めません', '避難してますと言って頂ければOK'],
     mapUrl: 'https://maps.app.goo.gl/YQknZrdBhbdK1Xg6A',
     // 39.06201257352936, 141.72170033343636
@@ -176,8 +176,9 @@ export const mealFacilities: SupportFacility[] = [
     name: '【避難者無料】三平食堂',
     type: '食事提供',
     hours: ['11:00 - 19:00'],
-    details:
+    details: [
       '綾里地区住民の方限定で食事を無料提供しています。メニュー表の中からお好きなメニューを選べます（麺類・ごはん類・定食・お子様メニューなど）全70品',
+    ],
     notes: [
       'テイクアウトOK',
       'おかわり、大盛りも可能',
@@ -195,8 +196,9 @@ export const mealFacilities: SupportFacility[] = [
     id: 'meal-4',
     name: '【避難者無料】よしの珈琲',
     type: '食事提供',
-    details:
+    details: [
       '大船渡林野火災により避難している方を対象に、ドリンクを無料で提供しています',
+    ],
     notes: ['コーヒーを飲みに来るだけでもOK', '避難者の方が対象です'],
     mapUrl: 'https://maps.app.goo.gl/7cubrQHmxKbie8p98',
     // 39.08521444281153, 141.70999226699215
@@ -208,7 +210,7 @@ export const mealFacilities: SupportFacility[] = [
     type: '食事提供',
     address: '大船渡市大船渡町野々田153-4',
     hours: ['11:00 - 14:00'],
-    details: '山火事で避難している方向けにランチを無料提供しています',
+    details: ['山火事で避難している方向けにランチを無料提供しています'],
     notes: ['住所のわかるものの提示が必要です'],
     mapUrl: 'https://maps.app.goo.gl/BFkFpAHHnWrdxH8s6',
     // 39.06140450220428, 141.7233545258845
@@ -219,7 +221,7 @@ export const mealFacilities: SupportFacility[] = [
     name: '【避難者無料】スター市場食堂',
     type: '食事提供',
     address: '大船渡市立根町桑原16-1',
-    details: '醤油ラーメンを無料提供しています',
+    details: ['醤油ラーメンを無料提供しています'],
     notes: [
       'ご注文の際、現住所の確認できるものをご提示お願いします',
       '混雑を避けるため当面の間、食堂メニューは醤油ラーメンのみの提供となります',
@@ -237,8 +239,9 @@ export const accommodationFacilities: SupportFacility[] = [
     type: '宿泊施設',
     address: '岩手県陸前高田市竹駒町字上壺104-8',
     phone: '0192-55-6866',
-    details:
+    details: [
       '避難されている方向けに3部屋を無料で提供しています。ロッツ株式会社による支援です。',
+    ],
     notes: [
       'お部屋の利用は電話でのお問い合わせが必要です',
       '無料の入浴サービスも実施しています',
@@ -249,9 +252,41 @@ export const accommodationFacilities: SupportFacility[] = [
   },
 ];
 
+// 学習施設
+export const studyFacilities: SupportFacility[] = [
+  {
+    id: 'study-1',
+    name: 'サンリア臨時学習ルーム',
+    type: '学習施設',
+    address:
+      '〒022-0003 岩手県大船渡市盛町字町10番地11 1F多目的ルーム(旧美容室)',
+    phone: '0192-26-3939（代表）',
+    hours: ['9:00 - 19:00'],
+    details: [
+      '使用料金：無料',
+      '開設者：協同組合南三陸ショッピングセンター',
+      '開設期間：令和7年3月2日(日)~当面の間',
+      '',
+      '現在発災している大船渡市内山林火災に際し、被災学生等の学習支援のためサンリア館内に学習ルームを臨時開設します。ぜひご活用くださいませ。',
+    ],
+    notes: [
+      '主に学生~児童の自習ルームとして運用します（使用条件:年齢・被災の有無は問いません）',
+      '管理人は常駐しません',
+      '飲食は禁止（蓋付きの飲み物（水筒・ペットボトル）は可）',
+      '場所取り（事前予約、荷物を置く）はできません',
+      '周りのお客様の迷惑にならないよう静かに利用していただきます',
+      '当面は長机とパイプイスのみの設備となります',
+      'イベント開催時は使用出来ません',
+    ],
+    mapUrl: 'https://maps.app.goo.gl/7egMhsc9JXQ8agQi8',
+    // 39.08760934444737, 141.7092322587848
+  },
+];
+
 export const supportFacilities: SupportFacility[] = [
   ...bathFacilities,
   ...shuttleBuses,
   ...mealFacilities,
   ...accommodationFacilities,
+  ...studyFacilities,
 ];
