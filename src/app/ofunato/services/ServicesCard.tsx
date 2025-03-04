@@ -167,17 +167,29 @@ export default function ServicesCard() {
                     </div>
 
                     <div className="text-gray-600 space-y-2">
-                      {facility.address && (
-                        <div className="flex items-center gap-2">
-                          <MapPinIcon className="h-5 w-5 flex-shrink-0" />
-                          <span>{facility.address}</span>
+                      {facility.address && facility.address.length > 0 && (
+                        <div className="flex items-start gap-2">
+                          <MapPinIcon className="h-5 w-5 flex-shrink-0 mt-0.5" />
+                          <div className="space-y-1">
+                            {facility.address.map((addr, index) => (
+                              <div key={`${facility.id}-addr-${index}`}>
+                                {addr}
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       )}
 
-                      {facility.phone && (
-                        <div className="flex items-center gap-2">
-                          <PhoneIcon className="h-5 w-5 flex-shrink-0" />
-                          <span>{facility.phone}</span>
+                      {facility.phone && facility.phone.length > 0 && (
+                        <div className="flex items-start gap-2">
+                          <PhoneIcon className="h-5 w-5 flex-shrink-0 mt-0.5" />
+                          <div className="space-y-1">
+                            {facility.phone.map((p, index) => (
+                              <div key={`${facility.id}-phone-${index}`}>
+                                {p}
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       )}
 

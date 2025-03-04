@@ -2,10 +2,10 @@ export type SupportFacility = {
   id: string;
   name: string;
   type: '入浴施設' | '送迎バス' | '食事提供' | '宿泊施設' | '学習施設';
-  address?: string;
-  phone?: string;
+  address?: string[];
+  phone?: string[];
   hours?: string[];
-  details: string[];
+  details?: string[];
   notes?: string[];
   mapUrl?: string;
   capacity?: number;
@@ -24,8 +24,8 @@ export const bathFacilities: SupportFacility[] = [
     id: 'bath-1',
     name: '五葉温泉',
     type: '入浴施設',
-    address: '大船渡市日頃市町字赤坂西風山1-5',
-    phone: '0192-22-5400',
+    address: ['大船渡市日頃市町字赤坂西風山1-5'],
+    phone: ['0192-22-5400'],
     hours: ['10:00 - 20:00', '火曜休'],
     details: [],
     notes: [
@@ -40,8 +40,8 @@ export const bathFacilities: SupportFacility[] = [
     id: 'bath-2',
     name: '大船渡温泉',
     type: '入浴施設',
-    address: '大船渡市大船渡町字丸森29番1',
-    phone: '0192-26-1717',
+    address: ['大船渡市大船渡町字丸森29番1'],
+    phone: ['0192-26-1717'],
     hours: ['11:00 - 20:00'],
     details: [],
     notes: ['三陸公民館からバスの送迎あり', '同じく一般利用可'],
@@ -53,8 +53,8 @@ export const bathFacilities: SupportFacility[] = [
     id: 'bath-3',
     name: 'Y・Sセンター',
     type: '入浴施設',
-    address: '大船渡市立根町下欠１２５−１２',
-    phone: '',
+    address: ['大船渡市立根町下欠１２５−１２'],
+    phone: [],
     hours: ['10:00 - 20:00', '月曜休'],
     details: [],
     notes: [],
@@ -66,8 +66,8 @@ export const bathFacilities: SupportFacility[] = [
     id: 'bath-4',
     name: '夏虫のお湯っこ',
     type: '入浴施設',
-    address: '大船渡市三陸町越喜来字小出59-1',
-    phone: '0192-44-3711',
+    address: ['大船渡市三陸町越喜来字小出59-1'],
+    phone: ['0192-44-3711'],
     hours: ['10:00 - 20:00', '水曜休'],
     details: ['越喜来小発着、さんりくの園経由でバス送迎有、９日（日）まで'],
     notes: ['利用は避難者限定'],
@@ -89,8 +89,8 @@ export const bathFacilities: SupportFacility[] = [
     id: 'bath-5',
     name: '富美岡荘',
     type: '入浴施設',
-    address: '大船渡市猪川町字冨岡148番地',
-    phone: '0192-21-1118',
+    address: ['大船渡市猪川町字冨岡148番地'],
+    phone: ['0192-21-1118'],
     hours: [
       '月・水・金は男性',
       '火・木・土は女性',
@@ -108,7 +108,7 @@ export const bathFacilities: SupportFacility[] = [
     id: 'bath-6',
     name: '碁石海岸キャンプ場（シャワー室）',
     type: '入浴施設',
-    address: '大船渡市末崎町字大浜221-68',
+    address: ['大船渡市末崎町字大浜221-68'],
     hours: ['9:00 - 20:00'],
     details: ['避難者に対してシャワー室を無料開放しています'],
     notes: [
@@ -153,7 +153,7 @@ export const mealFacilities: SupportFacility[] = [
     id: 'meal-1',
     name: '【避難者無料】黒船本店',
     type: '食事提供',
-    address: '大船渡市猪川町藤沢口39',
+    address: ['大船渡市猪川町藤沢口39'],
     details: ['ラーメン&チャーハン'],
     notes: ['証明書は特に求めません', '避難してますと言って頂ければOK'],
     mapUrl: 'https://maps.app.goo.gl/jPShq5A33j3LqwJZ8',
@@ -164,7 +164,7 @@ export const mealFacilities: SupportFacility[] = [
     id: 'meal-2',
     name: '【避難者無料】黒船SECOND',
     type: '食事提供',
-    address: '大船渡市大船渡町茶屋前3-2-2140 キャッセンフードヴィレッジ',
+    address: ['大船渡市大船渡町茶屋前3-2-2140 キャッセンフードヴィレッジ'],
     details: ['ラーメン&秋刀魚節ご飯'],
     notes: ['証明書は特に求めません', '避難してますと言って頂ければOK'],
     mapUrl: 'https://maps.app.goo.gl/YQknZrdBhbdK1Xg6A',
@@ -208,7 +208,7 @@ export const mealFacilities: SupportFacility[] = [
     id: 'meal-5',
     name: '【避難者無料】BBQ&BUFFET Happy',
     type: '食事提供',
-    address: '大船渡市大船渡町野々田153-4',
+    address: ['大船渡市大船渡町野々田153-4'],
     hours: ['11:00 - 14:00'],
     details: ['山火事で避難している方向けにランチを無料提供しています'],
     notes: ['住所のわかるものの提示が必要です'],
@@ -220,7 +220,7 @@ export const mealFacilities: SupportFacility[] = [
     id: 'meal-6',
     name: '【避難者無料】スター市場食堂',
     type: '食事提供',
-    address: '大船渡市立根町桑原16-1',
+    address: ['大船渡市立根町桑原16-1'],
     details: ['醤油ラーメンを無料提供しています'],
     notes: [
       'ご注文の際、現住所の確認できるものをご提示お願いします',
@@ -237,8 +237,8 @@ export const accommodationFacilities: SupportFacility[] = [
     id: 'accommodation-1',
     name: '【避難者無料】玉乃湯',
     type: '宿泊施設',
-    address: '岩手県陸前高田市竹駒町字上壺104-8',
-    phone: '0192-55-6866',
+    address: ['岩手県陸前高田市竹駒町字上壺104-8'],
+    phone: ['0192-55-6866'],
     details: [
       '避難されている方向けに3部屋を無料で提供しています。ロッツ株式会社による支援です。',
     ],
@@ -258,9 +258,8 @@ export const studyFacilities: SupportFacility[] = [
     id: 'study-1',
     name: 'サンリア臨時学習ルーム',
     type: '学習施設',
-    address:
-      '〒022-0003 岩手県大船渡市盛町字町10番地11 1F多目的ルーム(旧美容室)',
-    phone: '0192-26-3939（代表）',
+    address: ['大船渡市盛町字町10番地11 1F多目的ルーム(旧美容室)'],
+    phone: ['0192-26-3939（代表）'],
     hours: ['9:00 - 19:00'],
     details: [
       '使用料金：無料',
