@@ -4,6 +4,7 @@
     "": {
       "name": "disaster-prevention-info",
       "dependencies": {
+        "@cloudflare/d1": "^1.4.1",
         "@emotion/cache": "^11.14.0",
         "@emotion/react": "^11.14.0",
         "@emotion/styled": "^11.14.0",
@@ -122,6 +123,8 @@
     "@biomejs/cli-win32-arm64": ["@biomejs/cli-win32-arm64@1.9.4", "", { "os": "win32", "cpu": "arm64" }, "sha512-tlbhLk+WXZmgwoIKwHIHEBZUwxml7bRJgk0X2sPyNR3S93cdRq6XulAZRQJ17FYGGzWne0fgrXBKpl7l4M87Hg=="],
 
     "@biomejs/cli-win32-x64": ["@biomejs/cli-win32-x64@1.9.4", "", { "os": "win32", "cpu": "x64" }, "sha512-8Y5wMhVIPaWe6jw2H+KlEm4wP/f7EW3810ZLmDlrEEy5KvBsb9ECEfu/kMWD484ijfQ8+nIi0giMgu9g1UAuuA=="],
+
+    "@cloudflare/d1": ["@cloudflare/d1@1.4.1", "", {}, "sha512-czIBkVoZG7csWK0GVpWXqvnfM2Uv91AqdhwXeTPd1zpdQ+x/or492tD1ybVe679868bGMsHRqtHxp+5rwHXRaA=="],
 
     "@cloudflare/kv-asset-handler": ["@cloudflare/kv-asset-handler@0.3.4", "", { "dependencies": { "mime": "^3.0.0" } }, "sha512-YLPHc8yASwjNkmcDMQMY35yiWjoKAKnhUbPRszBRS0YgH+IXtsMp61j+yTcnCE3oO2DgP0U3iejLC8FTtKDC8Q=="],
 

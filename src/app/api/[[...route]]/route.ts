@@ -6,7 +6,7 @@ import openaiRoute from '../openai/route';
 export const runtime = 'edge';
 
 // メインのAPIルーター
-const app = new Hono().basePath('/api');
+const app = new Hono<{ Bindings: CloudflareEnv }>().basePath('/api');
 
 // 各APIルートをマウント
 app.route('/openai', openaiRoute);

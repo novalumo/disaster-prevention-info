@@ -11,6 +11,9 @@ export const facilitySchema = z.object({
   mapUrl: z.string().optional(),
   hours: z.array(z.string()).optional(),
   notes: z.array(z.string()).optional(),
+  capacity: z.number().optional(),
+  currentUsers: z.number().optional(),
+  schedule: z.array(z.string()).optional(),
 });
 
 export type Facility = z.infer<typeof facilitySchema>;

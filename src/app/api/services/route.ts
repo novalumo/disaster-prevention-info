@@ -1,33 +1,56 @@
 import { Hono } from 'hono';
-import { supportFacilities } from '@/app/ofunato/data/services';
 import { facilitySchema } from './schema';
 
-// サービス管理API ルート
-const servicesRoute = new Hono();
+// サービス管理API
+const servicesRoute = new Hono<{ Bindings: CloudflareEnv }>();
 
 // サービス一覧の取得
-servicesRoute.get('/', (c) => {
-  return c.json({ services: supportFacilities });
+servicesRoute.get('/', async (c) => {
+  try {
+    const { DB } = c.env;
+
+    // D1からすべての施設を取得
+    const { results } = await DB.prepare(
+      'SELECT * FROM facilities ORDER BY created_at DESC',
+    ).all();
+
+    return c.json(results);
+  } catch (error) {
+    console.error('サービス一覧取得エラー:', error);
+    return c.json({ error: 'サービス一覧の取得に失敗しました' }, 500);
+  }
 });
 
 // 特定のサービスの取得
-servicesRoute.get('/:id', (c) => {
-  const id = c.req.param('id');
-  const facility = supportFacilities.find((f) => f.id === id);
+servicesRoute.get('/:id', async (c) => {
+  try {
+    const id = c.req.param('id');
+    const { DB } = c.env;
 
-  if (!facility) {
-    return c.json({ error: 'サービスが見つかりません' }, 404);
+    // D1から特定のIDの施設を取得
+    const facility = await DB.prepare('SELECT * FROM facilities WHERE id = ?')
+      .bind(id)
+      .first();
+
+    if (!facility) {
+      return c.json({ error: 'サービスが見つかりません' }, 404);
+    }
+
+    return c.json(facility);
+  } catch (error) {
+    console.error('サービス取得エラー:', error);
+    return c.json({ error: 'サービスの取得に失敗しました' }, 500);
   }
-
-  return c.json({ service: facility });
 });
 
 // サービスの作成
 servicesRoute.post('/', async (c) => {
   try {
     const body = await c.req.json();
-    const result = facilitySchema.safeParse(body);
+    const { DB } = c.env;
 
+    // 入力データのバリデーション
+    const result = facilitySchema.safeParse(body);
     if (!result.success) {
       return c.json(
         { error: '入力データが不正です', details: result.error.format() },
@@ -38,16 +61,42 @@ servicesRoute.post('/', async (c) => {
     const newFacility = result.data;
 
     // IDの重複チェック
-    const existingFacility = supportFacilities.find(
-      (f) => f.id === newFacility.id,
-    );
+    const existingFacility = await DB.prepare(
+      'SELECT id FROM facilities WHERE id = ?',
+    )
+      .bind(newFacility.id)
+      .first();
+
     if (existingFacility) {
       return c.json({ error: '同じIDのサービスが既に存在します' }, 409);
     }
 
-    // TODO: 実際のアプリケーションではデータベースに保存する処理を実装
-    // ここではメモリ上のデータを更新する例を示します
-    // supportFacilities.push(newFacility);
+    // D1にデータを挿入
+    const { success } = await DB.prepare(`
+      INSERT INTO facilities (
+        id, name, type, address, phone, hours, details, notes, map_url,
+        capacity, current_users, schedule
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `)
+      .bind(
+        newFacility.id,
+        newFacility.name,
+        newFacility.type,
+        newFacility.address || null,
+        newFacility.phone || null,
+        newFacility.hours ? JSON.stringify(newFacility.hours) : null,
+        newFacility.details || null,
+        newFacility.notes || null,
+        newFacility.mapUrl || null,
+        newFacility.capacity || null,
+        newFacility.currentUsers || null,
+        newFacility.schedule ? JSON.stringify(newFacility.schedule) : null,
+      )
+      .run();
+
+    if (!success) {
+      return c.json({ error: 'サービスの作成に失敗しました' }, 500);
+    }
 
     return c.json(
       { message: 'サービスが作成されました', service: newFacility },
@@ -64,15 +113,21 @@ servicesRoute.put('/:id', async (c) => {
   try {
     const id = c.req.param('id');
     const body = await c.req.json();
+    const { DB } = c.env;
 
     // 更新対象のサービスが存在するか確認
-    const facilityIndex = supportFacilities.findIndex((f) => f.id === id);
-    if (facilityIndex === -1) {
+    const existingFacility = await DB.prepare(
+      'SELECT id FROM facilities WHERE id = ?',
+    )
+      .bind(id)
+      .first();
+
+    if (!existingFacility) {
       return c.json({ error: '更新対象のサービスが見つかりません' }, 404);
     }
 
-    // バリデーション（IDは変更不可）
-    const result = facilitySchema.omit({ id: true }).safeParse(body);
+    // 入力データのバリデーション
+    const result = facilitySchema.safeParse(body);
     if (!result.success) {
       return c.json(
         { error: '入力データが不正です', details: result.error.format() },
@@ -80,14 +135,46 @@ servicesRoute.put('/:id', async (c) => {
       );
     }
 
-    const updatedFacility = {
-      ...result.data,
-      id, // IDは変更不可
-    };
+    const updatedFacility = result.data;
 
-    // TODO: 実際のアプリケーションではデータベースを更新する処理を実装
-    // ここではメモリ上のデータを更新する例を示します
-    // supportFacilities[facilityIndex] = updatedFacility;
+    // D1でデータを更新
+    const { success } = await DB.prepare(`
+      UPDATE facilities SET
+        name = ?,
+        type = ?,
+        address = ?,
+        phone = ?,
+        hours = ?,
+        details = ?,
+        notes = ?,
+        map_url = ?,
+        capacity = ?,
+        current_users = ?,
+        schedule = ?,
+        updated_at = CURRENT_TIMESTAMP
+      WHERE id = ?
+    `)
+      .bind(
+        updatedFacility.name,
+        updatedFacility.type,
+        updatedFacility.address || null,
+        updatedFacility.phone || null,
+        updatedFacility.hours ? JSON.stringify(updatedFacility.hours) : null,
+        updatedFacility.details || null,
+        updatedFacility.notes || null,
+        updatedFacility.mapUrl || null,
+        updatedFacility.capacity || null,
+        updatedFacility.currentUsers || null,
+        updatedFacility.schedule
+          ? JSON.stringify(updatedFacility.schedule)
+          : null,
+        id,
+      )
+      .run();
+
+    if (!success) {
+      return c.json({ error: 'サービスの更新に失敗しました' }, 500);
+    }
 
     return c.json({
       message: 'サービスが更新されました',
@@ -100,20 +187,36 @@ servicesRoute.put('/:id', async (c) => {
 });
 
 // サービスの削除
-servicesRoute.delete('/:id', (c) => {
-  const id = c.req.param('id');
+servicesRoute.delete('/:id', async (c) => {
+  try {
+    const id = c.req.param('id');
+    const { DB } = c.env;
 
-  // 削除対象のサービスが存在するか確認
-  const facilityIndex = supportFacilities.findIndex((f) => f.id === id);
-  if (facilityIndex === -1) {
-    return c.json({ error: '削除対象のサービスが見つかりません' }, 404);
+    // 削除対象のサービスが存在するか確認
+    const existingFacility = await DB.prepare(
+      'SELECT id FROM facilities WHERE id = ?',
+    )
+      .bind(id)
+      .first();
+
+    if (!existingFacility) {
+      return c.json({ error: '削除対象のサービスが見つかりません' }, 404);
+    }
+
+    // D1からデータを削除
+    const { success } = await DB.prepare('DELETE FROM facilities WHERE id = ?')
+      .bind(id)
+      .run();
+
+    if (!success) {
+      return c.json({ error: 'サービスの削除に失敗しました' }, 500);
+    }
+
+    return c.json({ message: 'サービスが削除されました' });
+  } catch (error) {
+    console.error('サービス削除エラー:', error);
+    return c.json({ error: 'サービスの削除に失敗しました' }, 500);
   }
-
-  // TODO: 実際のアプリケーションではデータベースから削除する処理を実装
-  // ここではメモリ上のデータを削除する例を示します
-  // supportFacilities.splice(facilityIndex, 1);
-
-  return c.json({ message: 'サービスが削除されました' });
 });
 
 export default servicesRoute;
