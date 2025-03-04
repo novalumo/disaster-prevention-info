@@ -113,7 +113,7 @@ export const bathFacilities: SupportFacility[] = [
     details: '避難者に対してシャワー室を無料開放しています',
     notes: [
       '利用時は碁石海岸インフォメーションセンター窓口で職員に声がけが必要です',
-      '3月16日まで一般の方の利用は中止となっています'
+      '3月16日まで一般の方の利用は中止となっています',
     ],
     mapUrl: 'https://maps.app.goo.gl/KrDRxpRwdQgwQUy7A',
     // 38.99211076300236, 141.7421176381869
@@ -201,6 +201,18 @@ export const mealFacilities: SupportFacility[] = [
     mapUrl: 'https://maps.app.goo.gl/7cubrQHmxKbie8p98',
     // 39.08521444281153, 141.70999226699215
   },
+  // BBQ&BUFFET Happy
+  {
+    id: 'meal-5',
+    name: '【避難者無料】BBQ&BUFFET Happy',
+    type: '食事提供',
+    address: '大船渡市大船渡町野々田153-4',
+    hours: ['11:00 - 14:00'],
+    details: '山火事で避難している方向けにランチを無料提供しています',
+    notes: ['住所のわかるものの提示が必要です'],
+    mapUrl: 'https://maps.app.goo.gl/BFkFpAHHnWrdxH8s6',
+    // 39.06140450220428, 141.7233545258845
+  },
 ];
 
 // 宿泊施設
@@ -211,10 +223,11 @@ export const accommodationFacilities: SupportFacility[] = [
     type: '宿泊施設',
     address: '岩手県陸前高田市竹駒町字上壺104-8',
     phone: '0192-55-6866',
-    details: '避難されている方向けに3部屋を無料で提供しています。ロッツ株式会社による支援です。',
+    details:
+      '避難されている方向けに3部屋を無料で提供しています。ロッツ株式会社による支援です。',
     notes: [
       'お部屋の利用は電話でのお問い合わせが必要です',
-      '無料の入浴サービスも実施しています'
+      '無料の入浴サービスも実施しています',
     ],
     mapUrl: 'https://maps.app.goo.gl/CRCvL6AMK63GFTHQ8',
     capacity: 3,
