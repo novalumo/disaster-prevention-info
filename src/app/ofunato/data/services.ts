@@ -1,7 +1,7 @@
 export type SupportFacility = {
   id: string;
   name: string;
-  type: '入浴施設' | '送迎バス' | '食事提供' | '宿泊施設';
+  type: '入浴施設' | '送迎バス' | '食事提供' | '宿泊施設' | '学習施設';
   address?: string;
   phone?: string;
   hours?: string[];
@@ -249,9 +249,32 @@ export const accommodationFacilities: SupportFacility[] = [
   },
 ];
 
+// 学習施設
+export const studyFacilities: SupportFacility[] = [
+  {
+    id: 'study-1',
+    name: '【避難者向け】大船渡市立図書館',
+    type: '学習施設',
+    address: '大船渡市盛町字町10-11',
+    phone: '0192-26-4478',
+    hours: ['9:00 - 19:00', '月曜休館'],
+    details:
+      '避難している中高生向けに学習スペースを提供しています。Wi-Fi環境完備。',
+    notes: [
+      '避難所にいることの確認が必要です',
+      '学生証の提示をお願いします',
+      '飲み物の持ち込みは可能です',
+      '長時間の利用も可能です',
+    ],
+    mapUrl: 'https://maps.app.goo.gl/HZBVPTFVGPxKGPQS7',
+    // 39.08521444281153, 141.70999226699215
+  },
+];
+
 export const supportFacilities: SupportFacility[] = [
   ...bathFacilities,
   ...shuttleBuses,
   ...mealFacilities,
   ...accommodationFacilities,
+  ...studyFacilities,
 ];
