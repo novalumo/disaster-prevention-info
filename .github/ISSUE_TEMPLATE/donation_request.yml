@@ -1,0 +1,82 @@
+name: 💰 募金先追加リクエスト
+description: 募金先の追加リクエスト
+body:
+  - type: markdown
+    attributes:
+      value: |
+        募金先の追加にご協力いただき、ありがとうございます。
+        以下の情報を記入してください。
+
+  - type: input
+    id: organizationName
+    attributes:
+      label: 団体名
+      description: 募金先の団体名を記入してください。
+    validations:
+      required: true
+
+  - type: dropdown
+    id: donationType
+    attributes:
+      label: 寄付方法の種類
+      description: 寄付方法の種類を選択してください。
+      options:
+        - 銀行振込
+        - その他の寄付方法
+    validations:
+      required: true
+
+  - type: textarea
+    id: note
+    attributes:
+      label: 備考
+      description: 寄付に関する補足情報を記入してください。
+    validations:
+      required: false
+
+  - type: input
+    id: amount
+    attributes:
+      label: 寄付金額
+      description: 寄付金額の目安がある場合は記入してください（例：1,000円〜）。
+    validations:
+      required: false
+
+  - type: textarea
+    id: accountInfo
+    attributes:
+      label: 口座情報
+      description: |
+        銀行振込の場合は、以下の口座情報を記入してください。
+        - 金融機関
+        - 支店名
+        - 口座種別
+        - 口座番号
+        - 口座名義
+        - 名義カナ
+    validations:
+      required: false
+
+  - type: input
+    id: websiteUrl
+    attributes:
+      label: ウェブサイトURL
+      description: 募金先の詳細情報が掲載されているウェブサイトのURLを記入してください。
+    validations:
+      required: false
+
+  - type: input
+    id: websiteLabel
+    attributes:
+      label: ウェブサイトラベル
+      description: ウェブサイトへのリンクに表示するテキストを記入してください（例：公式サイトへ、詳細ページを見る）。
+    validations:
+      required: false
+
+  - type: textarea
+    id: additionalInfo
+    attributes:
+      label: その他の情報
+      description: その他、募金先に関する追加情報があれば記入してください。
+    validations:
+      required: false
