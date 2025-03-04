@@ -194,6 +194,15 @@ const donationOrganizations: DonationOrganization[] = [
       'https://www.satofull.jp/oenkifu/oenkifu_detail.php?page_id=518',
     websiteLabel: 'さとふるのページを見る',
   },
+  {
+    id: 'yumechan',
+    organizationName: 'NPO法人AidTAKATA たかたのゆめちゃん事務局',
+    note: 'オンラインショップ経由の募金でゆめちゃんからお礼有',
+    amount: '3,000円',
+    websiteUrl:
+      'https://yumenohouse.thebase.in/items/100154325',
+    websiteLabel: 'ゆめちゃんマーケットを見る',
+  },
 ];
 
 export default function DonationInfoCard() {
