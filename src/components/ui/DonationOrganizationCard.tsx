@@ -1,8 +1,8 @@
 'use client';
 import { useState } from 'react';
-import Card from './Card';
-import Heading from './Heading';
-import Button from './Button';
+import Card from '@/components/ui/Card';
+import Heading from '@/components/ui/Heading';
+import Button from '@/components/ui/Button';
 import Link from 'next/link';
 import { DocumentDuplicateIcon, CheckIcon } from '@heroicons/react/24/outline';
 

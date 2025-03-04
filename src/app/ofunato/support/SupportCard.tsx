@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Tabs, Tab, Box } from '@mui/material';
 import { MonetizationOn, Handshake } from '@mui/icons-material';
-import DonationInfoCard from './DonationInfoCard';
+import DonationInfoCard from '@/app/ofunato/support/DonationInfoCard';
 import VolunteerInfoCard from '@/app/ofunato/support/VolunteerInfoCard';
 import OfunatoContainer from '@/app/ofunato/components/OfunatoContainer';
 import { sendGTMEvent } from '@next/third-parties/google';

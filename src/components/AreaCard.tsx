@@ -1,4 +1,4 @@
-import AreaInfoCard from './ui/AreaInfoCard';
+import AreaInfoCard from '@/components/ui/AreaInfoCard';
 
 type AreaCardProps = {
   name: string;

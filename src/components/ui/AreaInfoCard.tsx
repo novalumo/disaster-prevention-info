@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import Card from './Card';
-import Heading from './Heading';
-import Button from './Button';
+import Card from '@/components/ui/Card';
+import Heading from '@/components/ui/Heading';
+import Button from '@/components/ui/Button';
 import { format } from 'date-fns';
 type AreaInfoCardProps = {
   name: string;

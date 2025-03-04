@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { getLastUpdated } from '@/lib/time';
 import ContactAlert from '@/components/ContactAlert';
-import OfunatoHeader from './components/OfunatoHeader';
-import OfunatoBottomNav from './components/OfunatoBottomNav';
+import OfunatoHeader from '@/app/ofunato/components/OfunatoHeader';
+import OfunatoBottomNav from '@/app/ofunato/components/OfunatoBottomNav';
 
 export const metadata: Metadata = {
   title: '大船渡市 山林火災情報',

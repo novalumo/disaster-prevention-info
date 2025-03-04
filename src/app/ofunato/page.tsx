@@ -7,7 +7,7 @@ import {
   LocalHospital,
   Favorite,
 } from '@mui/icons-material';
-import OfunatoContainer from './components/OfunatoContainer';
+import OfunatoContainer from '@/app/ofunato/components/OfunatoContainer';
 
 export const metadata: Metadata = {
   title: '大船渡市 山林火災情報',

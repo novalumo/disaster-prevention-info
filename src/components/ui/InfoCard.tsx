@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
-import Card from './Card';
-import Heading from './Heading';
-import Button from './Button';
-import List, { ListItem } from './List';
+import Card from '@/components/ui/Card';
+import Heading from '@/components/ui/Heading';
+import Button from '@/components/ui/Button';
+import List, { ListItem } from '@/components/ui/List';
 
 type InfoCardProps = {
   title: string;
