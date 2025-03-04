@@ -46,6 +46,7 @@
     "resend": "^4.1.2",
     "swr": "^2.3.2",
     "tailwind-merge": "^3.0.2",
+    "workers-qb": "^1.10.2",
     "yakuhanjp": "^4.1.1",
     "zod": "^3.24.2"
   },
