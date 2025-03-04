@@ -27,13 +27,6 @@ body:
     validations:
       required: true
 
-  - type: textarea
-    id: alternatives
-    attributes:
-      label: 代替案
-      description: 検討した他の解決策があれば記載してください。
-      placeholder: "例: 避難所の収容状況を定期的に更新する方法も検討したが..."
-
   - type: dropdown
     id: priority
     attributes:
