@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import {
   Paper,
   Table,
@@ -14,17 +14,33 @@ import {
   IconButton,
   Tabs,
   Tab,
+  Box,
+  CircularProgress,
+  Alert,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+  Button,
 } from '@mui/material';
 import { Edit, Delete } from '@mui/icons-material';
-import { supportFacilities } from '@/app/ofunato/data/services';
+import { type FacilityFormValues } from '../schema';
 
 export default function ServicesList() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const typeParam = searchParams.get('type');
 
   const [selectedType, setSelectedType] = useState<string | null>(typeParam);
-  const [filteredFacilities, setFilteredFacilities] =
-    useState(supportFacilities);
+  const [facilities, setFacilities] = useState<FacilityFormValues[]>([]);
+  const [filteredFacilities, setFilteredFacilities] = useState<
+    FacilityFormValues[]
+  >([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+  const [facilityToDelete, setFacilityToDelete] = useState<string | null>(null);
 
   const facilityTypes = [
     '全て',
@@ -35,15 +51,41 @@ export default function ServicesList() {
     '学習施設',
   ];
 
+  // サービスデータの取得
+  useEffect(() => {
+    const fetchFacilities = async () => {
+      try {
+        const response = await fetch('/api/services');
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || 'サービスの取得に失敗しました');
+        }
+
+        setFacilities(data.services);
+      } catch (error) {
+        console.error('データ取得エラー:', error);
+        setError(
+          error instanceof Error ? error.message : 'データの取得に失敗しました',
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFacilities();
+  }, []);
+
+  // 選択されたタイプに基づいてフィルタリング
   useEffect(() => {
     if (selectedType && selectedType !== '全て') {
       setFilteredFacilities(
-        supportFacilities.filter((facility) => facility.type === selectedType),
+        facilities.filter((facility) => facility.type === selectedType),
       );
     } else {
-      setFilteredFacilities(supportFacilities);
+      setFilteredFacilities(facilities);
     }
-  }, [selectedType]);
+  }, [selectedType, facilities]);
 
   const handleTypeChange = (_: React.SyntheticEvent, newValue: number) => {
     const newType = facilityTypes[newValue];
@@ -57,19 +99,60 @@ export default function ServicesList() {
   };
 
   const handleEdit = (id: string) => {
-    console.log('Edit facility with ID:', id);
-    // 編集ページへ遷移する処理を実装
-    window.location.href = `/admin/services/edit/${id}`;
+    router.push(`/admin/services/edit/${id}`);
   };
 
-  const handleDelete = (id: string) => {
-    console.log('Delete facility with ID:', id);
-    // 削除確認ダイアログを表示する処理を実装
-    if (confirm('このサービスを削除してもよろしいですか？')) {
-      // TODO: 削除処理を実装
-      console.log('削除処理を実行');
+  const handleDeleteClick = (id: string) => {
+    setFacilityToDelete(id);
+    setDeleteDialogOpen(true);
+  };
+
+  const handleDeleteConfirm = async () => {
+    if (!facilityToDelete) return;
+
+    try {
+      const response = await fetch(`/api/services/${facilityToDelete}`, {
+        method: 'DELETE',
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'サービスの削除に失敗しました');
+      }
+
+      // 削除成功後、リストから削除
+      setFacilities(facilities.filter((f) => f.id !== facilityToDelete));
+      setDeleteDialogOpen(false);
+      setFacilityToDelete(null);
+    } catch (error) {
+      console.error('削除エラー:', error);
+      setError(
+        error instanceof Error ? error.message : '削除中にエラーが発生しました',
+      );
     }
   };
+
+  const handleDeleteCancel = () => {
+    setDeleteDialogOpen(false);
+    setFacilityToDelete(null);
+  };
+
+  if (loading) {
+    return (
+      <Box sx={{ display: 'flex', justifyContent: 'center', p: 4 }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
+
+  if (error) {
+    return (
+      <Alert severity="error" sx={{ mb: 3 }}>
+        {error}
+      </Alert>
+    );
+  }
 
   return (
     <>
@@ -121,7 +204,7 @@ export default function ServicesList() {
                   <IconButton
                     color="error"
                     size="small"
-                    onClick={() => handleDelete(facility.id)}
+                    onClick={() => handleDeleteClick(facility.id)}
                   >
                     <Delete />
                   </IconButton>
@@ -138,6 +221,22 @@ export default function ServicesList() {
           </TableBody>
         </Table>
       </TableContainer>
+
+      {/* 削除確認ダイアログ */}
+      <Dialog open={deleteDialogOpen} onClose={handleDeleteCancel}>
+        <DialogTitle>サービスの削除</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            このサービスを削除してもよろしいですか？この操作は元に戻せません。
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleDeleteCancel}>キャンセル</Button>
+          <Button onClick={handleDeleteConfirm} color="error" autoFocus>
+            削除
+          </Button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 }

@@ -9,6 +9,7 @@ import {
   Box,
   Button,
   Divider,
+  Alert,
 } from '@mui/material';
 import { ArrowBack } from '@mui/icons-material';
 import AdminHeader from '../../components/AdminHeader';
@@ -19,21 +20,36 @@ import { type FacilityFormValues } from '../schema';
 export default function NewServicePage() {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (data: FacilityFormValues) => {
     setIsSubmitting(true);
+    setError(null);
 
     try {
-      console.log('新規施設データ:', data);
+      const response = await fetch('/api/services', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
 
-      // TODO: データの保存処理を実装
-      // 実際のアプリケーションでは、APIを呼び出してデータを保存する
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'サービスの作成に失敗しました');
+      }
+
+      console.log('サービスが作成されました:', result.service);
 
       // 保存後にリスト画面に戻る
       router.push('/admin/services');
     } catch (error) {
       console.error('保存エラー:', error);
-      alert('保存中にエラーが発生しました。');
+      setError(
+        error instanceof Error ? error.message : '保存中にエラーが発生しました',
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -56,6 +72,12 @@ export default function NewServicePage() {
             サービス新規作成
           </Typography>
         </Box>
+
+        {error && (
+          <Alert severity="error" sx={{ mb: 3 }}>
+            {error}
+          </Alert>
+        )}
 
         <Paper sx={{ p: 4 }}>
           <FacilityForm onSubmit={handleSubmit} />

@@ -10,12 +10,12 @@ import {
   Button,
   Divider,
   CircularProgress,
+  Alert,
 } from '@mui/material';
 import { ArrowBack } from '@mui/icons-material';
 import AdminHeader from '../../../components/AdminHeader';
 import Link from 'next/link';
 import FacilityForm from '../../components/FacilityForm';
-import { supportFacilities } from '@/app/ofunato/data/services';
 import { type FacilityFormValues } from '../../schema';
 
 export default function EditServicePage({
@@ -27,45 +27,65 @@ export default function EditServicePage({
   const [loading, setLoading] = useState(true);
   const [facility, setFacility] = useState<FacilityFormValues | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   // 施設データの取得
   useEffect(() => {
-    const foundFacility = supportFacilities.find((f) => f.id === id);
+    const fetchFacility = async () => {
+      try {
+        const response = await fetch(`/api/services/${id}`);
+        const data = await response.json();
 
-    if (foundFacility) {
-      setFacility({
-        id: foundFacility.id,
-        name: foundFacility.name,
-        type: foundFacility.type,
-        address: foundFacility.address || '',
-        phone: foundFacility.phone || '',
-        details: foundFacility.details,
-        mapUrl: foundFacility.mapUrl || '',
-        hours: foundFacility.hours || [''],
-        notes: foundFacility.notes || [''],
-      });
-    } else {
-      // 施設が見つからない場合はリストページにリダイレクト
-      router.push('/admin/services');
-    }
+        if (!response.ok) {
+          throw new Error(data.error || 'サービスの取得に失敗しました');
+        }
 
-    setLoading(false);
+        setFacility(data.service);
+      } catch (error) {
+        console.error('データ取得エラー:', error);
+        setError(
+          error instanceof Error ? error.message : 'データの取得に失敗しました',
+        );
+        // エラー発生時は3秒後にリストページにリダイレクト
+        setTimeout(() => {
+          router.push('/admin/services');
+        }, 3000);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFacility();
   }, [id, router]);
 
   const handleSubmit = async (data: FacilityFormValues) => {
     setIsSubmitting(true);
+    setError(null);
 
     try {
-      console.log('更新施設データ:', data);
+      const response = await fetch(`/api/services/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
 
-      // TODO: データの更新処理を実装
-      // 実際のアプリケーションでは、APIを呼び出してデータを更新する
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'サービスの更新に失敗しました');
+      }
+
+      console.log('サービスが更新されました:', result.service);
 
       // 更新後にリスト画面に戻る
       router.push('/admin/services');
     } catch (error) {
       console.error('更新エラー:', error);
-      alert('更新中にエラーが発生しました。');
+      setError(
+        error instanceof Error ? error.message : '更新中にエラーが発生しました',
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -109,6 +129,12 @@ export default function EditServicePage({
             サービス編集: {facility?.name}
           </Typography>
         </Box>
+
+        {error && (
+          <Alert severity="error" sx={{ mb: 3 }}>
+            {error}
+          </Alert>
+        )}
 
         <Paper sx={{ p: 4 }}>
           {facility && (
