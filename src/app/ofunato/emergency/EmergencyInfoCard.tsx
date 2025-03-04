@@ -1,5 +1,5 @@
 import Heading from '@/components/ui/Heading';
-import OfunatoContainer from '../components/OfunatoContainer';
+import OfunatoContainer from '@/app/ofunato/components/OfunatoContainer';
 type EvacuationArea = {
   id: string;
   name: string;

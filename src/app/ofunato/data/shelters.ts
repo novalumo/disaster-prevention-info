@@ -1,4 +1,4 @@
-import type { Shelter } from '../ShelterInfoCard';
+import type { Shelter } from '@/app/ofunato/ShelterInfoCard';
 
 export const shelters: Shelter[] = [
   {

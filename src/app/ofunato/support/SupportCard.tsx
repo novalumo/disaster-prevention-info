@@ -5,7 +5,7 @@ import { Tabs, Tab, Box } from '@mui/material';
 import { MonetizationOn, Handshake } from '@mui/icons-material';
 import DonationInfoCard from './DonationInfoCard';
 import VolunteerInfoCard from '@/app/ofunato/support/VolunteerInfoCard';
-import OfunatoContainer from '../components/OfunatoContainer';
+import OfunatoContainer from '@/app/ofunato/components/OfunatoContainer';
 import { sendGTMEvent } from '@next/third-parties/google';
 
 interface TabPanelProps {

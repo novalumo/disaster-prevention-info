@@ -2,8 +2,8 @@ import Heading from '@/components/ui/Heading';
 import { MapPinIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { cn } from '@/lib/cn';
-import { shelters } from '../data/shelters';
-import OfunatoContainer from '../components/OfunatoContainer';
+import { shelters } from '@/app/ofunato/data/shelters';
+import OfunatoContainer from '@/app/ofunato/components/OfunatoContainer';
 export type Shelter = {
   id: string;
   name: string;
