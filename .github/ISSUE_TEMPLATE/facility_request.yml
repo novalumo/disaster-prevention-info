@@ -85,3 +85,11 @@ body:
       description: Google Maps で該当施設を最大まで拡大して、地点を右クリックして出てきたポップアップの座標を記入してください。
     validations:
       required: false
+
+  - type: textarea
+    id: sources
+    attributes:
+      label: ソース（出典）
+      description: ソース（出典）を記入してください。
+    validations:
+      required: false
