@@ -4,7 +4,6 @@ import Heading from '@/components/ui/Heading';
 import { MapPinIcon, PhoneIcon, ClockIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { cn } from '@/lib/cn';
-import { supportFacilities } from '@/app/ofunato/data/services';
 import OfunatoContainer from '@/app/ofunato/components/OfunatoContainer';
 import { format } from 'date-fns';
 import { useState, useMemo } from 'react';
@@ -18,6 +17,7 @@ import {
   Pets,
 } from '@mui/icons-material';
 import { sendGTMEvent } from '@next/third-parties/google';
+import type { SupportFacility } from '../data/services';
 
 function getCapacityStatus(current: number, max: number) {
   const percentage = (current / max) * 100;
@@ -73,7 +73,7 @@ const facilityTypes = [
   { type: 'ペット関連', icon: <Pets /> },
 ];
 
-export default function ServicesCard() {
+export default function ServicesCard({ supportFacilities }: { supportFacilities: SupportFacility[] }) {
   const [tabValue, setTabValue] = useState(0);
 
   const handleTabChange = (_: React.SyntheticEvent, newValue: number) => {
@@ -93,7 +93,7 @@ export default function ServicesCard() {
         },
         {} as Record<string, typeof supportFacilities>,
       ),
-    [],
+    [supportFacilities],
   );
 
   // 各タイプのデータ存在確認
