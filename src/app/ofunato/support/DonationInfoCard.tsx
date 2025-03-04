@@ -199,8 +199,7 @@ const donationOrganizations: DonationOrganization[] = [
     organizationName: 'NPO法人AidTAKATA たかたのゆめちゃん事務局',
     note: 'オンラインショップ経由の募金でゆめちゃんからお礼有',
     amount: '3,000円',
-    websiteUrl:
-      'https://yumenohouse.thebase.in/items/100154325',
+    websiteUrl: 'https://yumenohouse.thebase.in/items/100154325',
     websiteLabel: 'ゆめちゃんマーケットを見る',
   },
 ];

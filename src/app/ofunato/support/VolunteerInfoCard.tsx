@@ -1,6 +1,6 @@
 'use client';
 import Heading from '@/components/ui/Heading';
-import Button from '@/components/ui/Button';
+import { Button } from '@mui/material';
 
 export default function VolunteerInfoCard() {
   return (
@@ -14,27 +14,68 @@ export default function VolunteerInfoCard() {
             災害ボランティアセンターからのお知らせ（大船渡市社会福祉協議会）
           </div>
           <p className="text-gray-600">
-            火災発生以降、多くの皆さま、団体より、支援の申し入れをいただいておりますが、火災は延焼中であり、現地での活動ができない状態が続いています。
+            ３月４日より、災害ボランティアセンターの活動が開始しました。
+            <br />
+            当面は、事前登録いただいた市内の皆さまに物資整理等で活動いただく予定です。
           </p>
         </div>
         <div className="bg-yellow-50 border border-yellow-200 rounded p-4">
-          <div className="font-bold text-yellow-800 mb-2">現在の受付状況</div>
-          <ul className="list-disc list-inside space-y-2 text-gray-600">
-            <li>市外からの個人ボランティア：受付停止中</li>
-            <li>団体および市内在住の個人ボランティア：受付のみ、活動は未定</li>
-          </ul>
+          <div className="font-bold text-yellow-800 mb-2">
+            災害ボランティア予備登録のお願い
+          </div>
+          <div className="leading-loose flex flex-col gap-2">
+            <p className="text-gray-600">
+              今後、大船渡市内で災害ボランティアへご参加いただく個人・団体の皆さまの
+              <strong>登録フォーム</strong>をつくりました。
+            </p>
+            <p className="text-gray-600 text-sm">
+              ※市内・市外・県外問わず、ご登録が可能です。
+            </p>
+            <p className="text-gray-600">
+              ご登録いただいた皆さまには、ボランティアの規模、内容等にあわせ、ボランティア募集の情報をお送りします。
+              <br />
+              積極的なご登録、よろしくおねがいします。
+            </p>
+            <p className="text-gray-600 text-sm">
+              ※募集情報は、ご登録いただいた連絡先にお送りします。お電話でのお問い合わせはお控えくださいますよう、お願いいたします。
+            </p>
+            <ul className="space-y-2 text-gray-600">
+              <li>
+                <span className="font-bold">＜個人向け＞</span>
+                <br />
+                <a
+                  href="https://forms.gle/zaPs2E2eDbr61Cn59"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:text-blue-600"
+                >
+                  https://forms.gle/zaPs2E2eDbr61Cn59
+                </a>
+              </li>
+              <li>
+                <span className="font-bold">＜団体向け＞</span>
+                <br />
+                <a
+                  href="https://forms.gle/gvvpivsn4wFH2x287"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:text-blue-600"
+                >
+                  https://forms.gle/gvvpivsn4wFH2x287
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
         <p className="text-gray-600">
           火災が終息し、ボランティアの受入が可能となった際には、改めてお知らせいたします。
         </p>
         <div className="flex gap-2">
           <Button
-            onClick={() =>
-              window.open(
-                'http://ofunato-shakyo.com/volunteercategory/%E7%81%BD%E5%AE%B3%E3%83%9C%E3%83%A9%E3%83%B3%E3%83%86%E3%82%A3%E3%82%A2%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%E3%82%92%E8%A8%AD%E7%BD%AE%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/',
-                '_blank',
-              )
-            }
+            variant="contained"
+            href="http://ofunato-shakyo.com/volunteercategory/saivolu/"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             詳細を見る
           </Button>
