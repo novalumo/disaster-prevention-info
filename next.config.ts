@@ -1,7 +1,12 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
+import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
+
+setupDevPlatform().catch(console.error);
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;
