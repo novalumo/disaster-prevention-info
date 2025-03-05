@@ -307,7 +307,63 @@ export const accommodationFacilities: SupportFacility[] = [
 // 学習施設
 export const studyFacilities: SupportFacility[] = [
   {
-    id: 'study-1',
+    id: 'sakari-elementary-school',
+    name: '盛小学校',
+    type: '学習施設',
+    address: ['大船渡市盛町字沢川30'],
+    hours: ['9:00 - 11:30'],
+    details: [
+      '希望する児童を対象に学習支援等を実施。',
+      '対象: 綾里小学校、赤崎小学校',
+    ],
+  },
+  {
+    id: 'ofunato-junuor-high-school',
+    name: '大船渡中学校',
+    type: '学習施設',
+    address: ['大船渡市大船渡町字永沢94番地1号'],
+    hours: ['9:00 - 11:30'],
+    details: [
+      '希望する児童・生徒を対象に学習支援等を実施。',
+      '対象小学校: 綾里小学校、赤崎小学校',
+      '対象中学校: 東朋中学校（5日 (水) から 7日 (金) まで）',
+    ],
+  },
+  {
+    id: 'ikawa-elementary-school',
+    name: '猪川小学校',
+    type: '学習施設',
+    address: ['大船渡市猪川町字轆轤石23'],
+    hours: ['9:00 - 11:30'],
+    details: [
+      '希望する児童を対象に学習支援等を実施。',
+      '対象: 綾里小学校、赤崎小学校',
+    ],
+  },
+  {
+    id: 'daiichi-junior-high-school',
+    name: '大船渡第一中学校',
+    type: '学習施設',
+    address: ['大船渡市立根町字宮田89番地'],
+    hours: ['9:00 - 11:30'],
+    details: [
+      '希望する児童を対象に学習支援等を実施。',
+      '対象: 綾里小学校、赤崎小学校',
+    ],
+  },
+  {
+    id: 'okirai-elementary-school',
+    name: '越喜来小学校',
+    type: '学習施設',
+    address: ['大船渡市三陸町越喜来字小出24-4'],
+    hours: ['9:00 - 11:30'],
+    details: [
+      '希望する児童を対象に学習支援等を実施。',
+      '対象: 綾里小学校、赤崎小学校',
+    ],
+  },
+  {
+    id: 'ofunato-public-library',
     name: '大船渡市立図書館',
     type: '学習施設',
     address: ['大船渡市盛町字下舘下18-1'],
@@ -319,7 +375,7 @@ export const studyFacilities: SupportFacility[] = [
     // 39.07773818425187, 141.70993245934733
   },
   {
-    id: 'study-2',
+    id: 'rikuzentakata-public-library',
     name: '陸前高田市立図書館',
     type: '学習施設',
     address: ['陸前高田市高田町字館の沖303番地7'],
@@ -331,7 +387,7 @@ export const studyFacilities: SupportFacility[] = [
     // 39.01657768674185, 141.62890452655574
   },
   {
-    id: 'study-3',
+    id: 'sunlia',
     name: 'サンリア臨時学習ルーム',
     type: '学習施設',
     address: ['大船渡市盛町字町10番地11 1F多目的ルーム(旧美容室)'],
