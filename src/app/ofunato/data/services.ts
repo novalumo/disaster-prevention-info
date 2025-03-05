@@ -316,6 +316,8 @@ export const studyFacilities: SupportFacility[] = [
       '希望する児童を対象に学習支援等を実施。',
       '対象: 綾里小学校、赤崎小学校',
     ],
+    mapUrl: 'https://maps.app.goo.gl/VEHQSEKAGBxVcVz17',
+    // 39.08185762298179, 141.70476560815612
   },
   {
     id: 'ofunato-junuor-high-school',
@@ -328,6 +330,8 @@ export const studyFacilities: SupportFacility[] = [
       '対象小学校: 綾里小学校、赤崎小学校',
       '対象中学校: 東朋中学校（5日 (水) から 7日 (金) まで）',
     ],
+    mapUrl: 'https://maps.app.goo.gl/JqLynCrCmaJYyYDn7',
+    // 39.05331130660046, 141.7173983487243
   },
   {
     id: 'ikawa-elementary-school',
@@ -339,6 +343,8 @@ export const studyFacilities: SupportFacility[] = [
       '希望する児童を対象に学習支援等を実施。',
       '対象: 綾里小学校、赤崎小学校',
     ],
+    mapUrl: 'https://maps.app.goo.gl/8hxgSYFZxdHvgEXm9',
+    // 39.09400131913394, 141.71081257560508
   },
   {
     id: 'daiichi-junior-high-school',
@@ -350,6 +356,8 @@ export const studyFacilities: SupportFacility[] = [
       '希望する児童を対象に学習支援等を実施。',
       '対象: 綾里小学校、赤崎小学校',
     ],
+    mapUrl: 'https://maps.app.goo.gl/ykXq9gBayJjCFX9S7',
+    // 39.102503397458506, 141.71379212594383
   },
   {
     id: 'okirai-elementary-school',
@@ -361,6 +369,8 @@ export const studyFacilities: SupportFacility[] = [
       '希望する児童を対象に学習支援等を実施。',
       '対象: 綾里小学校、赤崎小学校',
     ],
+    mapUrl: 'https://maps.app.goo.gl/1PEFYfoymHNgv5dj6',
+    // 39.12608245616374, 141.8100134553959
   },
   {
     id: 'ofunato-public-library',
