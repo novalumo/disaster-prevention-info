@@ -1,7 +1,6 @@
 import React from 'react';
 import HomeHeader from '@/app/HomeHeader';
 import HomeContent from '@/app/HomeContent';
-import Footer from '@/components/Footer';
 import ContactAlert from '@/components/ContactAlert';
 
 export default function Home() {
@@ -12,7 +11,6 @@ export default function Home() {
         <ContactAlert />
       </div>
       <HomeContent />
-      <Footer />
     </div>
   );
 }

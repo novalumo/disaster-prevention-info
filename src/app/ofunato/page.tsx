@@ -1,7 +1,5 @@
 import React from 'react';
-import { Box, Container } from '@mui/material';
-import Footer from '@/components/Footer';
-import ContactAlert from '@/components/ContactAlert';
+import { Box, Container, Alert, AlertTitle } from '@mui/material';
 import { Paper, Grid, Typography } from '@mui/material';
 import Link from 'next/link';
 import {
@@ -41,7 +39,16 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-4">
-        <ContactAlert />
+        <a
+          href="https://www.novalumo.com/contact"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Alert severity="info">
+            <AlertTitle>お問い合わせ</AlertTitle>
+            情報提供など、本サイトへのお問い合わせはこちら
+          </Alert>
+        </a>
       </div>
       <Container maxWidth="lg" sx={{ pb: 8 }}>
         <Grid container spacing={3}>
@@ -117,7 +124,6 @@ export default function Home() {
           ))}
         </Grid>
       </Container>
-      <Footer />
     </div>
   );
 }
