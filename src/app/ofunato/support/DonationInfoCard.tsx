@@ -202,6 +202,13 @@ const donationOrganizations: DonationOrganization[] = [
     websiteUrl: 'https://yumenohouse.thebase.in/items/100154325',
     websiteLabel: 'ゆめちゃんマーケットを見る',
   },
+  {
+    id: 'iwate-ginpla-gienkin',
+    organizationName: '【災害義援金】いわて銀河プラザ',
+    note: 'いわて銀河プラザでは、現在店頭にて大船渡市への災害義援金を募っております。',
+    websiteUrl: 'https://www.iwate-ginpla.net/news/article.php?p=654',
+    websiteLabel: 'いわて銀河プラザのページを見る',
+  },
 ];
 
 export default function DonationInfoCard() {
