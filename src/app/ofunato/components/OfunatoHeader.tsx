@@ -24,6 +24,7 @@ import {
   Info,
   Favorite,
   LocalHospital,
+  Email,
 } from '@mui/icons-material';
 import { useRouter, usePathname } from 'next/navigation';
 
@@ -185,6 +186,18 @@ export default function OfunatoHeader({ lastUpdated }: OfunatoHeaderProps) {
                 </ListItemButton>
               </ListItem>
             ))}
+            <ListItem disablePadding>
+              <ListItemButton
+                href="https://www.novalumo.com/contact"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ListItemIcon sx={{ color: 'inherit' }}>
+                  <Email />
+                </ListItemIcon>
+                <ListItemText primary="サイトへのお問い合わせ" />
+              </ListItemButton>
+            </ListItem>
           </List>
           <Divider />
           <Box sx={{ p: 2, textAlign: 'center' }}>
