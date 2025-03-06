@@ -209,6 +209,13 @@ const donationOrganizations: DonationOrganization[] = [
     websiteUrl: 'https://www.iwate-ginpla.net/news/article.php?p=654',
     websiteLabel: 'いわて銀河プラザのページを見る',
   },
+  {
+    id: 'ginzawest-gienkin',
+    organizationName: '【被災者義援金】銀座ウエスト',
+    note: 'ウエストでは3月5日より、シュークリーム（クリームパフ・エクレア等含む）1個販売につき50円を被災者義援金として寄付致します。',
+    websiteUrl: 'https://x.com/ginzawest/status/1896746369890852912',
+    websiteLabel: '銀座ウエストのX(旧Twitter)のポストを見る',
+  },
 ];
 
 export default function DonationInfoCard() {
