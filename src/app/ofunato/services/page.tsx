@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { getAllServicesFromMd } from '../data/utils';
 import ServicesCard from '@/app/ofunato/services/ServicesCard';
 
 export const metadata: Metadata = {
@@ -13,5 +14,31 @@ export const metadata: Metadata = {
 };
 
 export default function ServicesPage() {
-  return <ServicesCard />;
+  const bathFacilities = getAllServicesFromMd(
+    'src/app/ofunato/data/services/bath',
+  );
+  const shuttleBuses = getAllServicesFromMd(
+    'src/app/ofunato/data/services/bus',
+  );
+  const mealFacilities = getAllServicesFromMd(
+    'src/app/ofunato/data/services/meal',
+  );
+  const accommodationFacilities = getAllServicesFromMd(
+    'src/app/ofunato/data/services/accommodation',
+  );
+  const studyFacilities = getAllServicesFromMd(
+    'src/app/ofunato/data/services/study',
+  );
+  const petFacilities = getAllServicesFromMd(
+    'src/app/ofunato/data/services/pet',
+  );
+  const supportFacilities = [
+    ...bathFacilities,
+    ...shuttleBuses,
+    ...mealFacilities,
+    ...accommodationFacilities,
+    ...studyFacilities,
+    ...petFacilities,
+  ];
+  return <ServicesCard supportFacilities={supportFacilities} />;
 }
