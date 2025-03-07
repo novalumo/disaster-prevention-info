@@ -156,6 +156,15 @@ export default function EmergencyInfoCard() {
     }
   };
 
+  const getStatusLabelStyle = (status: string) => {
+    switch (status) {
+      case '避難指示解除':
+        return 'text-green-700 bg-white border-green-100';
+      default:
+        return 'text-red-600 bg-white border-red-100';
+    }
+  };
+
   return (
     <OfunatoContainer>
       <Heading as="h2" color="primary" className="mb-4">
@@ -175,7 +184,9 @@ export default function EmergencyInfoCard() {
                 >
                   <div className="flex justify-between items-start">
                     <div className="font-medium text-gray-800">{area.name}</div>
-                    <span className="text-sm font-medium text-red-600 bg-white px-2 py-0.5 rounded border border-red-100">
+                    <span
+                      className={`text-sm font-medium px-2 py-0.5 rounded border ${getStatusLabelStyle(area.status)}`}
+                    >
                       {area.status}
                     </span>
                   </div>
