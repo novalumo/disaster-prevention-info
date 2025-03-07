@@ -9,9 +9,7 @@ type EvacuationArea = {
 };
 
 export default function EmergencyInfoCard() {
-  // 地区の表示順を定義
-  const districtOrder = ['赤崎町', '三陸町綾里', '三陸町越喜来'];
-
+  // 避難情報のサンプルデータ
   const evacuationAreas: EvacuationArea[] = [
     // 赤崎町
     {
@@ -121,24 +119,37 @@ export default function EmergencyInfoCard() {
   ];
 
   // 地区ごとにグループ化
-  const groupedAreas = evacuationAreas.reduce(
+  const groupedByDistrict = evacuationAreas.reduce(
     (acc, area) => {
-      const district = area.district || 'その他';
-      if (!acc[district]) {
-        acc[district] = [];
+      if (!acc[area.district]) {
+        acc[area.district] = [];
       }
-      acc[district].push(area);
+      acc[area.district].push(area);
       return acc;
     },
     {} as Record<string, EvacuationArea[]>,
   );
 
-  // 地区の表示順に並び替え
-  const sortedDistricts = Object.entries(groupedAreas).sort(([a], [b]) => {
-    const indexA = districtOrder.indexOf(a);
-    const indexB = districtOrder.indexOf(b);
-    return indexA - indexB;
-  });
+  // ステータスの優先順位を定義
+  const statusPriority = {
+    避難指示: 0,
+    避難勧告: 1,
+    避難準備: 2,
+    避難指示解除: 3,
+  };
+
+  // 地区ごとにソートし、さらにその中でステータスに基づいて並び替え
+  const sortedDistricts = Object.entries(groupedByDistrict)
+    .sort((a, b) => a[0].localeCompare(b[0], 'ja'))
+    .map(
+      ([district, areas]) =>
+        [
+          district,
+          areas.sort(
+            (a, b) => statusPriority[a.status] - statusPriority[b.status],
+          ),
+        ] as [string, EvacuationArea[]],
+    );
 
   // 避難指示のステータスに応じた背景色を設定
   const getStatusStyle = (status: string) => {
