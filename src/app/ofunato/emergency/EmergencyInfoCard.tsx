@@ -4,7 +4,7 @@ type EvacuationArea = {
   id: string;
   name: string;
   district: string;
-  status: '避難指示' | '避難勧告' | '避難準備';
+  status: '避難指示' | '避難勧告' | '避難準備' | '避難指示解除';
   updatedAt?: string;
 };
 
@@ -30,7 +30,7 @@ export default function EmergencyInfoCard() {
       id: 'ohora',
       name: '大洞地域',
       district: '赤崎町',
-      status: '避難指示',
+      status: '避難指示解除',
     },
     {
       id: 'odachi',
@@ -42,25 +42,25 @@ export default function EmergencyInfoCard() {
       id: 'shuku',
       name: '宿地域',
       district: '赤崎町',
-      status: '避難指示',
+      status: '避難指示解除',
     },
     {
       id: 'yamaguchi',
       name: '山口地域',
       district: '赤崎町',
-      status: '避難指示',
+      status: '避難指示解除',
     },
     {
       id: 'ushironoiri',
       name: '後ノ入地域',
       district: '赤崎町',
-      status: '避難指示',
+      status: '避難指示解除',
     },
     {
       id: 'morikko',
       name: '森っこ地域',
       district: '赤崎町',
-      status: '避難指示',
+      status: '避難指示解除',
     },
     {
       id: 'nagahama',
@@ -78,7 +78,7 @@ export default function EmergencyInfoCard() {
       id: 'oigata',
       name: '生形地域',
       district: '赤崎町',
-      status: '避難指示',
+      status: '避難指示解除',
     },
     {
       id: 'takanoura',
@@ -149,6 +149,8 @@ export default function EmergencyInfoCard() {
         return 'bg-yellow-50 border-yellow-100';
       case '避難準備':
         return 'bg-blue-50 border-blue-100';
+      case '避難指示解除':
+        return 'bg-green-50 border-green-100';
       default:
         return 'bg-gray-50 border-gray-100';
     }
