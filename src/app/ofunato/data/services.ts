@@ -468,6 +468,20 @@ export const petFacilities: SupportFacility[] = [
       'ペット用のフード、飲用水のほか、ペットシーツ等、お世話に必要な物品については飼い主様でご用意願います。',
     ],
   },
+  {
+    id: 'pet-3',
+    name: '旧吉浜中学校',
+    type: 'ペット関連',
+    phone: ['0192-27-9923 (内線243)'],
+    details: [
+      '3月8日(土)より、旧吉浜中学校避難所において、ペット同伴避難者向けに受け入れを開始します。',
+      '※猫20頭・犬6頭程度',
+      '申込先：大船渡保健福祉環境センター',
+    ],
+    notes: [
+      'https://x.com/FMnemaline875/status/1897922114805809276',
+    ],
+  },
 ];
 
 export const supportFacilities: SupportFacility[] = [
