@@ -1,18 +1,32 @@
 import Heading from '@/components/ui/Heading';
-import { MapPinIcon } from '@heroicons/react/24/outline';
+import {
+  MapPinIcon,
+  PhoneIcon,
+  InformationCircleIcon,
+  UserGroupIcon,
+  ArrowTopRightOnSquareIcon,
+} from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { cn } from '@/lib/cn';
 import { shelters } from '@/app/ofunato/data/shelters';
 import OfunatoContainer from '@/app/ofunato/components/OfunatoContainer';
+import {
+  HomeWorkOutlined,
+  School,
+  HomeOutlined,
+  AccessibilityNew,
+} from '@mui/icons-material';
+
 export type Shelter = {
   id: string;
   name: string;
   address: string;
   type?: '福祉施設' | '学校施設' | '公共施設';
-  mapUrl?: string;
   phone?: string;
   maxCapacity?: number;
   currentCapacity?: number;
+  note?: string;
+  mapUrl?: string;
   position?: {
     lat: number;
     lng: number;
@@ -56,6 +70,24 @@ function getCapacityStatus(
   };
 }
 
+// 避難所タイプ別のアイコンを取得
+const getShelterTypeIcon = (type?: string) => {
+  switch (type) {
+    case '福祉施設':
+      return (
+        <AccessibilityNew fontSize="small" className="text-blue-600 mr-1" />
+      );
+    case '学校施設':
+      return <School fontSize="small" className="text-green-600 mr-1" />;
+    case '公共施設':
+      return (
+        <HomeWorkOutlined fontSize="small" className="text-purple-600 mr-1" />
+      );
+    default:
+      return <HomeOutlined fontSize="small" className="text-gray-600 mr-1" />;
+  }
+};
+
 export default function ShelterInfoCard() {
   // 施設タイプごとにグループ化
   const groupedShelters = shelters.reduce(
@@ -89,20 +121,30 @@ export default function ShelterInfoCard() {
                 >
                   <div className="flex justify-between items-start gap-4">
                     <div>
-                      <div className="font-bold text-gray-800">
+                      <div className="font-bold text-gray-800 flex items-center">
+                        {getShelterTypeIcon(shelter.type)}
                         {shelter.name}
                       </div>
-                      <div className="text-gray-600 text-sm mt-1">
-                        {shelter.address}
+                      <div className="text-gray-600 text-sm mt-1 flex items-start">
+                        <MapPinIcon className="h-4 w-4 flex-shrink-0 mt-0.5 mr-1" />
+                        <span>{shelter.address}</span>
                       </div>
                       {shelter.phone && (
-                        <div className="text-gray-600 text-sm">
-                          TEL: {shelter.phone}
+                        <div className="text-gray-600 text-sm flex items-center">
+                          <PhoneIcon className="h-4 w-4 mr-1" />
+                          <span>TEL: {shelter.phone}</span>
+                        </div>
+                      )}
+                      {shelter.note && (
+                        <div className="text-gray-600 text-sm flex items-start">
+                          <InformationCircleIcon className="h-4 w-4 flex-shrink-0 mt-0.5 mr-1" />
+                          <span>{shelter.note}</span>
                         </div>
                       )}
                       {(shelter.maxCapacity || shelter.currentCapacity) && (
-                        <div className="flex items-center gap-2 text-gray-600 text-sm">
-                          <span>
+                        <div className="flex items-center gap-2 text-gray-600 text-sm mt-1">
+                          <span className="flex items-center">
+                            <UserGroupIcon className="h-4 w-4 mr-1" />
                             収容状況: {shelter.currentCapacity || 0}人 /{' '}
                             {shelter.maxCapacity || '---'}人
                           </span>
@@ -145,11 +187,13 @@ export default function ShelterInfoCard() {
                         href={shelter.mapUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-shrink-0 text-blue-600 hover:text-blue-700 transition-colors text-center"
-                        title="地図で見る"
+                        className="text-blue-600 hover:text-blue-800 flex flex-col items-center"
                       >
-                        <MapPinIcon className="h-6 w-6 mx-auto" />
-                        <span className="text-xs mt-1 block">地図</span>
+                        <MapPinIcon className="h-6 w-6" />
+                        <span className="text-xs mt-1 flex items-center">
+                          地図
+                          <ArrowTopRightOnSquareIcon className="h-3 w-3 ml-0.5" />
+                        </span>
                       </Link>
                     )}
                   </div>

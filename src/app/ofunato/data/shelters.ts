@@ -127,6 +127,7 @@ export const shelters: Shelter[] = [
     name: '旧吉浜中学校',
     address: '大船渡市三陸町吉浜字扇洞127-2',
     type: '学校施設',
+    note: 'ペット同伴避難者受け入れ開始',
     mapUrl: 'https://maps.app.goo.gl/C5x2dLdSZWeoAzpj7',
     position: {
       lat: 39.158483986472866,

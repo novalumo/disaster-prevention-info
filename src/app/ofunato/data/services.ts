@@ -478,9 +478,7 @@ export const petFacilities: SupportFacility[] = [
       '※猫20頭・犬6頭程度',
       '申込先：大船渡保健福祉環境センター',
     ],
-    notes: [
-      'https://x.com/FMnemaline875/status/1897922114805809276',
-    ],
+    notes: ['https://x.com/FMnemaline875/status/1897922114805809276'],
   },
 ];
 

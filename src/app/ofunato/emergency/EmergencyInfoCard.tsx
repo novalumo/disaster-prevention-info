@@ -1,5 +1,13 @@
 import Heading from '@/components/ui/Heading';
 import OfunatoContainer from '@/app/ofunato/components/OfunatoContainer';
+import {
+  WarningOutlined,
+  InfoOutlined,
+  CheckCircleOutlined,
+  NotificationsActiveOutlined,
+} from '@mui/icons-material';
+import { MapPinIcon, ClockIcon } from '@heroicons/react/24/outline';
+
 type EvacuationArea = {
   id: string;
   name: string;
@@ -176,41 +184,66 @@ export default function EmergencyInfoCard() {
     }
   };
 
+  // ステータスに応じたアイコンを取得
+  const getStatusIcon = (status: string) => {
+    switch (status) {
+      case '避難指示':
+        return <WarningOutlined fontSize="small" className="mr-1" />;
+      case '避難勧告':
+        return (
+          <NotificationsActiveOutlined fontSize="small" className="mr-1" />
+        );
+      case '避難準備':
+        return <InfoOutlined fontSize="small" className="mr-1" />;
+      case '避難指示解除':
+        return <CheckCircleOutlined fontSize="small" className="mr-1" />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <OfunatoContainer>
       <Heading as="h2" color="primary" className="mb-4">
         避難情報
       </Heading>
       <div className="space-y-6">
-        {sortedDistricts.map(([district, areas]) => (
-          <div key={district} className="space-y-2">
-            <h3 className="font-semibold text-gray-700 text-lg border-b pb-1">
-              {district}
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {areas.map((area) => (
-                <div
-                  key={area.id}
-                  className={`p-3 rounded border ${getStatusStyle(area.status)}`}
-                >
-                  <div className="flex justify-between items-start">
-                    <div className="font-medium text-gray-800">{area.name}</div>
-                    <span
-                      className={`text-sm font-medium px-2 py-0.5 rounded border ${getStatusLabelStyle(area.status)}`}
-                    >
-                      {area.status}
-                    </span>
-                  </div>
-                  {area.updatedAt && (
-                    <div className="text-gray-500 text-xs mt-1">
-                      更新: {area.updatedAt}
+        <div className="divide-y divide-gray-100">
+          {sortedDistricts.map(([district, areas]) => (
+            <div key={`district-${district}`} className="py-4">
+              <div className="font-bold text-gray-700 mb-3 text-lg flex items-center">
+                <MapPinIcon className="h-5 w-5 mr-1.5 text-gray-600" />
+                {district}
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {areas.map((area) => (
+                  <div
+                    key={area.id}
+                    className={`p-3 rounded border ${getStatusStyle(area.status)}`}
+                  >
+                    <div className="flex justify-between items-start">
+                      <div className="font-medium text-gray-800">
+                        {area.name}
+                      </div>
+                      <span
+                        className={`text-sm font-medium px-2 py-0.5 rounded border ${getStatusLabelStyle(area.status)} flex items-center`}
+                      >
+                        {getStatusIcon(area.status)}
+                        {area.status}
+                      </span>
                     </div>
-                  )}
-                </div>
-              ))}
+                    {area.updatedAt && (
+                      <div className="text-gray-500 text-xs mt-2 flex items-center">
+                        <ClockIcon className="h-3.5 w-3.5 mr-1" />
+                        更新: {area.updatedAt}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </OfunatoContainer>
   );
