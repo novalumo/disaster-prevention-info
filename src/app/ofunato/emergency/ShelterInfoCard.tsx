@@ -4,7 +4,6 @@ import {
   PhoneIcon,
   InformationCircleIcon,
   UserGroupIcon,
-  ArrowTopRightOnSquareIcon,
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { cn } from '@/lib/cn';
@@ -192,7 +191,6 @@ export default function ShelterInfoCard() {
                         <MapPinIcon className="h-6 w-6" />
                         <span className="text-xs mt-1 flex items-center">
                           地図
-                          <ArrowTopRightOnSquareIcon className="h-3 w-3 ml-0.5" />
                         </span>
                       </Link>
                     )}
