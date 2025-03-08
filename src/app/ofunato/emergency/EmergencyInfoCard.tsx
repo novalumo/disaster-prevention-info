@@ -102,19 +102,19 @@ export default function EmergencyInfoCard() {
       id: 'horei-east',
       name: '甫嶺東地域',
       district: '三陸町越喜来',
-      status: '避難指示',
+      status: '避難指示解除',
     },
     {
       id: 'horei-west',
       name: '甫嶺西地域',
       district: '三陸町越喜来',
-      status: '避難指示',
+      status: '避難指示解除',
     },
     {
       id: 'horei',
       name: '上甫嶺地域',
       district: '三陸町越喜来',
-      status: '避難指示',
+      status: '避難指示解除',
     },
   ];
 
