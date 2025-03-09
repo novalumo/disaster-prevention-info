@@ -21,7 +21,7 @@ export default function EmergencyInfoCard() {
   const evacuationAreas: EvacuationArea[] = [
     // 赤崎町
     {
-      id: 'gassoku',
+      id: 'attari',
       name: '合足地域',
       district: '赤崎町',
       status: '避難指示',
@@ -42,7 +42,7 @@ export default function EmergencyInfoCard() {
       id: 'odachi',
       name: '大立地域',
       district: '赤崎町',
-      status: '避難指示',
+      status: '避難指示解除',
     },
     {
       id: 'shuku',
@@ -57,7 +57,7 @@ export default function EmergencyInfoCard() {
       status: '避難指示解除',
     },
     {
-      id: 'ushironoiri',
+      id: 'nochinoiri',
       name: '後ノ入地域',
       district: '赤崎町',
       status: '避難指示解除',
@@ -72,25 +72,25 @@ export default function EmergencyInfoCard() {
       id: 'nagahama',
       name: '永浜地域',
       district: '赤崎町',
-      status: '避難指示',
+      status: '避難指示解除',
     },
     {
-      id: 'shimizu',
+      id: 'shizu',
       name: '清水地域',
       district: '赤崎町',
-      status: '避難指示',
+      status: '避難指示解除',
     },
     {
-      id: 'oigata',
+      id: 'oikata',
       name: '生形地域',
       district: '赤崎町',
       status: '避難指示解除',
     },
     {
-      id: 'takanoura',
+      id: 'takonoura',
       name: '蛸ノ浦地域',
       district: '赤崎町',
-      status: '避難指示',
+      status: '避難指示解除',
     },
     {
       id: 'nagasaki',
@@ -119,7 +119,7 @@ export default function EmergencyInfoCard() {
       status: '避難指示解除',
     },
     {
-      id: 'horei',
+      id: 'kami-horei',
       name: '上甫嶺地域',
       district: '三陸町越喜来',
       status: '避難指示解除',
