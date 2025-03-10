@@ -24,13 +24,13 @@ export default function EmergencyInfoCard() {
       id: 'attari',
       name: '合足地域',
       district: '赤崎町',
-      status: '避難指示',
+      status: '避難指示解除',
     },
     {
       id: 'sotoguchi',
       name: '外口地域',
       district: '赤崎町',
-      status: '避難指示',
+      status: '避難指示解除',
     },
     {
       id: 'ohora',
@@ -96,14 +96,14 @@ export default function EmergencyInfoCard() {
       id: 'nagasaki',
       name: '長崎地域',
       district: '赤崎町',
-      status: '避難指示',
+      status: '避難指示解除',
     },
     // 三陸町綾里
     {
       id: 'ryori',
       name: '綾里地区全域',
       district: '三陸町綾里',
-      status: '避難指示',
+      status: '避難指示解除',
     },
     // 三陸町越喜来
     {
