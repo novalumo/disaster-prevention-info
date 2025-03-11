@@ -184,7 +184,11 @@ export const mealFacilities: SupportFacility[] = [
     type: '食事提供',
     address: ['大船渡市猪川町藤沢口39'],
     details: ['ラーメン&チャーハン'],
-    notes: ['証明書は特に求めません', '避難してますと言って頂ければOK'],
+    notes: [
+      '証明書は特に求めません',
+      '避難してますと言って頂ければOK',
+      '仮設住宅が完成するまで継続',
+    ],
     mapUrl: 'https://maps.app.goo.gl/jPShq5A33j3LqwJZ8',
     // 39.10085781205102, 141.69172943316974
   },
@@ -195,7 +199,11 @@ export const mealFacilities: SupportFacility[] = [
     type: '食事提供',
     address: ['大船渡市大船渡町茶屋前3-2-2140 キャッセンフードヴィレッジ'],
     details: ['ラーメン&秋刀魚節ご飯'],
-    notes: ['証明書は特に求めません', '避難してますと言って頂ければOK'],
+    notes: [
+      '証明書は特に求めません',
+      '避難してますと言って頂ければOK',
+      '仮設住宅が完成するまで継続',
+    ],
     mapUrl: 'https://maps.app.goo.gl/YQknZrdBhbdK1Xg6A',
     // 39.06201257352936, 141.72170033343636
   },
