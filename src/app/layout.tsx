@@ -60,7 +60,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={`${notoSansJP.variable} scroll-smooth`}>
-      <GoogleTagManager gtmId="GTM-K5FB6RX3" />
+      <GoogleTagManager
+        gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID || ''}
+      />
       <body className={'font-base antialiased'}>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>{children}</ThemeProvider>
