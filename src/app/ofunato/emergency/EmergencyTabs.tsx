@@ -1,5 +1,6 @@
 'use client';
 
+import { sendGTMEvent } from '@next/third-parties/google';
 import { useState } from 'react';
 import { Tabs, Tab, Box } from '@mui/material';
 import { Campaign, LocationOn } from '@mui/icons-material';
@@ -55,12 +56,24 @@ export default function EmergencyTabs() {
           label="避難所"
           iconPosition="start"
           sx={{ textTransform: 'none' }}
+          onClick={() => {
+            sendGTMEvent({
+              event: 'tabClick',
+              value: 'emergency-tab-shelter',
+            });
+          }}
         />
         <Tab
           icon={<Campaign />}
           label="避難情報"
           iconPosition="start"
           sx={{ textTransform: 'none' }}
+          onClick={() => {
+            sendGTMEvent({
+              event: 'tabClick',
+              value: 'emergency-tab-info',
+            });
+          }}
         />
       </Tabs>
 
