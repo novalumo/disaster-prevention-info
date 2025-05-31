@@ -1,6 +1,6 @@
 import AreaCard from '@/components/AreaCard';
 import Heading from '@/components/ui/Heading';
-import { getLastUpdated } from '@/lib/time';
+// import { getLastUpdated } from '@/lib/time';
 
 // 地区データの型定義
 type AreaData = {
@@ -13,13 +13,13 @@ type AreaData = {
 
 // 地区データ
 const areas: AreaData[] = [
-  {
-    name: '大船渡市',
-    description: '大船渡市の山林火災に関する情報を確認できます。',
-    path: '/ofunato',
-    // imageUrl: '/images/ofunato.jpg',
-    lastUpdated: getLastUpdated(),
-  },
+  // {
+  //   name: '大船渡市',
+  //   description: '大船渡市の山林火災に関する情報を確認できます。',
+  //   path: '/ofunato',
+  //   // imageUrl: '/images/ofunato.jpg',
+  //   lastUpdated: getLastUpdated(),
+  // },
 ];
 
 export default function HomeContent() {
@@ -30,16 +30,20 @@ export default function HomeContent() {
           地域を選択
         </Heading>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {areas.map((area) => (
-            <AreaCard
-              key={area.path}
-              name={area.name}
-              description={area.description}
-              path={area.path}
-              imageUrl={area.imageUrl}
-              lastUpdated={area.lastUpdated}
-            />
-          ))}
+          {areas?.length ? (
+            areas.map((area) => (
+              <AreaCard
+                key={area.path}
+                name={area.name}
+                description={area.description}
+                path={area.path}
+                imageUrl={area.imageUrl}
+                lastUpdated={area.lastUpdated}
+              />
+            ))
+          ) : (
+            <p className="text-center text-gray-500">現在情報はありません。</p>
+          )}
         </div>
       </section>
 
