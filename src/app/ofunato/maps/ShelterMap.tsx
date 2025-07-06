@@ -5,7 +5,7 @@ import {
   AdvancedMarker,
   Pin,
 } from '@vis.gl/react-google-maps';
-import { shelters } from '@/archives/ofunato/data/shelters';
+import { shelters } from '@/app/ofunato/data/shelters';
 import { useState } from 'react';
 import {
   Dialog,

@@ -1,6 +1,6 @@
 import AreaCard from '@/components/AreaCard';
 import Heading from '@/components/ui/Heading';
-// import { getLastUpdated } from '@/lib/time';
+import { getLastUpdated } from '@/lib/time';
 
 // 地区データの型定義
 type AreaData = {
@@ -13,13 +13,13 @@ type AreaData = {
 
 // 地区データ
 const areas: AreaData[] = [
-  // {
-  //   name: '大船渡市',
-  //   description: '大船渡市の山林火災に関する情報を確認できます。',
-  //   path: '/ofunato',
-  //   // imageUrl: '/images/ofunato.jpg',
-  //   lastUpdated: getLastUpdated(),
-  // },
+  {
+    name: '大船渡市',
+    description: '大船渡市の山林火災に関する情報を確認できます。',
+    path: '/ofunato',
+    // imageUrl: '/images/ofunato.jpg',
+    lastUpdated: getLastUpdated(),
+  },
 ];
 
 export default function HomeContent() {

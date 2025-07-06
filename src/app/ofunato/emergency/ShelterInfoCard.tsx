@@ -7,8 +7,8 @@ import {
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { cn } from '@/lib/cn';
-import { shelters } from '@/archives/ofunato/data/shelters';
-import OfunatoContainer from '@/archives/ofunato/components/OfunatoContainer';
+import { shelters } from '@/app/ofunato/data/shelters';
+import OfunatoContainer from '@/app/ofunato/components/OfunatoContainer';
 import {
   HomeWorkOutlined,
   School,

@@ -6,7 +6,7 @@ import {
   Typography,
   Link as MuiLink,
 } from '@mui/material';
-import OfunatoContainer from '@/archives/ofunato/components/OfunatoContainer';
+import OfunatoContainer from '@/app/ofunato/components/OfunatoContainer';
 
 export const metadata: Metadata = {
   title: '情報の正確性について - 大船渡市 山林火災情報',

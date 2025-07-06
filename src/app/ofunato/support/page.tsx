@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import SupportCard from '@/archives/ofunato/support/SupportCard';
+import SupportCard from '@/app/ofunato/support/SupportCard';
 
 export const metadata: Metadata = {
   title: '各種募金・ボランティア情報 - 大船渡市 山林火災情報',

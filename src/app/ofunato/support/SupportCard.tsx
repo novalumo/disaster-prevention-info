@@ -3,9 +3,9 @@
 import { useState } from 'react';
 import { Tabs, Tab, Box } from '@mui/material';
 import { MonetizationOn, Handshake } from '@mui/icons-material';
-import DonationInfoCard from '@/archives/ofunato/support/DonationInfoCard';
-import VolunteerInfoCard from '@/archives/ofunato/support/VolunteerInfoCard';
-import OfunatoContainer from '@/archives/ofunato/components/OfunatoContainer';
+import DonationInfoCard from '@/app/ofunato/support/DonationInfoCard';
+import VolunteerInfoCard from '@/app/ofunato/support/VolunteerInfoCard';
+import OfunatoContainer from '@/app/ofunato/components/OfunatoContainer';
 import { sendGTMEvent } from '@next/third-parties/google';
 
 interface TabPanelProps {

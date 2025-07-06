@@ -1,5 +1,5 @@
 import Heading from '@/components/ui/Heading';
-import OfunatoContainer from '@/archives/ofunato/components/OfunatoContainer';
+import OfunatoContainer from '@/app/ofunato/components/OfunatoContainer';
 import {
   WarningOutlined,
   InfoOutlined,
