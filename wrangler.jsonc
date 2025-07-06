@@ -1,9 +1,27 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
+  "main": ".open-next/worker.js",
   "name": "disaster-prevention-info",
-  "compatibility_date": "2025-02-28",
-  "compatibility_flags": ["nodejs_compat"],
-  "pages_build_output_dir": ".vercel/output/static",
+  "compatibility_date": "2025-04-11",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "workers_dev": false,
+  "preview_urls": true,
+  "routes": [
+    {
+      "pattern": "disaster.novalumo.com",
+      "custom_domain": true
+    }
+  ],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "disaster-prevention-info"
+    }
+  ],
   "vars": {
     "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY": "AIzaSyCkECSA_WthBkctC3bewxMzE_2rnS-ChTI",
     "NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID": "575efdf8c408a0d0",
