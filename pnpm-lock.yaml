@@ -108,9 +108,6 @@ importers:
       '@eslint/eslintrc':
         specifier: ^3.3.5
         version: 3.3.5
-      '@novalumo/biome-config':
-        specifier: ^0.0.6
-        version: 0.0.6
       '@tailwindcss/typography':
         specifier: ^0.5.19
         version: 0.5.19(tailwindcss@3.4.19(yaml@2.8.2))
@@ -1857,9 +1854,6 @@ packages:
   '@nolyfill/is-core-module@1.0.39':
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
-
-  '@novalumo/biome-config@0.0.6':
-    resolution: {integrity: sha512-97FBMzVXbQR1HjaD3PR166lknLo9Z82daeDhSBoYhpxpdgvrmFMsBxzeY3svVqqRimdYREBa9+cjZe0CSS3wdA==}
 
   '@opennextjs/aws@3.9.16':
     resolution: {integrity: sha512-jQQStCysIllNCPqz5W2KSguXpr+ETlOcD8SyNu+h9zwpRVYk4uEPQge+ErG3avI5xsT8vKA7EGLYG59dhj/B6Q==}
@@ -7873,8 +7867,6 @@ snapshots:
       fastq: 1.20.1
 
   '@nolyfill/is-core-module@1.0.39': {}
-
-  '@novalumo/biome-config@0.0.6': {}
 
   '@opennextjs/aws@3.9.16(next@15.5.12(@babel/core@7.24.5)(@opentelemetry/api@1.9.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))':
     dependencies:
